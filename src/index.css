@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+ cursor: none;
+}
+
+* {
+  cursor: none !important;
+}
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --background1: 20 14.3% 4.1%;
+    --foreground: 240 10% 3.9%;
+    --foreground1: 0 0% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 215 70% 48%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 215 70% 48%;
+    --radius: 0.5rem;
+    --bubble-1: 40, 80, 160;     
+    --bubble-2: 60, 110, 200;    
+    --bubble-3: 30, 60, 120;     
+    --bubble-4: 90, 130, 200;    
+    --bubble-5: 20, 30, 60;      
+    --bubble-6: 51, 153, 255; 
+    --projects-text: hsl(var(--foreground1));
+    --projects-hover-bg: hsl(var(--foreground1));
+    --projects-hover-text: hsl(var(--background1));   
+    --blob-alpha-strong: 0.9;
+    --blob-alpha-medium: 0.8;
+    --blob-alpha-soft: 0.6;
+
+    --blob-blur-multiplier: 1;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 215 70% 48%;
+    --bubble-1: 40, 80, 160;     
+    --bubble-2: 60, 110, 200;    
+    --bubble-3: 30, 60, 120;     
+    --bubble-4: 90, 130, 200;    
+    --bubble-5: 20, 30, 60;      
+    --bubble-6: 51, 153, 255;   
+    --projects-text: hsl(var(--foreground));
+    --projects-hover-bg: hsl(var(--foreground));
+    --projects-hover-text: hsl(var(--background)); 
+    --blob-alpha-strong: 0.9;
+    --blob-alpha-medium: 0.8;
+    --blob-alpha-soft: 0.6;
+
+    --blob-blur-multiplier: 1;
+  }
+
+  .projects-hovering {
+    --projects-text: var(--projects-hover-text);
+  }
+
+  .project-row {
+    --projects-text: hsl(var(--foreground));
+  }
+
+  .project-row.is-active {
+    --projects-text: var(--projects-hover-text);
+  }
+
+  .project-row.is-active {
+    border-color: transparent;
+  }
+
+
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  @keyframes slow-breath {
+    0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.75;
+    }
+    50% {
+      transform: translateY(-50%) scale(1.06);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.75;
+    }
+  }
+
+}
+
+/* ============================= */
+/* GRADIENT BACKGROUND (MOBILE + DESKTOP SAFE) */
+/* ============================= */
+
+.gradient-blob {
+  --size: 90vmin;
+  --speed: 10s;
+  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: var(--size);
+  height: var(--size);
+
+  border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+
+  background-image: linear-gradient(
+    135deg,
+    rgba(var(--bubble-2), var(--blob-alpha-strong)),
+    rgba(var(--bubble-6), var(--blob-alpha-medium)),
+    rgba(var(--bubble-1), var(--blob-alpha-strong))
+  );
+
+  filter: blur(calc(var(--size) / 6 * var(--blob-blur-multiplier)));
+  animation: gradient-rotate var(--speed) var(--easing) infinite alternate;
+
+  will-change: transform;
+}
+
+/* ============================= */
+/* GRADIENT ANIMATION */
+/* ============================= */
+@keyframes gradient-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.95);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.20);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(0.95);
+  }
+}
+
+/* ============================= */
+/* GRADIENT NOISE OVERLAY */
+/* ============================= */
+.gradient-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark .gradient-noise {
+  opacity: 0.06;
+}
+/* ============================= */
+/* GRADIENT BACKGROUND IOS STYLE */
+/* ============================= */
+.ios-gradient-base {
+  position: absolute;
+  inset: -25%;
+  opacity: 0.7 ;
+  background:
+    radial-gradient(
+      140% 120% at 30% 20%,
+      rgba(var(--bubble-2), calc(var(--blob-alpha-soft) + 0.1)),
+      transparent 60%
+    ),
+    radial-gradient(
+      120% 120% at 70% 80%,
+      rgba(var(--bubble-4), var(--blob-alpha-soft)),
+      transparent 65%
+    ),
+    radial-gradient(
+      160% 160% at 50% 50%,
+      rgba(var(--bubble-3), var(--blob-alpha-medium)),
+      rgba(var(--bubble-3), var(--blob-alpha-strong)) 80%
+    );
+}
+
+
+/* Desktop refinament */
+@media (min-width: 768px) {
+  .gradient-blob {
+    --size: 65vmin;
+    filter: blur(calc(var(--size) / 3.8));
+  }
+}
+

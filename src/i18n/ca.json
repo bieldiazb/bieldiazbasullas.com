@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "about": "Sobre mi",
+    "projects": "Projectes",
+    "services": "Serveis",
+    "contact": "Contacte"
+  },
+  "hero": {
+    "title": "biel diaz basullas",
+    "subtitle": "DESENVOLUPADOR WEB | PORTFOLI 2026 ©"
+  },
+  "about": {
+    "label": "SOBRE MI",
+    "title": "Dissenyo i construeixo\nexperiències digitals",
+    "subtitle": "Desenvolupador web i dissenyador enfocat en claredat, moviment i interfícies cuidades al detall.",
+    "text": "Ajudo persones i projectes a tenir una web clara, ordenada i fàcil d'utilitzar. Em centro a resoldre el problema de webs confuses o poc cuidades combinant disseny, desenvolupament i una atenció especial als detalls.",
+    "experiencie": "Anys d'experiència",
+    "projects": "Projectes entregats",
+    "coffee": "cafès consumits"
+  },
+  "services": {
+    "eyebrow": "SERVEIS",
+    "title": "Packs de serveis",
+    "recommended": "Recomanat",
+    "cta": "Contactar",
+    "features": [
+      { "key": "pages", "label": "Tipus de web", "description": "Nombre i tipus de pàgines del lloc web" },
+      { "key": "design", "label": "Disseny modern i responsive" },
+      { "key": "contact", "label": "Formulari de contacte" },
+      { "key": "map", "label": "Mapa o WhatsApp" },
+      { "key": "seo", "label": "SEO bàsic" },
+      { "key": "google", "label": "Google Business Profile" },
+      { "key": "texts", "label": "Textos optimitzats" },
+      { "key": "hosting", "label": "Domini i hosting gestionats" },
+      { "key": "analytics", "label": "Analítiques" },
+      { "key": "performance", "label": "Optimització de rendiment" },
+      { "key": "revisions", "label": "Rondes de canvis" }
+    ],
+    "packs": [
+      {
+        "id": "local",
+        "name": "Presència Local",
+        "price": "350 €",
+        "time": "7–10 dies",
+        "highlight": false,
+        "features": {
+          "pages": "Landing (1 pàgina)",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": false,
+          "google": false,
+          "texts": false,
+          "hosting": false,
+          "analytics": false,
+          "performance": false,
+          "revisions": 1
+        }
+      },
+      {
+        "id": "professional",
+        "name": "Negoci Professional",
+        "price": "450–800 €",
+        "time": "14–21 dies",
+        "highlight": true,
+        "features": {
+          "pages": "4–5 pàgines",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": true,
+          "google": true,
+          "texts": true,
+          "hosting": false,
+          "analytics": false,
+          "performance": false,
+          "revisions": 2
+        }
+      },
+      {
+        "id": "full",
+        "name": "Tot Fet",
+        "price": "1.400–2.000 €",
+        "time": "21–30 dies",
+        "highlight": false,
+        "features": {
+          "pages": "Web personalitzada",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": true,
+          "google": true,
+          "texts": true,
+          "hosting": true,
+          "analytics": true,
+          "performance": true,
+          "revisions": 3
+        }
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "PROJECTES",
+    "title": "Obres Destacades",
+    "items": [
+      {
+        "title": "Web Dissenyador Gràfic",
+        "subtitle": "Portfoli i serveis de disseny gràfic",
+        "year": "2026",
+        "url": "https://tresdege.com/",
+        "video": "/video-projects3.webm",
+        "tags": ["React", "Portfoli", "UX/UI", "Web App"]
+      },
+      {
+        "title": "Plataforma d'entrenaments",
+        "subtitle": "Aplicació web per entrenadors",
+        "year": "2025",
+        "url": "https://sergigarciatraining.com/",
+        "video": "/video-projects1.mp4",
+        "tags": ["React", "Firebase", "UX/UI", "Web App"]
+      },
+      {
+        "title": "Portal per a pares i mares d'atletisme",
+        "subtitle": "Seguiment d'atletes i resultats",
+        "year": "2026",
+        "url": "https://www.camsub10.site/",
+        "video": "/video-projects2.mp4",
+        "tags": ["React", "Firebase", "Informació esportiva", "Web App"]
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "CONTACTE",
+    "title": "Treballem junts",
+    "subtitle": "Tens un projecte en ment o només vols parlar?\nOmple el formulari i et respondré aviat.",
+    "available": "Disponible per a projectes",
+    "directLabel": "O escriu directament",
+    "formLabel": "Envia un missatge",
+    "formNote": "Normalment respoc en menys de 24h · Sense compromís",
+    "left": {
+      "description": "Ajudo marques i professionals a crear experiències digitals modernes, ràpides i cuidades al detall.",
+      "emailLabel": "Escriu-me directament →"
+    },
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "El teu nom",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "message": "Missatge",
+      "messagePlaceholder": "Explica'm el teu projecte",
+      "submit": "Enviar missatge",
+      "sending": "Enviant…"
+    },
+    "toast": {
+      "success": {
+        "title": "Missatge enviat ✨",
+        "description": "Et respondré tan aviat com sigui possible."
+      },
+      "error": {
+        "title": "Alguna cosa ha fallat",
+        "description": "Si us plau, torna-ho a provar més tard."
+      }
+    },
+    "thanks": {
+      "title": "Gràcies per contactar",
+      "description": "El teu missatge s'ha enviat correctament.\nEt respondré al més aviat possible."
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "biel diaz basullas | Desenvolupador Web & Dissenyador",
+      "description": "Portfoli de Biel Diaz Basullas, desenvolupador web i dissenyador especialitzat en crear experiències digitals modernes, ràpides i cuidades al detall."
+    }
+  },
+  "cookies": {
+    "text": "Utilitzem cookies pròpies i de tercers per millorar l'experiència i analitzar l'ús del lloc web.",
+    "accept": "Acceptar",
+    "reject": "Rebutjar"
+  },
+  "cta": {
+    "entry": {
+      "title": "Tens un projecte web en ment?",
+      "description": "Puc ajudar-te a crear una web clara, professional i fàcil d'utilitzar. Parlem-ne sense compromís.",
+      "primary": "Parlem del projecte",
+      "secondary": "Ara no"
+    }
+  }
+}

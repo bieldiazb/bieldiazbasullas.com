@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "biel diaz basullas",
+    "subtitle": "WEB DEVELOPER | PORTFOLIO 2026 ©"
+  },
+  "about": {
+    "label": "ABOUT",
+    "title": "I design & build\ndigital experiences",
+    "subtitle": "Web developer & designer focused on clarity, motion and detail-driven interfaces.",
+    "text": "I help people and projects create clear, well-structured, and easy-to-use websites. I focus on solving the problem of confusing or poorly designed websites by combining design, development, and close attention to detail.",
+    "experiencie": "Years of experience",
+    "projects": "Projects delivered",
+    "coffee": "coffees consumed"
+  },
+  "services": {
+    "eyebrow": "SERVICES",
+    "title": "Service plans",
+    "recommended": "Recommended",
+    "cta": "Contact",
+    "features": [
+      { "key": "pages", "label": "Website type", "description": "Number and type of pages" },
+      { "key": "design", "label": "Modern & responsive design" },
+      { "key": "contact", "label": "Contact form" },
+      { "key": "map", "label": "Map or WhatsApp" },
+      { "key": "seo", "label": "Basic SEO" },
+      { "key": "google", "label": "Google Business Profile" },
+      { "key": "texts", "label": "Optimized texts" },
+      { "key": "hosting", "label": "Domain & hosting managed" },
+      { "key": "analytics", "label": "Analytics" },
+      { "key": "performance", "label": "Performance optimization" },
+      { "key": "revisions", "label": "Revision rounds" }
+    ],
+    "packs": [
+      {
+        "id": "local",
+        "name": "Local Presence",
+        "price": "350 €",
+        "time": "7–10 days",
+        "highlight": false,
+        "features": {
+          "pages": "Landing (1 page)",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": false,
+          "google": false,
+          "texts": false,
+          "hosting": false,
+          "analytics": false,
+          "performance": false,
+          "revisions": 1
+        }
+      },
+      {
+        "id": "professional",
+        "name": "Professional Business",
+        "price": "450–800 €",
+        "time": "14–21 days",
+        "highlight": true,
+        "features": {
+          "pages": "4–5 pages",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": true,
+          "google": true,
+          "texts": true,
+          "hosting": false,
+          "analytics": false,
+          "performance": false,
+          "revisions": 2
+        }
+      },
+      {
+        "id": "full",
+        "name": "All Done",
+        "price": "1,400–2,000 €",
+        "time": "21–30 days",
+        "highlight": false,
+        "features": {
+          "pages": "Custom website",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": true,
+          "google": true,
+          "texts": true,
+          "hosting": true,
+          "analytics": true,
+          "performance": true,
+          "revisions": 3
+        }
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "PROJECTS",
+    "title": "Highlighted Works",
+    "items": [
+      {
+        "title": "Graphic Designer Website",
+        "subtitle": "Portfolio and graphic design services",
+        "year": "2026",
+        "url": "https://tresdege.com/",
+        "video": "/video-projects3.webm",
+        "tags": ["React", "Portfolio", "UX/UI", "Web App"]
+      },
+      {
+        "title": "Training Management Platform",
+        "subtitle": "Web application for coaches",
+        "year": "2025",
+        "url": "https://sergigarciatraining.com/",
+        "video": "/video-projects1.mp4",
+        "tags": ["React", "Firebase", "UX/UI", "Web App"]
+      },
+      {
+        "title": "Athletics Parents Portal",
+        "subtitle": "Athlete tracking and performance overview",
+        "year": "2026",
+        "url": "https://www.camsub10.site/",
+        "video": "/video-projects2.mp4",
+        "tags": ["React", "Firebase", "Sports data", "Web App"]
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Let's work together",
+    "subtitle": "Have a project in mind or just want to talk?\nFill the form and I'll get back to you.",
+    "available": "Available for projects",
+    "directLabel": "Or write directly",
+    "formLabel": "Send a message",
+    "formNote": "I usually reply within 24h · No commitment",
+    "left": {
+      "description": "I help brands and individuals build digital experiences that feel modern, fast and carefully crafted.",
+      "emailLabel": "Email me directly →"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project",
+      "submit": "Send message",
+      "sending": "Sending…"
+    },
+    "toast": {
+      "success": {
+        "title": "Message sent ✨",
+        "description": "I'll get back to you very soon."
+      },
+      "error": {
+        "title": "Something went wrong",
+        "description": "Please try again later."
+      }
+    },
+    "thanks": {
+      "title": "Thanks for reaching out",
+      "description": "Your message has been sent successfully.\nI'll reply as soon as possible."
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "Biel Diaz Basullas | Web Developer Portfolio 2026",
+      "description": "Explore the portfolio of Biel Diaz Basullas, a skilled web developer specializing in crafting modern, high-performance digital experiences. Discover projects, services, and get in touch for collaborations."
+    }
+  },
+  "cookies": {
+    "text": "We use our own and third-party cookies to improve the experience and analyze website usage.",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "cta": {
+    "entry": {
+      "title": "Do you have a web project in mind?",
+      "description": "I can help you build a clear, professional and easy-to-use website. Let's talk with no commitment.",
+      "primary": "Let's talk",
+      "secondary": "Not now"
+    }
+  }
+}

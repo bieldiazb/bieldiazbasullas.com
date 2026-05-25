@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biel Diaz Basullas</title>
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- SEO hreflang -->
+    <link rel="alternate" hreflang="ca" href="https://bieldiazbasullas.com/ca" />
+    <link rel="alternate" hreflang="es" href="https://bieldiazbasullas.com/es" />
+    <link rel="alternate" hreflang="en" href="https://bieldiazbasullas.com/en" />
+
+    <!-- Fonts: preconnect primer, després preload del CSS crític -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Bebas Neue + Geist Mono: preload no-blocking -->
+    <link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@300;400&display=swap"
+      onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@300;400&display=swap">
+    </noscript>
+
+    <!-- Tema (evita flash) -->
+    <script>
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "biel diaz basullas",
+    "subtitle": "DESARROLLADOR WEB | PORTFOLIO 2026 ©"
+  },
+  "about": {
+    "label": "SOBRE MÍ",
+    "title": "Diseño y construyo\nexperiencias digitales",
+    "subtitle": "Desarrollador web y diseñador enfocado en claridad, movimiento e interfaces cuidadas al detalle.",
+    "text": "Ayudo a personas y proyectos a tener una web clara, ordenada y fácil de usar. Me centro en resolver el problema de webs confusas o poco cuidadas combinando diseño, desarrollo y una atención especial a los detalles.",
+    "experiencie": "Años de experiencia",
+    "projects": "Proyectos entregados",
+    "coffee": "cafés consumidos"
+  },
+  "services": {
+    "eyebrow": "SERVICIOS",
+    "title": "Planes de servicios",
+    "recommended": "Recomendado",
+    "cta": "Contactar",
+    "features": [
+      { "key": "pages", "label": "Tipo de web", "description": "Número y tipo de páginas del sitio web" },
+      { "key": "design", "label": "Diseño moderno y responsive" },
+      { "key": "contact", "label": "Formulario de contacto" },
+      { "key": "map", "label": "Mapa o WhatsApp" },
+      { "key": "seo", "label": "SEO básico" },
+      { "key": "google", "label": "Google Business Profile" },
+      { "key": "texts", "label": "Textos optimizados" },
+      { "key": "hosting", "label": "Dominio y hosting gestionados" },
+      { "key": "analytics", "label": "Analíticas" },
+      { "key": "performance", "label": "Optimización de rendimiento" },
+      { "key": "revisions", "label": "Rondas de cambios" }
+    ],
+    "packs": [
+      {
+        "id": "local",
+        "name": "Presencia Local",
+        "price": "350 €",
+        "time": "7–10 días",
+        "highlight": false,
+        "features": {
+          "pages": "Landing (1 página)",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": false,
+          "google": false,
+          "texts": false,
+          "hosting": false,
+          "analytics": false,
+          "performance": false,
+          "revisions": 1
+        }
+      },
+      {
+        "id": "professional",
+        "name": "Negocio Profesional",
+        "price": "450–800 €",
+        "time": "14–21 días",
+        "highlight": true,
+        "features": {
+          "pages": "4–5 páginas",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": true,
+          "google": true,
+          "texts": true,
+          "hosting": false,
+          "analytics": false,
+          "performance": false,
+          "revisions": 2
+        }
+      },
+      {
+        "id": "full",
+        "name": "Todo Hecho",
+        "price": "1.400–2.000 €",
+        "time": "21–30 días",
+        "highlight": false,
+        "features": {
+          "pages": "Web personalizada",
+          "design": true,
+          "contact": true,
+          "map": true,
+          "seo": true,
+          "google": true,
+          "texts": true,
+          "hosting": true,
+          "analytics": true,
+          "performance": true,
+          "revisions": 3
+        }
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "PROYECTOS",
+    "title": "Trabajos Destacados",
+    "items": [
+      {
+        "title": "Web Diseñador Gráfico",
+        "subtitle": "Portafolio y servicios de diseño gráfico",
+        "year": "2026",
+        "url": "https://tresdege.com/",
+        "video": "/video-projects3.webm",
+        "tags": ["React", "Portafolio", "UX/UI", "Web App"]
+      },
+      {
+        "title": "Plataforma de entrenamientos",
+        "subtitle": "Aplicación web para entrenadores",
+        "year": "2025",
+        "url": "https://sergigarciatraining.com/",
+        "video": "/video-projects1.mp4",
+        "tags": ["React", "Firebase", "UX/UI", "Web App"]
+      },
+      {
+        "title": "Portal para padres y madres de atletismo",
+        "subtitle": "Seguimiento de atletas y resultados",
+        "year": "2026",
+        "url": "https://www.camsub10.site/",
+        "video": "/video-projects2.mp4",
+        "tags": ["React", "Firebase", "Información deportiva", "Web App"]
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "CONTACTO",
+    "title": "Trabajemos juntos",
+    "subtitle": "¿Tienes un proyecto en mente o solo quieres hablar?\nRellena el formulario y te responderé pronto.",
+    "available": "Disponible para proyectos",
+    "directLabel": "O escríbeme directamente",
+    "formLabel": "Envía un mensaje",
+    "formNote": "Normalmente respondo en menos de 24h · Sin compromiso",
+    "left": {
+      "description": "Ayudo a marcas y profesionales a crear experiencias digitales modernas, rápidas y cuidadas al detalle.",
+      "emailLabel": "Escríbeme directamente →"
+    },
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando…"
+    },
+    "toast": {
+      "success": {
+        "title": "Mensaje enviado ✨",
+        "description": "Te responderé lo antes posible."
+      },
+      "error": {
+        "title": "Algo ha salido mal",
+        "description": "Por favor, inténtalo de nuevo más tarde."
+      }
+    },
+    "thanks": {
+      "title": "Gracias por contactar",
+      "description": "Tu mensaje se ha enviado correctamente.\nTe responderé lo antes posible."
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "Biel Diaz Basullas - Desarrollador Web | Portfolio 2026",
+      "description": "Descubre el portfolio de Biel Diaz Basullas, desarrollador web especializado en crear experiencias digitales modernas y cuidadas al detalle."
+    }
+  },
+  "cookies": {
+    "text": "Utilizamos cookies propias y de terceros para mejorar la experiencia y analizar el uso del sitio web.",
+    "accept": "Aceptar",
+    "reject": "Rechazar"
+  },
+  "cta": {
+    "entry": {
+      "title": "¿Tienes un proyecto web en mente?",
+      "description": "Puedo ayudarte a crear una web clara, profesional y fácil de usar. Hablemos sin compromiso.",
+      "primary": "Hablemos del proyecto",
+      "secondary": "Ahora no"
+    }
+  }
+}
