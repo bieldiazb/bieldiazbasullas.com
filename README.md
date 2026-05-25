@@ -30,7 +30,7 @@
 
 > 🔗 **Live Demo:** [https://yourproject.vercel.app](https://yourproject.vercel.app)
 
-![App Screenshot](./assets/screenshot.png)
+![App Screenshot](src/assets/screenshot.png)
 
 ---
 
