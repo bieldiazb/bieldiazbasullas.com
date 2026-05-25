@@ -3,9 +3,9 @@
 > A modern, responsive web application built with cutting-edge frontend technologies.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://github.com/yourusername/project-name/releases)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yourusername/project-name/pulls)
-[![Stars](https://img.shields.io/github/stars/yourusername/project-name?style=social)](https://github.com/yourusername/project-name/stargazers)
+[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://github.com/bieldiazb/bieldiazbasullas.com/releases)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/bieldiazb/bieldiazbasullas.com/pulls)
+[![Stars](https://img.shields.io/github/stars/yourusername/project-name?style=social)](https://github.com/bieldiazb/bieldiazbasullas.com/stargazers)
 
 ---
 
