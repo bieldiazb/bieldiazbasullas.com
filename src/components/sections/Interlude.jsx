@@ -31,7 +31,13 @@ export default function Interlude() {
     <aside aria-label={t("interlude.text")} className="bg-canvas pb-24 md:pb-32">
       <div className="container-page">
         <div ref={panelRef} className="on-dark rounded-lg bg-scrim px-6 py-16 text-white md:px-12 md:py-24">
-          <p data-text className="t-display max-w-[22ch]" style={{ textWrap: "balance" }}>{t("interlude.text")}</p>
+          <p
+            data-text
+            className="max-w-[34ch] font-normal leading-[1.1] tracking-[-0.025em]"
+            style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", textWrap: "balance" }}
+          >
+            {t("interlude.text")}
+          </p>
           <p data-text className="t-subtitle mt-6 max-w-[44ch] text-white/75">{t("interlude.lead")}</p>
           <a data-text href="#contact" className="btn btn-on-dark mt-10">{t("interlude.cta")}</a>
         </div>

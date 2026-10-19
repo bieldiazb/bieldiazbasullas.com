@@ -12,7 +12,7 @@ const FORM_ENDPOINT = "https://formspree.io/f/maqwoqee"
 
 // DESIGN.md form-field: línia inferior que s'enfosqueix en focus
 const fieldClass =
-  "mt-2 block w-full rounded-none border-0 border-b border-hairline-soft bg-transparent px-0 py-3 text-[1rem] text-ink placeholder:text-slate transition-colors focus:border-ink focus:shadow-[0_1px_0_0_var(--ink)] focus:outline-none"
+  "mt-2 block w-full rounded-none border-0 border-b border-hairline-soft bg-transparent px-0 py-3 text-[1rem] text-ink placeholder:text-slate focus:border-ink focus:shadow-[0_1px_0_0_var(--ink)] focus:outline-none"
 
 // ── Contact ───────────────────────────────────────────────────────
 // Títol a l'esquerra i formulari a la dreta. Els serveis marcats aquí o
@@ -114,7 +114,7 @@ export default function Contact() {
                           type="button"
                           onClick={() => toggle(s.id)}
                           aria-pressed={on}
-                          className={`inline-flex min-h-[40px] items-center gap-1.5 rounded-full border px-4 text-[0.875rem] font-semibold transition-colors ${
+                          className={`inline-flex min-h-[40px] items-center gap-1.5 rounded-full border px-4 text-[0.875rem] font-semibold ${
                             on ? "border-ink bg-ink text-white" : "border-hairline-soft bg-canvas text-ink hover:border-ink"
                           }`}
                         >

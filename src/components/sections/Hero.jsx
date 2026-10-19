@@ -73,7 +73,7 @@ export default function Hero() {
         {/* ── Feina recent ── */}
         <div className="mt-16 md:mt-24">
           <p data-fade className="t-meta text-white/60">{t("hero.workLabel")}</p>
-          <ul ref={stripRef} className="mt-4 grid grid-cols-[repeat(3,minmax(240px,1fr))] gap-4 overflow-x-auto pb-2 md:grid-cols-3 md:overflow-visible md:pb-0">
+          <ul ref={stripRef} className="mt-4 grid grid-cols-3 gap-2 md:gap-4">
             {projects.map((p) => (
               <li key={p.id}>
                 <a href={`#project-${p.id}`} className="group block">
@@ -86,7 +86,7 @@ export default function Hero() {
                       className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </span>
-                  <span className="mt-3 flex items-baseline justify-between gap-4 text-white">
+                  <span className="sr-only mt-3 items-baseline justify-between gap-4 text-white md:not-sr-only md:flex">
                     <span className="text-[0.875rem] font-semibold">{p.title}</span>
                     <span className="t-meta shrink-0 text-white/60 [font-variant-numeric:tabular-nums]">{p.year}</span>
                   </span>
