@@ -89,6 +89,7 @@
 
 /* ── Tipografia (DESIGN.md: pes 400, tracking negatiu als títols) ── */
 @layer components {
+  .t-hero, .t-display, .t-heading { text-wrap: balance; }
   .t-hero      { font-size: clamp(2.75rem, 6.4vw, 6.5rem); font-weight: 400; line-height: 0.98; letter-spacing: -0.035em; }
   .t-display   { font-size: clamp(2.25rem, 3.6vw, 3rem);   font-weight: 400; line-height: 1;    letter-spacing: -0.025em; }
   .t-heading   { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 400; line-height: 1;   letter-spacing: -0.025em; }
@@ -112,7 +113,7 @@
     line-height: 1.43;
     text-decoration: none;
     white-space: nowrap;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease;
   }
   @media (min-width: 768px) { .btn { min-height: 40px; } }
   .btn:active { transform: scale(0.97); }
@@ -137,7 +138,6 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 0.25em;
     text-decoration-color: var(--hairline-soft);
-    transition: text-decoration-color 0.2s ease;
   }
   .text-link:hover { text-decoration-color: currentColor; }
 

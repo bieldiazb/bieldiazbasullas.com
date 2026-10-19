@@ -40,7 +40,7 @@ export default function Footer() {
     { label: t("nav.contact"),  href: "#contact"  },
   ]
 
-  const linkClass = "inline-flex min-h-[32px] items-center gap-1 text-[1rem] text-white transition-colors hover:text-stone"
+  const linkClass = "inline-flex min-h-[32px] items-center gap-1 text-[1rem] text-white hover:text-stone"
 
   return (
     <footer className="on-dark overflow-hidden bg-footer-bg text-white">
@@ -51,7 +51,7 @@ export default function Footer() {
             <a href={`mailto:${EMAIL}`} className="btn btn-on-dark mt-8">{t("footer.cta")}</a>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 md:col-span-7">
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-[auto_auto_auto] sm:justify-between md:col-span-7">
             <nav aria-label={t("footer.nav")}>
               <h2 className="t-eyebrow text-stone">{t("footer.nav")}</h2>
               <ul className="mt-4 space-y-1">
@@ -76,7 +76,7 @@ export default function Footer() {
             </div>
             <div className="col-span-2 sm:col-span-1">
               <h2 className="t-eyebrow text-stone">{t("footer.contact")}</h2>
-              <a href={`mailto:${EMAIL}`} className={`${linkClass} mt-4 break-all`} translate="no">{EMAIL}</a>
+              <a href={`mailto:${EMAIL}`} className={`${linkClass} mt-4 break-all sm:break-normal`} translate="no">{EMAIL}</a>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function Footer() {
             aria-hidden
             translate="no"
             className="whitespace-nowrap font-medium leading-[0.85] tracking-[-0.055em]"
-            style={{ fontSize: "12.6cqw" }}
+            style={{ fontSize: "14.6cqw" }}
           >
             biel diaz basullas
           </p>
@@ -96,7 +96,7 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6">
           <p className="t-meta text-stone">{t("footer.imprint", { year })}</p>
-          <a href="#home" className="t-meta text-stone transition-colors hover:text-white">{t("footer.backTop")}</a>
+          <a href="#home" className="t-meta inline-flex min-h-[44px] items-center text-stone hover:text-white">{t("footer.backTop")}</a>
         </div>
       </div>
     </footer>

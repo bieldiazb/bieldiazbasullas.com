@@ -26,7 +26,7 @@ function LangSwitch({ className = "" }) {
           lang={l}
           onClick={() => changeLang(l)}
           aria-pressed={lang === l}
-          className={`min-h-[44px] min-w-[36px] px-1.5 text-[0.875rem] font-semibold uppercase transition-colors ${
+          className={`min-h-[44px] min-w-[36px] px-1.5 text-[0.875rem] font-semibold uppercase ${
             lang === l ? "text-ink" : "text-slate hover:text-ink"
           }`}
         >
@@ -104,60 +104,62 @@ export default function Header() {
   }, [open])
 
   return (
-    <header
-      ref={headerRef}
-      // Si el focus de teclat entra a la barra amagada, la tornem a mostrar
-      onFocusCapture={() => gsap.to(headerRef.current, { yPercent: 0, duration: 0.2 })}
-      className="fixed inset-x-0 top-0 z-50 bg-canvas"
-      style={{
-        height: "var(--header-h)",
-        paddingLeft: "env(safe-area-inset-left)",
-        paddingRight: "env(safe-area-inset-right)",
-      }}
-    >
-      <div className="container-page flex h-full items-center justify-between gap-4">
+    <>
+      <header
+        ref={headerRef}
+        // Si el focus de teclat entra a la barra amagada, la tornem a mostrar
+        onFocusCapture={() => gsap.to(headerRef.current, { yPercent: 0, duration: 0.2 })}
+        className="fixed inset-x-0 top-0 z-50 bg-canvas"
+        style={{
+          height: "var(--header-h)",
+          paddingLeft: "env(safe-area-inset-left)",
+          paddingRight: "env(safe-area-inset-right)",
+        }}
+      >
+        <div className="container-page flex h-full items-center justify-between gap-4">
 
-        {/* ── Nom ── */}
-        <a href="#home" aria-label={t("nav.home")} className="text-[1.0625rem] font-semibold tracking-[-0.02em] text-ink" translate="no">
-          biel diaz basullas
-        </a>
+          {/* ── Nom ── */}
+          <a href="#home" aria-label={t("nav.home")} className="text-[1rem] font-semibold tracking-[-0.02em] text-ink" translate="no">
+            biel diaz basullas
+          </a>
 
-        {/* ── Menú (escriptori) ── */}
-        <nav aria-label={t("nav.main")} className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
-          <ul className="flex gap-1">
-            {NAV.slice(0, 3).map(({ label, href }) => (
-              <li key={href}>
-                <a href={href} className="inline-flex min-h-[44px] items-center px-3 text-[0.875rem] font-semibold text-ink-soft transition-colors hover:text-slate">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          {/* ── Menú (escriptori) ── */}
+          <nav aria-label={t("nav.main")} className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
+            <ul className="flex gap-1">
+              {NAV.slice(0, 3).map(({ label, href }) => (
+                <li key={href}>
+                  <a href={href} className="inline-flex min-h-[44px] items-center px-3 text-[0.875rem] font-semibold text-ink-soft hover:text-slate">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <LangSwitch className="hidden lg:flex" />
-          <a href="#contact" className="btn btn-primary">{t("nav.action")}</a>
+          <div className="flex items-center gap-2">
+            <LangSwitch className="hidden lg:flex" />
+            <a href="#contact" className="btn btn-primary">{t("nav.action")}</a>
 
-          {/* ── Botó del menú (mòbil) ── */}
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setOpen(o => !o)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
-            className="grid size-12 place-items-center rounded-full text-ink transition-colors hover:bg-hairline lg:hidden"
-          >
-            <span aria-hidden className="relative block h-3 w-5">
-              <span className={`absolute left-0 h-[1.5px] w-5 bg-current transition-transform duration-300 ${open ? "top-1.5 rotate-45" : "top-0"}`} />
-              <span className={`absolute left-0 h-[1.5px] w-5 bg-current transition-transform duration-300 ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
-            </span>
-          </button>
+            {/* ── Botó del menú (mòbil) ── */}
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={() => setOpen(o => !o)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+              className="grid size-12 place-items-center rounded-full text-ink hover:bg-hairline lg:hidden"
+            >
+              <span aria-hidden className="relative block h-3 w-5">
+                <span className={`absolute left-0 h-[1.5px] w-5 bg-current transition-transform duration-300 ${open ? "top-1.5 rotate-45" : "top-0"}`} />
+                <span className={`absolute left-0 h-[1.5px] w-5 bg-current transition-transform duration-300 ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
+              </span>
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* ── Panell del menú (mòbil) ── */}
+      {/* ── Panell del menú (mòbil): fora del header, que té transform ── */}
       {open && (
         <div
           id="mobile-menu"
@@ -165,7 +167,7 @@ export default function Header() {
           role="dialog"
           aria-modal="true"
           aria-label={t("nav.menu")}
-          className="fixed inset-x-0 bottom-0 top-[var(--header-h)] flex flex-col overflow-y-auto bg-canvas lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 flex flex-col overflow-y-auto overscroll-contain bg-canvas lg:hidden"
         >
           <nav aria-label={t("nav.main")} className="container-page pt-8">
             <ul>
@@ -188,6 +190,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }
