@@ -28,7 +28,7 @@ export default function Interlude() {
   }, [])
 
   return (
-    <aside aria-label={t("interlude.text")} className="bg-canvas pb-24 md:pb-32">
+    <aside aria-label={t("interlude.text")} className="bg-canvas pb-24 md:pb-36">
       <div className="container-page">
         <div ref={panelRef} className="on-dark rounded-lg bg-scrim px-6 py-16 text-white md:px-12 md:py-24">
           <p

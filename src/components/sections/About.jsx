@@ -2,6 +2,7 @@
 
 import { useTranslation } from "react-i18next"
 import { useReveal } from "@/lib/useReveal"
+import SectionLabel from "@/components/SectionLabel"
 import avatar from "@/assets/avatarw.png"
 
 // ── About ─────────────────────────────────────────────────────────
@@ -17,11 +18,11 @@ export default function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="bg-canvas pb-24 md:pb-32">
       <div className="container-page">
-        <div ref={ref} className="grid gap-10 border-t border-hairline-soft pt-24 md:grid-cols-12 md:gap-12 md:pt-32">
+        <div ref={ref} className="grid gap-10 pt-24 md:grid-cols-12 md:gap-12 md:pt-36">
 
           <div className="md:col-span-5">
-            <p data-reveal className="t-eyebrow text-slate">{t("about.eyebrow")}</p>
-            <h2 data-reveal id="about-title" className="t-display mt-4 text-ink">{t("about.greeting")}</h2>
+            <SectionLabel index="03" data-reveal className="text-slate">{t("about.eyebrow")}</SectionLabel>
+            <h2 data-split id="about-title" className="t-display mt-5 text-ink">{t("about.greeting")}</h2>
             <img
               data-reveal
               src={avatar}

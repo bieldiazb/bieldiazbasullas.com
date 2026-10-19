@@ -2,41 +2,71 @@
 
 import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
-import { ArrowUpRight, Lock } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { gsap } from "@/lib/gsap"
+import { useReveal } from "@/lib/useReveal"
 import { PROJECT_IMAGES } from "@/assets/projects"
+import SectionLabel from "@/components/SectionLabel"
+
+const domainOf = (url) => url.replace(/^https?:\/\//, "").replace(/\/$/, "")
+
+// ── ProjectLinks ──────────────────────────────────────────────────
+// demo → píndola blanca · site → enllaç al domini · visit → píndola blanca
+function ProjectLinks({ links, t }) {
+  const newTab = <span className="sr-only">{t("projects.newTab")}</span>
+  return (
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+      {links.map(({ kind, url }) => kind === "site" ? (
+        <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="text-link inline-flex items-center gap-1 text-white" translate="no">
+          {domainOf(url)}
+          <ArrowUpRight aria-hidden size={14} />
+          {newTab}
+        </a>
+      ) : (
+        <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="btn btn-on-dark">
+          {kind === "demo" ? t("projects.demo") : t("projects.visit")}
+          <ArrowUpRight aria-hidden size={16} />
+          {newTab}
+        </a>
+      ))}
+    </div>
+  )
+}
 
 // ── Projects ──────────────────────────────────────────────────────
-// Fitxes amb la captura a l'esquerra (16:9) i el text a la dreta
-// (DESIGN.md research-card). La captura entra amb una escala suau i
-// es mou una mica per dins mentre es fa scroll.
+// Franja fosca a sang que entra com un panell i s'expandeix fins a tota
+// l'amplada. Cada projecte és un cas: títol gran, imatge amb parallax
+// suau i, al costat, la fitxa (tipus, any, estat), què inclou i accions.
 
 export default function Projects() {
   const { t } = useTranslation()
-  const rootRef = useRef(null)
+  const sectionRef = useRef(null)
+  const stageRef   = useRef(null)
+  const contentRef = useReveal()
 
   const items = t("projects.items", { returnObjects: true })
   const projects = Array.isArray(items) ? items : []
+  const labels = t("projects.labels", { returnObjects: true })
 
   useEffect(() => {
     const mm = gsap.matchMedia()
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const root = rootRef.current
-      gsap.from(root.querySelectorAll("[data-head]"), {
-        y: 24, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.08,
-        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+      // El fons fosc creix fins a ocupar tota l'amplada
+      gsap.fromTo(stageRef.current, { scale: 0.94 }, {
+        scale: 1, ease: "none",
+        scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "top top", scrub: true },
       })
-      root.querySelectorAll("[data-project]").forEach((card) => {
+
+      sectionRef.current.querySelectorAll("[data-project]").forEach((card) => {
         const frame = card.querySelector("[data-frame]")
         const img = card.querySelector("img")
-        gsap.timeline({ scrollTrigger: { trigger: card, start: "top 82%", once: true } })
-          .from(frame, { opacity: 0, y: 40, duration: 1, ease: "expo.out" })
-          .from(img, { scale: 1.08, duration: 1.4, ease: "expo.out" }, 0)
-          .from(card.querySelectorAll("[data-text]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.07 }, 0.15)
-        // Parallax suau dins el marc
-        gsap.fromTo(img.parentElement, { yPercent: -4 }, {
-          yPercent: 4, ease: "none",
-          scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: true },
+        gsap.timeline({ scrollTrigger: { trigger: card, start: "top 80%", once: true } })
+          .from(frame, { opacity: 0, y: 48, duration: 1.1, ease: "expo.out" })
+          .from(img, { scale: 1.1, duration: 1.6, ease: "expo.out" }, 0)
+          .from(card.querySelectorAll("[data-text]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, 0.2)
+        gsap.fromTo(img.parentElement, { yPercent: -5 }, {
+          yPercent: 5, ease: "none",
+          scrollTrigger: { trigger: frame, start: "top bottom", end: "bottom top", scrub: true },
         })
       })
     })
@@ -44,71 +74,104 @@ export default function Projects() {
   }, [projects.length])
 
   return (
-    <section ref={rootRef} id="projects" aria-labelledby="projects-title" className="bg-canvas pb-24 md:pb-32">
-      <div className="container-page">
-        <div className="border-t border-hairline-soft pt-24 md:pt-32">
-          <div className="max-w-[640px]">
-            <p data-head className="t-eyebrow text-slate">{t("projects.eyebrow")}</p>
-            <h2 data-head id="projects-title" className="t-display mt-4 text-ink">{t("projects.title")}</h2>
-            <p data-head className="t-subtitle mt-6 text-graphite">{t("projects.intro")}</p>
-          </div>
+    <section ref={sectionRef} id="projects" aria-labelledby="projects-title" className="on-dark relative bg-canvas">
+      <div ref={stageRef} aria-hidden className="absolute inset-0 origin-top rounded-lg bg-scrim" />
+
+      <div ref={contentRef} className="container-page relative py-24 text-white md:py-36">
+        {/* ── Capçalera ── */}
+        <div className="max-w-[760px]">
+          <SectionLabel index="02" data-reveal className="text-white/60">{t("projects.eyebrow")}</SectionLabel>
+          <h2 data-split id="projects-title" className="t-display mt-5">{t("projects.title")}</h2>
+          <p data-reveal className="t-subtitle mt-6 max-w-[46ch] text-white/70">{t("projects.intro")}</p>
         </div>
 
-        <ul className="mt-16 space-y-20 md:mt-20 md:space-y-28">
-          {projects.map((p) => (
-            <li key={p.id}>
-              <article id={`project-${p.id}`} data-project aria-labelledby={`project-${p.id}-title`} className="grid gap-8 md:grid-cols-12 md:gap-12">
-                {/* ── Captura ── */}
-                <div data-frame className="aspect-video overflow-hidden rounded-md bg-surface-cool md:col-span-7">
-                  <div className="h-[108%] -translate-y-[4%]">
-                    <img
-                      src={PROJECT_IMAGES[p.id]}
-                      alt={p.alt}
-                      width="1280" height="720"
-                      loading="lazy" decoding="async"
-                      className="size-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* ── Text ── */}
-                <div className="flex flex-col md:col-span-5 md:py-2">
-                  <p data-text className="t-meta text-slate">
-                    <span className="[font-variant-numeric:tabular-nums]">{p.year}</span> · {p.category}
-                  </p>
-                  <h3 data-text id={`project-${p.id}-title`} className="t-heading mt-3 text-ink" style={{ textWrap: "balance" }}>
-                    {p.title}
-                  </h3>
-                  <p data-text className="t-body mt-5 max-w-[48ch] text-graphite">{p.description}</p>
-
-                  <div data-text className="mt-6">
-                    <p className="sr-only">{t("projects.tools")}</p>
-                    <ul className="flex flex-wrap gap-2">
-                      {p.tags.map(tag => (
-                        <li key={tag} className="t-meta rounded-full border border-hairline-soft px-3 py-1.5 text-slate">{tag}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div data-text className="mt-8 md:mt-auto md:pt-8">
-                    {p.url ? (
-                      <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                        {t("projects.visit")}
-                        <ArrowUpRight aria-hidden size={16} />
-                        <span className="sr-only">{t("projects.newTab")}</span>
-                      </a>
-                    ) : (
-                      <p className="t-meta inline-flex items-center gap-2 text-slate">
-                        <Lock aria-hidden size={14} />
-                        {p.access}
+        {/* ── Casos ── */}
+        <ol className="mt-20 space-y-24 md:mt-28 md:space-y-36">
+          {projects.map((p, i) => {
+            const primary = p.links?.find(l => l.kind !== "site") ?? p.links?.[0]
+            return (
+              <li key={p.id}>
+                <article id={`project-${p.id}`} data-project aria-labelledby={`project-${p.id}-title`}>
+                  {/* Fila superior: índex, tipus i any, estat */}
+                  <div data-text className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-5">
+                    <p className="t-meta flex gap-4 text-white/60">
+                      <span className="index text-white">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{p.category}</span>
+                      <span className="index">{p.year}</span>
+                    </p>
+                    {p.status && (
+                      <p className="t-meta inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 text-white">
+                        <span aria-hidden className="size-1.5 rounded-full bg-white" />
+                        {p.status}
                       </p>
                     )}
                   </div>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
+
+                  <h3
+                    id={`project-${p.id}-title`}
+                    data-text
+                    className="mt-6 font-normal leading-[0.95] tracking-[-0.035em]"
+                    style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
+                  >
+                    {p.title}
+                  </h3>
+
+                  <div className="mt-10 grid gap-10 md:grid-cols-12 md:gap-12">
+                    {/* ── Imatge (el mateix enllaç que l'acció principal; fora de l'ordre de tabulació) ── */}
+                    <a
+                      href={primary?.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      tabIndex={-1}
+                      data-frame
+                      data-cursor={t("projects.view")}
+                      className="block aspect-video overflow-hidden rounded-md bg-white/5 ring-1 ring-white/10 md:col-span-8"
+                    >
+                      <span className="block h-[110%] -translate-y-[5%]">
+                        <img
+                          src={PROJECT_IMAGES[p.id]}
+                          alt={p.alt}
+                          width="1280" height="720"
+                          loading="lazy" decoding="async"
+                          className="size-full object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
+                        />
+                      </span>
+                    </a>
+
+                    {/* ── Fitxa ── */}
+                    <div className="flex flex-col md:col-span-4">
+                      <p data-text className="t-body text-white/75">{p.description}</p>
+
+                      {Array.isArray(p.features) && (
+                        <div data-text className="mt-8">
+                          <p className="t-meta text-white/60">{p.featuresLabel}</p>
+                          <ul className="mt-3">
+                            {p.features.map(f => (
+                              <li key={f} className="border-t border-white/10 py-2.5 text-[0.875rem] leading-[1.4] text-white/85">{f}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      <div data-text className="mt-8">
+                        <p className="sr-only">{labels.tags}</p>
+                        <ul className="flex flex-wrap gap-2">
+                          {p.tags.map(tag => (
+                            <li key={tag} className="t-meta rounded-full border border-white/20 px-3 py-1.5 text-white/75">{tag}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div data-text className="mt-8 md:mt-auto md:pt-10">
+                        <ProjectLinks links={p.links ?? []} t={t} />
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            )
+          })}
+        </ol>
       </div>
     </section>
   )

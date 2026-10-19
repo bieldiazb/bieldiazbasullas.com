@@ -90,6 +90,8 @@
 /* ── Tipografia (DESIGN.md: pes 400, tracking negatiu als títols) ── */
 @layer components {
   .t-hero, .t-display, .t-heading { text-wrap: balance; }
+  /* SplitText calcula les línies tal com es pinten: sense balance */
+  [data-split] { text-wrap: wrap; }
   .t-hero      { font-size: clamp(2.75rem, 6.4vw, 6.5rem); font-weight: 400; line-height: 0.98; letter-spacing: -0.035em; }
   .t-display   { font-size: clamp(2.25rem, 3.6vw, 3rem);   font-weight: 400; line-height: 1;    letter-spacing: -0.025em; }
   .t-heading   { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 400; line-height: 1;   letter-spacing: -0.025em; }
@@ -130,16 +132,33 @@
   .btn-ghost-dark { background: transparent; color: #ffffff; border: 1px solid rgb(255 255 255 / 0.5); }
   .btn-ghost-dark:hover { border-color: #ffffff; }
 
-  /* Enllaç de text amb subratllat que creix */
+  /* Enllaç de text: línia fina de base i una de tinta que creix (només transform) */
   .text-link {
+    position: relative;
+    display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.25em;
-    text-decoration-color: var(--hairline-soft);
+    text-decoration: none;
+    padding-bottom: 2px;
   }
-  .text-link:hover { text-decoration-color: currentColor; }
+  .text-link::before,
+  .text-link::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: currentColor;
+  }
+  .text-link::before { opacity: 0.25; }
+  .text-link::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .text-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  /* Etiqueta de secció amb número d'índex */
+  .index { font-variant-numeric: tabular-nums; }
 
   .container-page {
     width: 100%;

@@ -6,6 +6,7 @@ import { Check, Plus } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useOrder } from "@/lib/order"
 import { useReveal } from "@/lib/useReveal"
+import SectionLabel from "@/components/SectionLabel"
 
 const EMAIL = "bieldiazbasullas@proton.me"
 const FORM_ENDPOINT = "https://formspree.io/f/maqwoqee"
@@ -75,8 +76,8 @@ export default function Contact() {
 
           {/* ── Títol ── */}
           <div className="md:col-span-5">
-            <p data-reveal className="t-eyebrow text-slate">{t("contact.eyebrow")}</p>
-            <h2 data-reveal id="contact-title" className="t-display mt-4 text-ink" style={{ textWrap: "balance" }}>
+            <SectionLabel index="04" data-reveal className="text-slate">{t("contact.eyebrow")}</SectionLabel>
+            <h2 data-split id="contact-title" className="t-display mt-5 text-ink">
               {t("contact.title")}
             </h2>
             <p data-reveal className="t-subtitle mt-6 max-w-[34ch] text-graphite">{t("contact.subtitle")}</p>

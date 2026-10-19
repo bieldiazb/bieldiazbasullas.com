@@ -14,6 +14,8 @@ import Contact       from "@/components/sections/Contact"
 import CookieBanner  from "./components/CookieBanner"
 import { Toaster }   from "./components/ui/toaster"
 import SmoothScroll  from "@/components/SmoothScroll"
+import Intro         from "@/components/Intro"
+import CursorLabel   from "@/components/CursorLabel"
 
 export default function App() {
   const { t, i18n } = useTranslation()
@@ -26,6 +28,8 @@ export default function App() {
         description={t("seo.home.description")}
       />
       <SmoothScroll />
+      <Intro />
+      <CursorLabel />
 
       {/* Lenis fa el scroll de l'àncora però no mou el focus: el movem aquí */}
       <a
@@ -41,8 +45,8 @@ export default function App() {
         <Hero />
         <Services />
         <Projects />
-        <Interlude />
         <About />
+        <Interlude />
         <Contact />
       </main>
       <Footer />
