@@ -64,9 +64,11 @@ export default function Projects() {
           .from(frame, { opacity: 0, y: 48, duration: 1.1, ease: "expo.out" })
           .from(img, { scale: 1.1, duration: 1.6, ease: "expo.out" }, 0)
           .from(card.querySelectorAll("[data-text]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, 0.2)
-        gsap.fromTo(img.parentElement, { yPercent: -5 }, {
-          yPercent: 5, ease: "none",
-          scrollTrigger: { trigger: frame, start: "top bottom", end: "bottom top", scrub: true },
+        // Parallax suau del marc sencer: la imatge no s'amplia mai per sobre
+        // de la seva mida (les imatges OG porten text i es pixelarien)
+        gsap.fromTo(frame, { yPercent: 4 }, {
+          yPercent: -4, ease: "none",
+          scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: true },
         })
       })
     })
@@ -125,17 +127,15 @@ export default function Projects() {
                       tabIndex={-1}
                       data-frame
                       data-cursor={t("projects.view")}
-                      className="block aspect-video overflow-hidden rounded-md bg-white/5 ring-1 ring-white/10 md:col-span-8"
+                      className="block aspect-[40/21] self-start overflow-hidden rounded-md bg-white/5 ring-1 ring-white/10 md:col-span-8"
                     >
-                      <span className="block h-[110%] -translate-y-[5%]">
-                        <img
-                          src={PROJECT_IMAGES[p.id]}
-                          alt={p.alt}
-                          width="1280" height="720"
-                          loading="lazy" decoding="async"
-                          className="size-full object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
-                        />
-                      </span>
+                      <img
+                        src={PROJECT_IMAGES[p.id]}
+                        alt={p.alt}
+                        width="1200" height="630"
+                        loading="lazy" decoding="async"
+                        className="block size-full object-cover"
+                      />
                     </a>
 
                     {/* ── Fitxa ── */}

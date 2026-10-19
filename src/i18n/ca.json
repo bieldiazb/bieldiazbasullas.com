@@ -85,7 +85,7 @@
             "url": "https://repwise.dev/"
           }
         ],
-        "alt": "Tauler de la demo de Repwise, amb els ingressos del mes, els clients actius, les sessions d’avui i el calendari de la setmana"
+        "alt": "Imatge de Repwise amb el lema «Fill every class. Chase no one.» i el tauler de gestió de l’aplicació"
       },
       {
         "id": "swish",
@@ -116,7 +116,7 @@
             "url": "https://swishandlegacy.com/"
           }
         ],
-        "alt": "Pantalla de creació de jugador de Swish & Legacy, amb la samarreta, la pista amb les posicions i les opcions d’estil de joc"
+        "alt": "Imatge de Swish & Legacy amb el títol «Free Basketball Career Simulator» i pantalles de la carrera i dels assoliments del joc"
       },
       {
         "id": "camescola",
@@ -146,7 +146,7 @@
             "url": "https://camescola.cat/"
           }
         ],
-        "alt": "Pantalla d’accés de CamEscola, amb el camp del codi de l’atleta i una foto aèria d’una pista d’atletisme"
+        "alt": "Imatge de CamEscola amb el lema «Segueix cada marca. Celebra cada cursa.» i el calendari de competicions de l’àrea de pares"
       },
       {
         "id": "sergigarcia",
@@ -167,7 +167,7 @@
             "url": "https://sergigarciatraining.com/"
           }
         ],
-        "alt": "Pantalla d’accés de Sergi Garcia Training, amb el formulari a l’esquerra i una foto d’un atleta entrenant a la dreta"
+        "alt": "Imatge de Sergi Garcia Training amb el lema de l’entrenador, el formulari de feedback de l’entrenament i el calendari"
       },
       {
         "id": "tresdege",
@@ -187,7 +187,7 @@
             "url": "https://tresdege.com/"
           }
         ],
-        "alt": "Portada de la web de Tresdegé, amb el nom de l’estudi en gran sobre un fons blau"
+        "alt": "Imatge de Tresdegé, estudi de disseny gràfic, amb el nom en gran sobre un fons blau"
       }
     ],
     "play": "Juga ara"

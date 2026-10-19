@@ -85,7 +85,7 @@
             "url": "https://repwise.dev/"
           }
         ],
-        "alt": "Panel de la demo de Repwise, con los ingresos del mes, los clientes activos, las sesiones de hoy y el calendario de la semana"
+        "alt": "Imagen de Repwise con el lema «Fill every class. Chase no one.» y el panel de gestión de la aplicación"
       },
       {
         "id": "swish",
@@ -116,7 +116,7 @@
             "url": "https://swishandlegacy.com/"
           }
         ],
-        "alt": "Pantalla de creación de jugador de Swish & Legacy, con la camiseta, la pista con las posiciones y las opciones de estilo de juego"
+        "alt": "Imagen de Swish & Legacy con el título «Free Basketball Career Simulator» y pantallas de la carrera y los logros del juego"
       },
       {
         "id": "camescola",
@@ -146,7 +146,7 @@
             "url": "https://camescola.cat/"
           }
         ],
-        "alt": "Pantalla de acceso de CamEscola, con el campo del código del atleta y una foto aérea de una pista de atletismo"
+        "alt": "Imagen de CamEscola con el lema «Segueix cada marca. Celebra cada cursa.» y el calendario de competiciones del área de padres"
       },
       {
         "id": "sergigarcia",
@@ -167,7 +167,7 @@
             "url": "https://sergigarciatraining.com/"
           }
         ],
-        "alt": "Pantalla de acceso de Sergi Garcia Training, con el formulario a la izquierda y una foto de un atleta entrenando a la derecha"
+        "alt": "Imagen de Sergi Garcia Training con el lema del entrenador, el formulario de feedback del entrenamiento y el calendario"
       },
       {
         "id": "tresdege",
@@ -187,7 +187,7 @@
             "url": "https://tresdege.com/"
           }
         ],
-        "alt": "Portada de la web de Tresdegé, con el nombre del estudio en grande sobre un fondo azul"
+        "alt": "Imagen de Tresdegé, estudio de diseño gráfico, con el nombre en grande sobre un fondo azul"
       }
     ],
     "play": "Juega ahora"

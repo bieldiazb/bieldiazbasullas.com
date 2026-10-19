@@ -81,11 +81,11 @@ export default function Hero() {
             {projects.map((p, i) => (
               <li key={p.id}>
                 <a href={`#project-${p.id}`} className="group block">
-                  <span className="block aspect-video overflow-hidden rounded-md bg-surface-cool">
+                  <span className="block aspect-[40/21] overflow-hidden rounded-md bg-surface-cool">
                     <img
                       src={PROJECT_IMAGES[p.id]}
                       alt=""
-                      width="1280" height="720"
+                      width="1200" height="630"
                       fetchPriority={i < 2 ? "high" : "auto"}
                       className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />

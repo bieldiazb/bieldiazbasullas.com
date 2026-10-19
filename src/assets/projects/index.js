@@ -1,4 +1,4 @@
-// Captures dels projectes (1280×720, WebP). La clau és l'id a i18n.
+// Imatges dels projectes (format OG, 1200×630, WebP). La clau és l'id a i18n.
 import repwise     from "./repwise.webp"
 import swish       from "./swish.webp"
 import camescola   from "./camescola.webp"

@@ -85,7 +85,7 @@
             "url": "https://repwise.dev/"
           }
         ],
-        "alt": "Repwise demo dashboard, showing this month’s income, active clients, today’s sessions and the week’s calendar"
+        "alt": "Repwise image with the line “Fill every class. Chase no one.” and the app’s management dashboard"
       },
       {
         "id": "swish",
@@ -116,7 +116,7 @@
             "url": "https://swishandlegacy.com/"
           }
         ],
-        "alt": "Swish & Legacy player creation screen, with the jersey, the court with positions and the playing-style options"
+        "alt": "Swish & Legacy image with the title “Free Basketball Career Simulator” and screens of the game’s career and achievements"
       },
       {
         "id": "camescola",
@@ -146,7 +146,7 @@
             "url": "https://camescola.cat/"
           }
         ],
-        "alt": "CamEscola sign-in screen, with the athlete code field and an aerial photo of an athletics track"
+        "alt": "CamEscola image with the line “Segueix cada marca. Celebra cada cursa.” and the competition calendar from the parents’ area"
       },
       {
         "id": "sergigarcia",
@@ -167,7 +167,7 @@
             "url": "https://sergigarciatraining.com/"
           }
         ],
-        "alt": "Sergi Garcia Training sign-in screen, with the form on the left and a photo of an athlete training on the right"
+        "alt": "Sergi Garcia Training image with the coach’s motto, the workout feedback form and the calendar"
       },
       {
         "id": "tresdege",
@@ -187,7 +187,7 @@
             "url": "https://tresdege.com/"
           }
         ],
-        "alt": "Home page of the Tresdegé website, with the studio name set large on a blue background"
+        "alt": "Tresdegé image, a graphic design studio, with its name set large on a blue background"
       }
     ],
     "play": "Play now"
