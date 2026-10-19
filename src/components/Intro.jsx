@@ -11,7 +11,7 @@ const MAX_MS = 1400   // mai s'allarga més enllà d'això esperant recursos
 // Tipografia i imatges del hero carregades (o el temps màxim)
 function assetsReady() {
   const fonts = document.fonts?.ready ?? Promise.resolve()
-  const imgs = [...document.querySelectorAll("#home img")].map(img => img.decode?.().catch(() => {}))
+  const imgs = [...document.querySelectorAll("#home img[fetchpriority=high]")].map(img => img.decode?.().catch(() => {}))
   const timeout = new Promise(r => setTimeout(r, MAX_MS))
   return Promise.race([Promise.all([fonts, ...imgs]), timeout])
 }
@@ -61,14 +61,14 @@ export default function Intro() {
       })
     })
 
-    // ── Reduced motion: fos curt ──
+    // ── Reduced motion: el nom quiet el temps mínim i un fos curt ──
     mm.add("(prefers-reduced-motion: reduce)", () => {
       progress.value = 100
       render()
       assetsReady().then(() => {
         if (!alive) return
-        markIntroDone()
-        gsap.to(el, { opacity: 0, duration: 0.3, onComplete: finish })
+        const wait = Math.max(0, MIN_MS - (performance.now() - start)) / 1000
+        gsap.to(el, { opacity: 0, duration: 0.3, delay: wait, onStart: markIntroDone, onComplete: finish })
       })
     })
 
