@@ -5,40 +5,34 @@
     "projects": "Projects",
     "services": "Services",
     "contact": "Contact",
-    "action": "Start a project",
-    "actionShort": "Start",
+    "action": "Let’s talk",
+    "menu": "Menu",
+    "openMenu": "Open the menu",
+    "closeMenu": "Close the menu",
     "home": "Biel Diaz Basullas, home",
     "language": "Language",
-    "themeDark": "Switch to dark mode",
-    "themeLight": "Switch to light mode",
     "main": "Main navigation"
   },
   "hero": {
-    "nameLine1": "Biel Diaz",
-    "nameLine2": "Basullas",
-    "lead": "Web developer and designer. I build custom websites and apps for businesses and professionals in Catalonia.",
-    "sheet": "Work order",
-    "place": "Barcelona",
-    "fields": [
-      { "label": "For", "value": "Your business" },
-      { "label": "Work", "value": "Custom websites and apps" },
-      { "label": "How", "value": "Directly with me, no middlemen" }
-    ],
-    "signed": "Signed",
-    "signature": "Biel",
-    "stamp": "Taking on work"
+    "eyebrow": "Biel Diaz Basullas · Web developer and designer",
+    "title": "Custom websites and apps for businesses in Catalonia.",
+    "lead": "I design and build clear, easy-to-use tools: from a WordPress site to the app that runs your gym.",
+    "primary": "Tell me about your project",
+    "secondary": "See the work",
+    "workLabel": "Recent work"
   },
   "services": {
-    "title": "Services",
-    "intro": "Open what interests you and tick it: I'll add it to your order.",
-    "add": "Add to my order",
-    "added": "Added to my order",
-    "summary_zero": "You haven't ticked any services yet.",
-    "summary_one": "You've ticked {{count}} service.",
-    "summary_other": "You've ticked {{count}} services.",
-    "review": "Review your order",
+    "eyebrow": "Services",
+    "title": "What I can do for you",
+    "intro": "Tick what interests you and I’ll add it to your contact message.",
+    "add": "Add",
+    "added": "Added",
+    "summary_zero": "You haven’t ticked any services yet.",
+    "summary_one": "You’ve ticked {{count}} service.",
+    "summary_other": "You’ve ticked {{count}} services.",
+    "review": "Write to me",
     "items": [
-      { "id": "custom-apps", "title": "Custom management apps", "description": "Tools built around the way you work: clients, bookings, inventory or whatever you need, all in one place. No more spreadsheets that don't talk to each other." },
+      { "id": "custom-apps", "title": "Custom management apps", "description": "Tools built around the way you work: clients, bookings, inventory or whatever you need, all in one place. No more spreadsheets that don’t talk to each other." },
       { "id": "gyms", "title": "Gym management", "description": "Members, fees, schedules and class bookings from a single app. You focus on training and spend less time on paperwork." },
       { "id": "portfolios", "title": "Custom portfolio websites", "description": "A site that shows your work the way it deserves, designed from scratch with no templates. Ideal for creatives and professionals who want to stand out." },
       { "id": "wordpress", "title": "Simple WordPress websites", "description": "A simple, fast website you can update yourself. Perfect for getting online without the hassle." },
@@ -47,59 +41,74 @@
     ]
   },
   "projects": {
-    "title": "Delivered work",
-    "labels": { "tools": "Tools", "site": "Website" },
+    "eyebrow": "Projects",
+    "title": "Recent work",
+    "intro": "Three projects built end to end: design, development and launch.",
+    "tools": "Tools",
     "visit": "Visit the site",
     "newTab": "(opens in a new tab)",
     "items": [
       {
+        "id": "tresdege",
         "title": "Graphic Designer Website",
         "category": "Portfolio",
-        "description": "A portfolio for a graphic designer, with the work and services in a fast website. The work comes first and the contact details are always within reach.",
+        "description": "A portfolio for a graphic design studio in Barcelona, with its work and services in a fast website. The work comes first and the contact details are always within reach.",
         "year": "2026",
         "url": "https://tresdege.com/",
-        "tags": ["React", "Portfolio", "UX/UI", "Web App"]
+        "alt": "Home page of the Tresdegé website, with the studio name set large on a blue background",
+        "tags": ["React", "UX/UI", "Web App"]
       },
       {
+        "id": "sergigarcia",
         "title": "Training platform",
         "category": "Web app",
         "description": "A web app for coaches: it keeps training plans and athlete follow-up in one place, on a phone or a computer.",
         "year": "2025",
         "url": "https://sergigarciatraining.com/",
-        "tags": ["React", "Firebase", "UX/UI", "Web App"]
+        "alt": "Sign-in screen of the training platform, with the form on the left and a photo of an athlete on the right",
+        "tags": ["React", "Firebase", "UX/UI"]
       },
       {
-        "title": "Athletics parents' portal",
+        "id": "camsub10",
+        "title": "Athletics parents’ portal",
         "category": "Portal",
-        "description": "A portal where athletes' families follow results and sports news without digging through group chats.",
+        "description": "A portal where athletes’ families check personal bests, competitions and their children’s sports profile, without digging through group chats.",
         "year": "2026",
-        "url": "https://www.camsub10.site/",
-        "tags": ["React", "Firebase", "Sports info", "Web App"]
+        "url": "",
+        "access": "Private access for families and coaches",
+        "alt": "Sign-in screen of the athletics portal, with the athlete code field and an aerial photo of a track",
+        "tags": ["React", "Firebase", "Web App"]
       }
     ]
   },
+  "interlude": {
+    "text": "You work directly with me, with no middlemen and no templates.",
+    "lead": "We talk, I show you proposals and we refine them until the site does the job you need.",
+    "cta": "Let’s talk"
+  },
   "about": {
-    "greeting": "Hi, I'm Biel.",
+    "eyebrow": "About",
+    "greeting": "Hi, I’m Biel.",
+    "lead": "I help people and businesses get a website that is clear, tidy and easy to use.",
     "paragraphs": [
-      "I help people and businesses get a website that is clear, tidy and easy to use.",
       "I focus on fixing confusing or careless websites, combining design, development and close attention to detail.",
-      "I've been building websites for over 3 years and have delivered more than 20 projects, mostly with React, Firebase and WordPress.",
-      "You work directly with me: we talk, I show you proposals and we refine them until the site does the job you need."
+      "I mostly work with React, Firebase and WordPress, and I pick the tool for what each project needs, not the other way round."
     ],
-    "name": "Biel Diaz Basullas",
-    "role": "Web developer and designer",
-    "portraitAlt": "Illustrated portrait of Biel",
-    "stub": "Tear here and write to me"
+    "stats": [
+      { "value": "3+", "label": "years building websites" },
+      { "value": "20+", "label": "projects delivered" }
+    ],
+    "portraitAlt": "Illustrated portrait of Biel, wearing a woolly hat and winking"
   },
   "contact": {
-    "title": "Let's start your project",
-    "subtitle": "Got a project in mind or just want to talk? Fill in the order and I'll get back to you soon.",
+    "eyebrow": "Contact",
+    "title": "Got a project in mind?",
+    "subtitle": "Tell me what you need, or if you just want to talk. I’ll get back to you soon.",
     "directLabel": "Or write to me directly",
     "formNote": "I usually reply within 24 hours. No commitment.",
-    "selectedLabel": "Ticked services",
-    "selectedEmpty": "No services ticked. You can also tell me about it in your message.",
-    "remove": "Remove {{service}}",
-    "prefill": "Hi Biel, I'm interested in: {{services}}.",
+    "servicesLabel": "What do you need?",
+    "servicesHint": "Optional. You can pick more than one.",
+    "prefill": "Hi Biel, I’m interested in: {{services}}.",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name…",
@@ -107,13 +116,13 @@
       "emailPlaceholder": "you@email.com",
       "message": "Message",
       "messagePlaceholder": "Tell me about your project…",
-      "submit": "Send my order",
+      "submit": "Send message",
       "sending": "Sending…"
     },
     "toast": {
       "success": {
         "title": "Message sent",
-        "description": "I'll get back to you as soon as possible."
+        "description": "I’ll get back to you as soon as possible."
       },
       "error": {
         "title": "Something went wrong",
@@ -121,14 +130,18 @@
       }
     },
     "thanks": {
-      "title": "Thanks for getting in touch",
-      "description": "Your message has been sent. I'll get back to you as soon as possible."
+      "title": "Thanks for writing",
+      "description": "Your message has been sent. I’ll get back to you as soon as possible."
     }
   },
   "footer": {
-    "signoff": "See you soon,",
-    "message": "Thanks for stopping by. If you have a half-finished idea, tell me about it and we'll look at it together.",
-    "imprint": "© {{year}} Biel Diaz Basullas · Made in Catalonia"
+    "statement": "Let’s make something clear and well built.",
+    "cta": "Write to me",
+    "nav": "Navigation",
+    "social": "Social",
+    "contact": "Contact",
+    "imprint": "© {{year}} Biel Diaz Basullas. Made in Catalonia.",
+    "backTop": "Back to top"
   },
   "seo": {
     "home": {

@@ -1,107 +1,114 @@
 'use client'
 
+import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
-import { ArrowUpRight } from "lucide-react"
-import { useReveal } from "@/lib/useReveal"
-
-// Cada carpeta (i la seva pestanya) té el seu to de paper
-const BANDS = ["bg-paper", "bg-paper-2", "bg-paper-3"]
-
-// Pestanya amb espatlles tallades
-const TAB_SHAPE = "polygon(0 100%, 14px 0, calc(100% - 14px) 0, 100% 100%)"
+import { ArrowUpRight, Lock } from "lucide-react"
+import { gsap } from "@/lib/gsap"
+import { PROJECT_IMAGES } from "@/assets/projects"
 
 // ── Projects ──────────────────────────────────────────────────────
-// Els projectes arxivats com a carpetes: a l'escriptori s'apilen amb
-// position: sticky mentre es fa scroll, deixant veure la pestanya de
-// cada una. Al mòbil van en flux normal.
+// Fitxes amb la captura a l'esquerra (16:9) i el text a la dreta
+// (DESIGN.md research-card). La captura entra amb una escala suau i
+// es mou una mica per dins mentre es fa scroll.
 
 export default function Projects() {
   const { t } = useTranslation()
-  const ref = useReveal()
+  const rootRef = useRef(null)
 
   const items = t("projects.items", { returnObjects: true })
   const projects = Array.isArray(items) ? items : []
-  const labels = t("projects.labels", { returnObjects: true })
+
+  useEffect(() => {
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const root = rootRef.current
+      gsap.from(root.querySelectorAll("[data-head]"), {
+        y: 24, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.08,
+        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+      })
+      root.querySelectorAll("[data-project]").forEach((card) => {
+        const frame = card.querySelector("[data-frame]")
+        const img = card.querySelector("img")
+        gsap.timeline({ scrollTrigger: { trigger: card, start: "top 82%", once: true } })
+          .from(frame, { opacity: 0, y: 40, duration: 1, ease: "expo.out" })
+          .from(img, { scale: 1.08, duration: 1.4, ease: "expo.out" }, 0)
+          .from(card.querySelectorAll("[data-text]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.07 }, 0.15)
+        // Parallax suau dins el marc
+        gsap.fromTo(img.parentElement, { yPercent: -4 }, {
+          yPercent: 4, ease: "none",
+          scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: true },
+        })
+      })
+    })
+    return () => mm.revert()
+  }, [projects.length])
 
   return (
-    <section id="projects" aria-labelledby="projects-title" className="px-3 pb-24 md:pb-40">
-      <div ref={ref} className="mx-auto max-w-[1200px]">
-        <h2
-          id="projects-title"
-          data-reveal
-          className="mb-10 font-serif leading-none text-on-ground"
-          style={{ fontSize: "clamp(2.25rem, 4vw, 3.5rem)" }}
-        >
-          {t("projects.title")}
-        </h2>
+    <section ref={rootRef} id="projects" aria-labelledby="projects-title" className="bg-canvas pb-24 md:pb-32">
+      <div className="container-page">
+        <div className="border-t border-hairline-soft pt-24 md:pt-32">
+          <div className="max-w-[640px]">
+            <p data-head className="t-eyebrow text-slate">{t("projects.eyebrow")}</p>
+            <h2 data-head id="projects-title" className="t-display mt-4 text-ink">{t("projects.title")}</h2>
+            <p data-head className="t-subtitle mt-6 text-graphite">{t("projects.intro")}</p>
+          </div>
+        </div>
 
-        <ol className="space-y-6 md:space-y-0">
-          {projects.map((p, i) => {
-            const domain = p.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")
-            return (
-              <li
-                key={p.url}
-                className="md:sticky"
-                style={{ top: `calc(var(--header-h) + 16px + ${i * 56}px)` }}
-              >
-                <article aria-labelledby={`project-${i}`} className="relative md:pt-[44px]">
-                  {/* ── Pestanya ── al mòbil va en flux; a l'escriptori surt per sobre de la carpeta */}
-                  <p
-                    className={`${BANDS[i % BANDS.length]} relative flex w-fit min-h-[44px] items-center gap-3 px-7 py-2 text-[0.9375rem] text-ink md:absolute md:top-0 md:left-[var(--tab-x)]`}
-                    style={{ clipPath: TAB_SHAPE, "--tab-x": `calc(${i} * min(240px, 20vw))` }}
-                  >
-                    <span className="font-medium">{p.category}</span>
-                    <span aria-hidden className="inline-block size-2 rotate-45 bg-stamp" />
-                    <span className="[font-variant-numeric:tabular-nums]">{p.year}</span>
-                  </p>
-
-                  {/* ── Carpeta ── */}
-                  <div className={`${BANDS[i % BANDS.length]} -mt-px flex flex-col gap-10 px-5 py-8 md:min-h-[60svh] md:px-10 md:py-12`}>
-                    <div className="grid gap-8 md:grid-cols-12">
-                      <h3
-                        id={`project-${i}`}
-                        data-reveal
-                        className="font-serif leading-[0.95] text-ink md:col-span-8"
-                        style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)", textWrap: "balance" }}
-                      >
-                        {p.title}
-                      </h3>
-
-                      <div data-reveal className="md:col-span-4">
-                        <p className="text-[1.0625rem] text-ink">{p.description}</p>
-                        <a
-                          href={p.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn mt-6"
-                        >
-                          {t("projects.visit")}
-                          <ArrowUpRight aria-hidden size={18} />
-                          <span className="sr-only">{t("projects.newTab")}</span>
-                        </a>
-                      </div>
-                    </div>
-
-                    <dl data-reveal className="mt-auto flex flex-wrap items-end gap-x-12 gap-y-6">
-                      <div>
-                        <dt className="text-[0.875rem] text-ink-soft">{labels.tools}</dt>
-                        <dd className="mt-2 flex flex-wrap gap-1.5">
-                          {p.tags.map(tag => (
-                            <span key={tag} className="bg-ground px-3 py-1.5 text-[0.875rem] text-on-ground">{tag}</span>
-                          ))}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="text-[0.875rem] text-ink-soft">{labels.site}</dt>
-                        <dd className="mt-1 break-words text-[1.25rem] text-ink" translate="no">{domain}</dd>
-                      </div>
-                    </dl>
+        <ul className="mt-16 space-y-20 md:mt-20 md:space-y-28">
+          {projects.map((p) => (
+            <li key={p.id}>
+              <article id={`project-${p.id}`} data-project aria-labelledby={`project-${p.id}-title`} className="grid gap-8 md:grid-cols-12 md:gap-12">
+                {/* ── Captura ── */}
+                <div data-frame className="aspect-video overflow-hidden rounded-md bg-surface-cool md:col-span-7">
+                  <div className="h-[108%] -translate-y-[4%]">
+                    <img
+                      src={PROJECT_IMAGES[p.id]}
+                      alt={p.alt}
+                      width="1280" height="720"
+                      loading="lazy" decoding="async"
+                      className="size-full object-cover"
+                    />
                   </div>
-                </article>
-              </li>
-            )
-          })}
-        </ol>
+                </div>
+
+                {/* ── Text ── */}
+                <div className="flex flex-col md:col-span-5 md:py-2">
+                  <p data-text className="t-meta text-slate">
+                    <span className="[font-variant-numeric:tabular-nums]">{p.year}</span> · {p.category}
+                  </p>
+                  <h3 data-text id={`project-${p.id}-title`} className="t-heading mt-3 text-ink" style={{ textWrap: "balance" }}>
+                    {p.title}
+                  </h3>
+                  <p data-text className="t-body mt-5 max-w-[48ch] text-graphite">{p.description}</p>
+
+                  <div data-text className="mt-6">
+                    <p className="sr-only">{t("projects.tools")}</p>
+                    <ul className="flex flex-wrap gap-2">
+                      {p.tags.map(tag => (
+                        <li key={tag} className="t-meta rounded-full border border-hairline-soft px-3 py-1.5 text-slate">{tag}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div data-text className="mt-8 md:mt-auto md:pt-8">
+                    {p.url ? (
+                      <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                        {t("projects.visit")}
+                        <ArrowUpRight aria-hidden size={16} />
+                        <span className="sr-only">{t("projects.newTab")}</span>
+                      </a>
+                    ) : (
+                      <p className="t-meta inline-flex items-center gap-2 text-slate">
+                        <Lock aria-hidden size={14} />
+                        {p.access}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

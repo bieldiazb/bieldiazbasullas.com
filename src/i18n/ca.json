@@ -5,109 +5,118 @@
     "projects": "Projectes",
     "services": "Serveis",
     "contact": "Contacte",
-    "action": "Fem un encàrrec",
-    "actionShort": "Encàrrec",
+    "action": "Parlem",
+    "menu": "Menú",
+    "openMenu": "Obre el menú",
+    "closeMenu": "Tanca el menú",
     "home": "Biel Diaz Basullas, inici",
     "language": "Idioma",
-    "themeDark": "Activa el mode fosc",
-    "themeLight": "Activa el mode clar",
     "main": "Navegació principal"
   },
   "hero": {
-    "nameLine1": "Biel Diaz",
-    "nameLine2": "Basullas",
-    "lead": "Desenvolupador web i dissenyador. Faig webs i apps a mida per a negocis i professionals de Catalunya.",
-    "sheet": "Full d'encàrrec",
-    "place": "Barcelona",
-    "fields": [
-      { "label": "Per a", "value": "El teu negoci" },
-      { "label": "Feina", "value": "Webs i apps a mida" },
-      { "label": "Com", "value": "Tracte directe, sense intermediaris" }
-    ],
-    "signed": "Signat",
-    "signature": "Biel",
-    "stamp": "Encàrrecs oberts"
+    "eyebrow": "Biel Diaz Basullas · Desenvolupador web i dissenyador",
+    "title": "Webs i apps a mida per a negocis de Catalunya.",
+    "lead": "Dissenyo i programo eines clares i fàcils d’usar: des d’una web en WordPress fins a l’app que porta el teu gimnàs.",
+    "primary": "Parlem del teu projecte",
+    "secondary": "Veure la feina",
+    "workLabel": "Feina recent"
   },
   "services": {
-    "title": "Serveis",
-    "intro": "Obre el que t'interessi i marca'l: l'afegeixo al teu encàrrec.",
-    "add": "Afegeix a l'encàrrec",
-    "added": "Afegit a l'encàrrec",
+    "eyebrow": "Serveis",
+    "title": "Què puc fer per tu",
+    "intro": "Marca el que t’interessi i ho afegeixo al teu missatge de contacte.",
+    "add": "Afegeix",
+    "added": "Afegit",
     "summary_zero": "Encara no has marcat cap servei.",
     "summary_one": "Has marcat {{count}} servei.",
     "summary_other": "Has marcat {{count}} serveis.",
-    "review": "Revisa l'encàrrec",
+    "review": "Escriu-me",
     "items": [
-      { "id": "custom-apps", "title": "Apps de gestió a mida", "description": "Eines fetes a la teva manera de treballar: clients, reserves, inventari o el que necessitis, tot en un sol lloc. S'han acabat els fulls de càlcul que no es parlen entre ells." },
-      { "id": "gyms", "title": "Gestió per a gimnasos", "description": "Socis, quotes, horaris i reserves de classes des d'una sola app. Tu et centres a entrenar i passes menys temps amb papers." },
+      { "id": "custom-apps", "title": "Apps de gestió a mida", "description": "Eines fetes a la teva manera de treballar: clients, reserves, inventari o el que necessitis, tot en un sol lloc. S’han acabat els fulls de càlcul que no es parlen entre ells." },
+      { "id": "gyms", "title": "Gestió per a gimnasos", "description": "Socis, quotes, horaris i reserves de classes des d’una sola app. Tu et centres a entrenar i passes menys temps amb papers." },
       { "id": "portfolios", "title": "Portfolis web a mida", "description": "Una web que ensenya la teva feina com es mereix, dissenyada des de zero i sense plantilles. Ideal per a creatius i professionals que volen destacar." },
       { "id": "wordpress", "title": "Webs bàsiques en WordPress", "description": "Una web senzilla, ràpida i que pots actualitzar tu mateix. Perfecta per començar a ser a internet sense complicacions." },
       { "id": "seo", "title": "Gestió de SEO", "description": "Faig que et trobin a Google: revisió tècnica, continguts i fitxa de Google Business. Més visites de gent que busca just el que ofereixes." },
-      { "id": "smb", "title": "Apps per a pimes", "description": "Digitalitzo els processos del teu negoci amb apps pensades per a equips petits: pressupostos, comandes o tasques. Fàcils d'usar des del primer dia." }
+      { "id": "smb", "title": "Apps per a pimes", "description": "Digitalitzo els processos del teu negoci amb apps pensades per a equips petits: pressupostos, comandes o tasques. Fàcils d’usar des del primer dia." }
     ]
   },
   "projects": {
-    "title": "Encàrrecs lliurats",
-    "labels": { "tools": "Eines", "site": "Web" },
+    "eyebrow": "Projectes",
+    "title": "Feina recent",
+    "intro": "Tres projectes fets de principi a fi: disseny, desenvolupament i posada en marxa.",
+    "tools": "Eines",
     "visit": "Visita la web",
-    "newTab": "(s'obre en una pestanya nova)",
+    "newTab": "(s’obre en una pestanya nova)",
     "items": [
       {
+        "id": "tresdege",
         "title": "Web Dissenyador Gràfic",
         "category": "Portfoli",
-        "description": "Portfoli per a un dissenyador gràfic, amb els treballs i els serveis en una web àgil. La feina es veu abans que res i el contacte queda sempre a mà.",
+        "description": "Portfoli per a un estudi de disseny gràfic de Barcelona, amb els treballs i els serveis en una web àgil. La feina es veu abans que res i el contacte queda sempre a mà.",
         "year": "2026",
         "url": "https://tresdege.com/",
-        "tags": ["React", "Portfoli", "UX/UI", "Web App"]
+        "alt": "Portada de la web de Tresdegé, amb el nom de l’estudi en gran sobre un fons blau",
+        "tags": ["React", "UX/UI", "Web App"]
       },
       {
-        "title": "Plataforma d'entrenaments",
+        "id": "sergigarcia",
+        "title": "Plataforma d’entrenaments",
         "category": "App web",
-        "description": "Aplicació web per a entrenadors: organitza els entrenaments i el seguiment dels atletes des d'un sol lloc, al mòbil o a l'ordinador.",
+        "description": "Aplicació web per a entrenadors: organitza els entrenaments i el seguiment dels atletes des d’un sol lloc, al mòbil o a l’ordinador.",
         "year": "2025",
         "url": "https://sergigarciatraining.com/",
-        "tags": ["React", "Firebase", "UX/UI", "Web App"]
+        "alt": "Pantalla d’accés de la plataforma d’entrenaments, amb el formulari a l’esquerra i una foto d’un atleta a la dreta",
+        "tags": ["React", "Firebase", "UX/UI"]
       },
       {
-        "title": "Portal per a pares i mares d'atletisme",
+        "id": "camsub10",
+        "title": "Portal per a pares i mares d’atletisme",
         "category": "Portal",
-        "description": "Portal perquè les famílies d'atletes segueixin resultats i informació esportiva sense haver de buscar-la en grups de missatges.",
+        "description": "Portal perquè les famílies d’atletes consultin marques, competicions i el perfil esportiu dels seus fills, sense haver de buscar-ho en grups de missatges.",
         "year": "2026",
-        "url": "https://www.camsub10.site/",
-        "tags": ["React", "Firebase", "Informació esportiva", "Web App"]
+        "url": "",
+        "access": "Accés privat per a famílies i entrenadors",
+        "alt": "Pantalla d’accés del portal d’atletisme, amb el codi de l’atleta i una foto aèria d’una pista",
+        "tags": ["React", "Firebase", "Web App"]
       }
     ]
   },
+  "interlude": {
+    "text": "Treballes directament amb mi, sense intermediaris ni plantilles.",
+    "lead": "Parlem, et mostro propostes i ajustem fins que la web fa la feina que necessites.",
+    "cta": "Parlem"
+  },
   "about": {
+    "eyebrow": "Sobre mi",
     "greeting": "Hola, sóc el Biel.",
+    "lead": "Ajudo persones i negocis a tenir una web clara, ordenada i fàcil d’utilitzar.",
     "paragraphs": [
-      "Ajudo persones i negocis a tenir una web clara, ordenada i fàcil d'utilitzar.",
       "Em centro a resoldre el problema de les webs confuses o poc cuidades, combinant disseny, desenvolupament i molta atenció als detalls.",
-      "Porto més de 3 anys fent webs i he lliurat més de 20 projectes, sobretot amb React, Firebase i WordPress.",
-      "Treballes directament amb mi: parlem, et mostro propostes i ajustem fins que la web fa la feina que necessites."
+      "Treballo sobretot amb React, Firebase i WordPress, i trio l’eina segons el que necessita cada projecte, no al revés."
     ],
-    "name": "Biel Diaz Basullas",
-    "role": "Desenvolupador web i dissenyador",
-    "portraitAlt": "Retrat il·lustrat del Biel",
-    "stub": "Arrenca per aquí i escriu-me"
+    "stats": [
+      { "value": "3+", "label": "anys fent webs" },
+      { "value": "20+", "label": "projectes lliurats" }
+    ],
+    "portraitAlt": "Retrat il·lustrat del Biel, amb gorro de llana i picant l’ullet"
   },
   "contact": {
-    "title": "Fem l'encàrrec",
-    "subtitle": "Tens un projecte en ment o només vols parlar? Omple el full i et respondré aviat.",
+    "eyebrow": "Contacte",
+    "title": "Tens un projecte en ment?",
+    "subtitle": "Explica’m què necessites o si només vols parlar. Et respondré aviat.",
     "directLabel": "O escriu directament",
     "formNote": "Normalment responc en menys de 24 h. Sense compromís.",
-    "selectedLabel": "Serveis marcats",
-    "selectedEmpty": "Cap servei marcat. També m'ho pots explicar directament al missatge.",
-    "remove": "Treu {{service}}",
-    "prefill": "Hola Biel, m'interessa: {{services}}.",
+    "servicesLabel": "Què necessites?",
+    "servicesHint": "Opcional. Pots marcar-ne més d’un.",
+    "prefill": "Hola Biel, m’interessa: {{services}}.",
     "form": {
       "name": "Nom",
       "namePlaceholder": "El teu nom…",
       "email": "Email",
       "emailPlaceholder": "tu@email.com",
       "message": "Missatge",
-      "messagePlaceholder": "Explica'm el teu projecte…",
-      "submit": "Envia l'encàrrec",
+      "messagePlaceholder": "Explica’m el teu projecte…",
+      "submit": "Envia el missatge",
       "sending": "Enviant…"
     },
     "toast": {
@@ -117,18 +126,22 @@
       },
       "error": {
         "title": "Alguna cosa ha fallat",
-        "description": "Torna-ho a provar d'aquí a una estona o escriu-me directament per email."
+        "description": "Torna-ho a provar d’aquí a una estona o escriu-me directament per email."
       }
     },
     "thanks": {
-      "title": "Gràcies per contactar",
-      "description": "El teu missatge s'ha enviat correctament. Et respondré al més aviat possible."
+      "title": "Gràcies per escriure’m",
+      "description": "El missatge s’ha enviat correctament. Et respondré al més aviat possible."
     }
   },
   "footer": {
-    "signoff": "Fins aviat,",
-    "message": "Gràcies per passar. Si tens una idea a mig fer, explica-me-la i la mirem junts.",
-    "imprint": "© {{year}} Biel Diaz Basullas · Fet a Catalunya"
+    "statement": "Fem alguna cosa clara i ben feta.",
+    "cta": "Escriu-me",
+    "nav": "Navegació",
+    "social": "Xarxes",
+    "contact": "Contacte",
+    "imprint": "© {{year}} Biel Diaz Basullas. Fet a Catalunya.",
+    "backTop": "Torna a dalt"
   },
   "seo": {
     "home": {
@@ -137,7 +150,7 @@
     }
   },
   "cookies": {
-    "text": "Utilitzem cookies pròpies i de tercers per millorar l'experiència i analitzar l'ús del lloc web.",
+    "text": "Utilitzem cookies pròpies i de tercers per millorar l’experiència i analitzar l’ús del lloc web.",
     "accept": "Acceptar",
     "reject": "Rebutjar"
   }

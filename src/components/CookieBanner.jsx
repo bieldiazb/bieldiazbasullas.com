@@ -7,7 +7,7 @@ import { gsap } from "@/lib/gsap"
 const COOKIE_KEY = "cookie-consent"
 
 // ── CookieBanner ──────────────────────────────────────────────────
-// Tira de paper fixa a baix. Es guarda tant si s'accepta com si es
+// Avís petit a baix a l'esquerra (DESIGN.md alert-banner). Es guarda tant si s'accepta com si es
 // rebutja, perquè no torni a sortir a cada visita.
 
 export default function CookieBanner() {
@@ -38,18 +38,16 @@ export default function CookieBanner() {
       ref={bannerRef}
       role="region"
       aria-label="Cookies"
-      className="fixed inset-x-3 bottom-3 z-[55] mx-auto max-w-[760px] bg-paper text-ink"
+      className="fixed bottom-4 left-4 right-4 z-[55] max-w-[420px] rounded-lg border border-hairline-soft bg-canvas p-4 text-ink md:left-6 md:right-auto"
     >
-      <div className="flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between">
-        <p className="text-[0.9375rem] leading-snug">{t("cookies.text")}</p>
-        <div className="flex shrink-0 gap-2">
-          <button type="button" onClick={() => dismiss(false)} className="btn btn-paper bg-paper-2">
-            {t("cookies.reject")}
-          </button>
-          <button type="button" onClick={() => dismiss(true)} className="btn">
-            {t("cookies.accept")}
-          </button>
-        </div>
+      <p className="text-[0.875rem] leading-[1.3]">{t("cookies.text")}</p>
+      <div className="mt-4 flex gap-2">
+        <button type="button" onClick={() => dismiss(false)} className="btn btn-ghost">
+          {t("cookies.reject")}
+        </button>
+        <button type="button" onClick={() => dismiss(true)} className="btn btn-primary">
+          {t("cookies.accept")}
+        </button>
       </div>
     </div>
   )

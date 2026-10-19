@@ -2,26 +2,26 @@
 
 import { useState, useRef, useEffect } from "react"
 import { useTranslation } from "react-i18next"
-import { Check, X } from "lucide-react"
+import { Check, Plus } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useOrder } from "@/lib/order"
 import { useReveal } from "@/lib/useReveal"
-import { Corners } from "@/components/paper/Scallops"
 
 const EMAIL = "bieldiazbasullas@proton.me"
 const FORM_ENDPOINT = "https://formspree.io/f/maqwoqee"
 
+// DESIGN.md form-field: línia inferior que s'enfosqueix en focus
 const fieldClass =
-  "mt-2 block w-full rounded-none border-0 bg-paper-2 px-4 py-3 text-[1rem] text-ink placeholder:text-ink-soft focus-visible:outline-stamp"
+  "mt-2 block w-full rounded-none border-0 border-b border-hairline-soft bg-transparent px-0 py-3 text-[1rem] text-ink placeholder:text-slate transition-colors focus:border-ink focus:shadow-[0_1px_0_0_var(--ink)] focus:outline-none"
 
 // ── Contact ───────────────────────────────────────────────────────
-// El peu del full d'encàrrec: els serveis marcats i el formulari.
-// Mentre el visitant no toqui el missatge, s'omple sol amb els serveis.
+// Títol a l'esquerra i formulari a la dreta. Els serveis marcats aquí o
+// a la secció de serveis omplen el missatge mentre no s'hagi editat.
 
 export default function Contact() {
   const { t } = useTranslation()
   const { toast } = useToast()
-  const { selected, toggle } = useOrder()
+  const { selected, toggle, has } = useOrder()
   const ref = useReveal()
 
   const [loading, setLoading] = useState(false)
@@ -69,102 +69,102 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="px-3 pb-24 md:pb-40">
-      <div ref={ref} className="mx-auto grid max-w-[1200px] gap-10 md:grid-cols-12 md:gap-6">
+    <section id="contact" aria-labelledby="contact-title" className="bg-canvas pb-24 md:pb-32">
+      <div className="container-page">
+        <div ref={ref} className="grid gap-12 border-t border-hairline-soft pt-24 md:grid-cols-12 md:pt-32">
 
-        {/* ── Text sobre el camp ── */}
-        <div className="md:col-span-5">
-          <h2
-            id="contact-title"
-            data-reveal
-            className="font-serif leading-[0.95] text-on-ground"
-            style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)", textWrap: "balance" }}
-          >
-            {t("contact.title")}
-          </h2>
-          <p data-reveal className="mt-6 max-w-[36ch] text-[1.25rem] leading-snug text-on-ground">
-            {t("contact.subtitle")}
-          </p>
-          <p data-reveal className="mt-10 text-[0.875rem] text-on-ground-soft">{t("contact.directLabel")}</p>
-          <a data-reveal href={`mailto:${EMAIL}`} className="link mt-1 inline-block break-all text-[1.125rem] font-medium text-on-ground" translate="no">
-            {EMAIL}
-          </a>
-        </div>
+          {/* ── Títol ── */}
+          <div className="md:col-span-5">
+            <p data-reveal className="t-eyebrow text-slate">{t("contact.eyebrow")}</p>
+            <h2 data-reveal id="contact-title" className="t-display mt-4 text-ink" style={{ textWrap: "balance" }}>
+              {t("contact.title")}
+            </h2>
+            <p data-reveal className="t-subtitle mt-6 max-w-[34ch] text-graphite">{t("contact.subtitle")}</p>
 
-        {/* ── Full del formulari ── */}
-        <div data-reveal className="paper relative px-6 py-10 md:col-span-7 md:px-12 md:py-12">
-          <Corners radius={16} />
-
-          {sent ? (
-            <div ref={thanksRef} tabIndex={-1} role="status" className="py-10 outline-none">
-              <span aria-hidden className="grid size-14 place-items-center rounded-full bg-stamp text-on-stamp">
-                <Check size={26} strokeWidth={2.5} />
-              </span>
-              <h3 className="mt-6 font-serif text-[2.5rem] leading-tight text-ink">{t("contact.thanks.title")}</h3>
-              <p className="mt-3 max-w-[40ch] text-[1.0625rem] text-ink">{t("contact.thanks.description")}</p>
+            <div data-reveal className="mt-10">
+              <p className="t-meta text-slate">{t("contact.directLabel")}</p>
+              <a href={`mailto:${EMAIL}`} className="text-link mt-1 inline-block break-all text-[1rem] text-ink" translate="no">
+                {EMAIL}
+              </a>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              {/* ── Serveis marcats ── */}
-              <fieldset>
-                <legend className="text-[0.875rem] text-ink-soft">{t("contact.selectedLabel")}</legend>
-                {selectedServices.length ? (
-                  <ul className="mt-3 flex flex-wrap gap-1.5">
-                    {selectedServices.map(s => (
-                      <li key={s.id} className="flex items-center bg-ground text-on-ground">
-                        <span className="py-2 pl-3 text-[0.9375rem]">{s.title}</span>
+          </div>
+
+          {/* ── Formulari ── */}
+          <div data-reveal className="md:col-span-7">
+            {sent ? (
+              <div ref={thanksRef} tabIndex={-1} role="status" className="outline-none">
+                <span aria-hidden className="grid size-12 place-items-center rounded-full bg-ink text-white">
+                  <Check size={22} strokeWidth={2} />
+                </span>
+                <h3 className="t-heading mt-6 text-ink">{t("contact.thanks.title")}</h3>
+                <p className="t-body mt-3 max-w-[44ch] text-graphite">{t("contact.thanks.description")}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {/* ── Serveis ── */}
+                <fieldset>
+                  <legend className="t-body font-semibold text-ink">{t("contact.servicesLabel")}</legend>
+                  <p className="t-meta mt-1 text-slate">{t("contact.servicesHint")}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {services.map(s => {
+                      const on = has(s.id)
+                      return (
                         <button
+                          key={s.id}
                           type="button"
                           onClick={() => toggle(s.id)}
-                          aria-label={t("contact.remove", { service: s.title })}
-                          className="grid min-h-[40px] min-w-[40px] place-items-center text-on-ground-soft transition-colors hover:text-on-ground"
+                          aria-pressed={on}
+                          className={`inline-flex min-h-[40px] items-center gap-1.5 rounded-full border px-4 text-[0.875rem] font-semibold transition-colors ${
+                            on ? "border-ink bg-ink text-white" : "border-hairline-soft bg-canvas text-ink hover:border-ink"
+                          }`}
                         >
-                          <X aria-hidden size={16} />
+                          {on ? <Check aria-hidden size={14} /> : <Plus aria-hidden size={14} />}
+                          {s.title}
                         </button>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="mt-2 text-[1rem] text-ink">{t("contact.selectedEmpty")}</p>
-                )}
-              </fieldset>
+                      )
+                    })}
+                  </div>
+                </fieldset>
 
-              <div className="mt-8 grid gap-5 md:grid-cols-2">
-                <label className="block text-[0.875rem] font-medium text-ink">
-                  {t("contact.form.name")}
-                  <input
-                    name="name" type="text" required autoComplete="name"
-                    placeholder={t("contact.form.namePlaceholder")}
-                    className={fieldClass}
+                <div className="mt-10 grid gap-8 md:grid-cols-2">
+                  <label className="t-body block text-ink">
+                    {t("contact.form.name")}
+                    <input
+                      name="name" type="text" required autoComplete="name"
+                      placeholder={t("contact.form.namePlaceholder")}
+                      className={fieldClass}
+                    />
+                  </label>
+                  <label className="t-body block text-ink">
+                    {t("contact.form.email")}
+                    <input
+                      name="email" type="email" required autoComplete="email" inputMode="email" spellCheck={false}
+                      placeholder={t("contact.form.emailPlaceholder")}
+                      className={fieldClass}
+                    />
+                  </label>
+                </div>
+
+                <label className="t-body mt-8 block text-ink">
+                  {t("contact.form.message")}
+                  <textarea
+                    name="message" required rows={4}
+                    value={messageValue}
+                    onChange={(e) => { setMessage(e.target.value); setEdited(true) }}
+                    placeholder={t("contact.form.messagePlaceholder")}
+                    className={`${fieldClass} resize-y`}
                   />
                 </label>
-                <label className="block text-[0.875rem] font-medium text-ink">
-                  {t("contact.form.email")}
-                  <input
-                    name="email" type="email" required autoComplete="email" inputMode="email" spellCheck={false}
-                    placeholder={t("contact.form.emailPlaceholder")}
-                    className={fieldClass}
-                  />
-                </label>
-              </div>
 
-              <label className="mt-5 block text-[0.875rem] font-medium text-ink">
-                {t("contact.form.message")}
-                <textarea
-                  name="message" required rows={5}
-                  value={messageValue}
-                  onChange={(e) => { setMessage(e.target.value); setEdited(true) }}
-                  placeholder={t("contact.form.messagePlaceholder")}
-                  className={`${fieldClass} resize-y`}
-                />
-              </label>
-
-              <button type="submit" disabled={loading} className="btn mt-8 min-h-[52px] w-full disabled:opacity-70">
-                {loading ? t("contact.form.sending") : t("contact.form.submit")}
-              </button>
-              <p className="mt-4 text-[0.875rem] text-ink-soft">{t("contact.formNote")}</p>
-            </form>
-          )}
+                <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                  <p className="t-meta text-slate">{t("contact.formNote")}</p>
+                  <button type="submit" disabled={loading} className="btn btn-primary disabled:opacity-60">
+                    {loading ? t("contact.form.sending") : t("contact.form.submit")}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

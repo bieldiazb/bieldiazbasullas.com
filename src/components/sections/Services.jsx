@@ -1,10 +1,10 @@
 'use client'
 
+import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import { LayoutDashboard, Dumbbell, Palette, Globe, TrendingUp, Store, Plus, Check } from "lucide-react"
+import { gsap } from "@/lib/gsap"
 import { useOrder } from "@/lib/order"
-import { useReveal } from "@/lib/useReveal"
-import { Scallops } from "@/components/paper/Scallops"
 
 // Icona per a cada servei (clau = id a i18n)
 const ICONS = {
@@ -17,89 +17,88 @@ const ICONS = {
 }
 
 // ── Services ──────────────────────────────────────────────────────
-// Un full amb la paraula gegant i una fila plena per servei. Cada fila
-// s'obre (details) i deixa afegir el servei a l'encàrrec.
+// Franja blanca de lectura: etiqueta + títol + entrada, i una fila per
+// servei separada per línies fines. Cada servei es pot afegir al
+// missatge de contacte.
 
 export default function Services() {
   const { t } = useTranslation()
   const { selected, toggle, has } = useOrder()
-  const ref = useReveal()
+  const rootRef = useRef(null)
 
   const items = t("services.items", { returnObjects: true })
   const services = Array.isArray(items) ? items : []
+
+  useEffect(() => {
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const root = rootRef.current
+      gsap.from(root.querySelectorAll("[data-head]"), {
+        y: 24, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.08,
+        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+      })
+      // Cada fila: la línia es dibuixa i el contingut puja
+      root.querySelectorAll("[data-row]").forEach((row) => {
+        const tl = gsap.timeline({ scrollTrigger: { trigger: row, start: "top 88%", once: true } })
+        tl.from(row.querySelector("[data-rule]"), { scaleX: 0, duration: 1, ease: "expo.inOut" })
+          .from(row.querySelectorAll("[data-cell]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, "-=0.6")
+      })
+    })
+    return () => mm.revert()
+  }, [services.length])
+
   if (!services.length) return null
 
-  const word = t("services.title")
-
   return (
-    <section id="services" aria-labelledby="services-title" className="px-3 py-24 md:py-40">
-      <div ref={ref} className="paper relative mx-auto max-w-[720px] px-5 pb-16 pt-10 md:px-10">
+    <section ref={rootRef} id="services" aria-labelledby="services-title" className="bg-canvas py-24 md:py-32">
+      <div className="container-page">
 
-        <h2
-          id="services-title"
-          data-reveal
-          className="font-serif leading-[0.8] text-ink"
-          style={{ containerType: "inline-size" }}
-        >
-          {/* La mida s'ajusta a la llargada de la paraula perquè ompli l'amplada del full */}
-          <span className="block whitespace-nowrap" style={{ fontSize: `${Math.min(44, 318 / word.length)}cqw` }}>
-            {word}
-          </span>
-        </h2>
+        {/* ── Etiqueta + títol ── */}
+        <div className="max-w-[640px]">
+          <p data-head className="t-eyebrow text-slate">{t("services.eyebrow")}</p>
+          <h2 data-head id="services-title" className="t-display mt-4 text-ink">{t("services.title")}</h2>
+          <p data-head className="t-subtitle mt-6 text-graphite">{t("services.intro")}</p>
+        </div>
 
-        <p data-reveal className="mt-6 max-w-[44ch] text-[1.25rem] leading-snug text-ink">
-          {t("services.intro")}
-        </p>
-
-        <ul className="mt-8 space-y-1.5">
-          {services.map((service, i) => {
+        {/* ── Files ── */}
+        <ul className="mt-16 md:mt-20">
+          {services.map((service) => {
             const Icon = ICONS[service.id] ?? LayoutDashboard
             const on = has(service.id)
             return (
-              <li key={service.id} data-reveal>
-                <details className="group bg-paper-2" open={i === 0}>
-                  <summary className="flex min-h-[56px] cursor-pointer list-none items-center gap-4 px-[18px] py-3 transition-colors hover:bg-paper-3 [&::-webkit-details-marker]:hidden">
-                    {/* Casella del full: plena quan el servei és a l'encàrrec */}
-                    <span
-                      aria-hidden
-                      className={`grid size-5 shrink-0 place-items-center transition-colors ${on ? "bg-stamp text-on-stamp" : "bg-paper"}`}
-                    >
-                      {on && <Check size={14} strokeWidth={3} />}
-                    </span>
-                    <Icon aria-hidden size={20} strokeWidth={1.75} className="shrink-0 text-ink-soft" />
-                    <span className="flex-1 text-[1.0625rem] font-medium text-ink">{service.title}</span>
-                    <Plus aria-hidden size={20} className="shrink-0 text-ink transition-transform duration-300 group-open:rotate-45" />
-                  </summary>
-
-                  <div className="px-[18px] pb-5 pt-1 md:pl-[76px]">
-                    <p className="max-w-[52ch] text-[1rem] text-ink">{service.description}</p>
+              <li key={service.id} data-row className="relative">
+                <span data-rule aria-hidden className="absolute inset-x-0 top-0 h-px origin-left bg-hairline-soft" />
+                <div className="grid gap-4 py-8 md:grid-cols-12 md:gap-6 md:py-10">
+                  <div data-cell className="flex items-start gap-4 md:col-span-5">
+                    <Icon aria-hidden size={24} strokeWidth={1.5} className="mt-0.5 shrink-0 text-ink" />
+                    <h3 className="t-title text-ink">{service.title}</h3>
+                  </div>
+                  <p data-cell className="t-body max-w-[52ch] text-graphite md:col-span-5">{service.description}</p>
+                  <div data-cell className="md:col-span-2 md:flex md:items-start md:justify-end">
                     <button
                       type="button"
                       onClick={() => toggle(service.id)}
                       aria-pressed={on}
-                      className={`mt-4 inline-flex min-h-[44px] items-center gap-2 px-4 text-[0.9375rem] font-medium transition-colors ${
-                        on ? "bg-stamp text-on-stamp hover:bg-ink hover:text-paper" : "bg-paper text-ink hover:bg-ink hover:text-paper"
-                      }`}
+                      className={`btn ${on ? "btn-primary" : "btn-ghost"} min-w-[7.5rem]`}
                     >
                       {on ? <Check aria-hidden size={16} /> : <Plus aria-hidden size={16} />}
                       {on ? t("services.added") : t("services.add")}
+                      <span className="sr-only">: {service.title}</span>
                     </button>
                   </div>
-                </details>
+                </div>
               </li>
             )
           })}
         </ul>
 
-        {/* ── Resum de l'encàrrec ── */}
-        <div data-reveal className="mt-10 flex flex-wrap items-center justify-between gap-4">
-          <p aria-live="polite" className="text-[1rem] text-ink">
+        {/* ── Resum ── */}
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-hairline-soft pt-8">
+          <p aria-live="polite" className="t-body text-graphite">
             {t("services.summary", { count: selected.length })}
           </p>
-          <a href="#contact" className="btn">{t("services.review")}</a>
+          <a href="#contact" className="text-link text-ink">{t("services.review")}</a>
         </div>
-
-        <Scallops edge="bottom" />
       </div>
     </section>
   )

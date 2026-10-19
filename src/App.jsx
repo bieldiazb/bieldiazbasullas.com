@@ -8,6 +8,7 @@ import Footer        from "@/components/layout/Footer"
 import Hero          from "@/components/sections/Hero"
 import Services      from "@/components/sections/Services"
 import Projects      from "@/components/sections/Projects"
+import Interlude     from "@/components/sections/Interlude"
 import About         from "@/components/sections/About"
 import Contact       from "@/components/sections/Contact"
 import CookieBanner  from "./components/CookieBanner"
@@ -26,26 +27,26 @@ export default function App() {
       />
       <SmoothScroll />
 
+      {/* Lenis fa el scroll de l'àncora però no mou el focus: el movem aquí */}
       <a
         href="#main"
-        className="btn fixed left-3 top-3 z-[60] -translate-y-24 focus:translate-y-0"
+        onClick={() => setTimeout(() => document.getElementById("main")?.focus({ preventScroll: true }), 0)}
+        className="btn btn-primary fixed left-4 top-3 z-[60] -translate-y-24 focus:translate-y-0"
       >
         {t("nav.skip")}
       </a>
 
-      {/* ── La pàgina: llisca cap amunt i destapa el peu (cortina) ── */}
-      <div className="curtain-page">
-        <Header />
-        <main id="main" tabIndex={-1} className="outline-none">
-          <Hero />
-          <Services />
-          <Projects />
-          <About />
-          <Contact />
-        </main>
-      </div>
-
+      <Header />
+      <main id="main" tabIndex={-1} className="outline-none">
+        <Hero />
+        <Services />
+        <Projects />
+        <Interlude />
+        <About />
+        <Contact />
+      </main>
       <Footer />
+
       <Toaster />
       <CookieBanner />
     </OrderProvider>

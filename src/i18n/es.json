@@ -5,38 +5,32 @@
     "projects": "Proyectos",
     "services": "Servicios",
     "contact": "Contacto",
-    "action": "Hagamos un encargo",
-    "actionShort": "Encargo",
+    "action": "Hablemos",
+    "menu": "Menú",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú",
     "home": "Biel Diaz Basullas, inicio",
     "language": "Idioma",
-    "themeDark": "Activa el modo oscuro",
-    "themeLight": "Activa el modo claro",
     "main": "Navegación principal"
   },
   "hero": {
-    "nameLine1": "Biel Diaz",
-    "nameLine2": "Basullas",
-    "lead": "Desarrollador web y diseñador. Hago webs y apps a medida para negocios y profesionales de Cataluña.",
-    "sheet": "Hoja de encargo",
-    "place": "Barcelona",
-    "fields": [
-      { "label": "Para", "value": "Tu negocio" },
-      { "label": "Trabajo", "value": "Webs y apps a medida" },
-      { "label": "Cómo", "value": "Trato directo, sin intermediarios" }
-    ],
-    "signed": "Firmado",
-    "signature": "Biel",
-    "stamp": "Encargos abiertos"
+    "eyebrow": "Biel Diaz Basullas · Desarrollador web y diseñador",
+    "title": "Webs y apps a medida para negocios de Cataluña.",
+    "lead": "Diseño y programo herramientas claras y fáciles de usar: desde una web en WordPress hasta la app que lleva tu gimnasio.",
+    "primary": "Hablemos de tu proyecto",
+    "secondary": "Ver el trabajo",
+    "workLabel": "Trabajo reciente"
   },
   "services": {
-    "title": "Servicios",
-    "intro": "Abre lo que te interese y márcalo: lo añado a tu encargo.",
-    "add": "Añadir al encargo",
-    "added": "Añadido al encargo",
+    "eyebrow": "Servicios",
+    "title": "Qué puedo hacer por ti",
+    "intro": "Marca lo que te interese y lo añado a tu mensaje de contacto.",
+    "add": "Añadir",
+    "added": "Añadido",
     "summary_zero": "Todavía no has marcado ningún servicio.",
     "summary_one": "Has marcado {{count}} servicio.",
     "summary_other": "Has marcado {{count}} servicios.",
-    "review": "Revisa el encargo",
+    "review": "Escríbeme",
     "items": [
       { "id": "custom-apps", "title": "Apps de gestión a medida", "description": "Herramientas hechas a tu manera de trabajar: clientes, reservas, inventario o lo que necesites, todo en un solo lugar. Se acabaron las hojas de cálculo que no se hablan entre sí." },
       { "id": "gyms", "title": "Gestión para gimnasios", "description": "Socios, cuotas, horarios y reservas de clases desde una sola app. Tú te centras en entrenar y pasas menos tiempo con papeles." },
@@ -47,58 +41,73 @@
     ]
   },
   "projects": {
-    "title": "Encargos entregados",
-    "labels": { "tools": "Herramientas", "site": "Web" },
+    "eyebrow": "Proyectos",
+    "title": "Trabajo reciente",
+    "intro": "Tres proyectos hechos de principio a fin: diseño, desarrollo y puesta en marcha.",
+    "tools": "Herramientas",
     "visit": "Visita la web",
     "newTab": "(se abre en una pestaña nueva)",
     "items": [
       {
+        "id": "tresdege",
         "title": "Web Diseñador Gráfico",
         "category": "Portfolio",
-        "description": "Portfolio para un diseñador gráfico, con los trabajos y los servicios en una web ágil. El trabajo se ve antes que nada y el contacto queda siempre a mano.",
+        "description": "Portfolio para un estudio de diseño gráfico de Barcelona, con los trabajos y los servicios en una web ágil. El trabajo se ve antes que nada y el contacto queda siempre a mano.",
         "year": "2026",
         "url": "https://tresdege.com/",
-        "tags": ["React", "Portfolio", "UX/UI", "Web App"]
+        "alt": "Portada de la web de Tresdegé, con el nombre del estudio en grande sobre un fondo azul",
+        "tags": ["React", "UX/UI", "Web App"]
       },
       {
+        "id": "sergigarcia",
         "title": "Plataforma de entrenamientos",
         "category": "App web",
         "description": "Aplicación web para entrenadores: organiza los entrenamientos y el seguimiento de los atletas desde un solo lugar, en el móvil o en el ordenador.",
         "year": "2025",
         "url": "https://sergigarciatraining.com/",
-        "tags": ["React", "Firebase", "UX/UI", "Web App"]
+        "alt": "Pantalla de acceso de la plataforma de entrenamientos, con el formulario a la izquierda y una foto de un atleta a la derecha",
+        "tags": ["React", "Firebase", "UX/UI"]
       },
       {
+        "id": "camsub10",
         "title": "Portal para padres y madres de atletismo",
         "category": "Portal",
-        "description": "Portal para que las familias de atletas sigan resultados e información deportiva sin tener que buscarla en grupos de mensajes.",
+        "description": "Portal para que las familias de atletas consulten marcas, competiciones y el perfil deportivo de sus hijos, sin tener que buscarlo en grupos de mensajes.",
         "year": "2026",
-        "url": "https://www.camsub10.site/",
-        "tags": ["React", "Firebase", "Información deportiva", "Web App"]
+        "url": "",
+        "access": "Acceso privado para familias y entrenadores",
+        "alt": "Pantalla de acceso del portal de atletismo, con el código del atleta y una foto aérea de una pista",
+        "tags": ["React", "Firebase", "Web App"]
       }
     ]
   },
+  "interlude": {
+    "text": "Trabajas directamente conmigo, sin intermediarios ni plantillas.",
+    "lead": "Hablamos, te enseño propuestas y ajustamos hasta que la web hace el trabajo que necesitas.",
+    "cta": "Hablemos"
+  },
   "about": {
+    "eyebrow": "Sobre mí",
     "greeting": "Hola, soy Biel.",
+    "lead": "Ayudo a personas y negocios a tener una web clara, ordenada y fácil de usar.",
     "paragraphs": [
-      "Ayudo a personas y negocios a tener una web clara, ordenada y fácil de usar.",
       "Me centro en resolver el problema de las webs confusas o poco cuidadas, combinando diseño, desarrollo y mucha atención a los detalles.",
-      "Llevo más de 3 años haciendo webs y he entregado más de 20 proyectos, sobre todo con React, Firebase y WordPress.",
-      "Trabajas directamente conmigo: hablamos, te enseño propuestas y ajustamos hasta que la web hace el trabajo que necesitas."
+      "Trabajo sobre todo con React, Firebase y WordPress, y elijo la herramienta según lo que necesita cada proyecto, no al revés."
     ],
-    "name": "Biel Diaz Basullas",
-    "role": "Desarrollador web y diseñador",
-    "portraitAlt": "Retrato ilustrado de Biel",
-    "stub": "Corta por aquí y escríbeme"
+    "stats": [
+      { "value": "3+", "label": "años haciendo webs" },
+      { "value": "20+", "label": "proyectos entregados" }
+    ],
+    "portraitAlt": "Retrato ilustrado de Biel, con gorro de lana y guiñando un ojo"
   },
   "contact": {
-    "title": "Hagamos el encargo",
-    "subtitle": "¿Tienes un proyecto en mente o solo quieres hablar? Rellena la hoja y te responderé pronto.",
+    "eyebrow": "Contacto",
+    "title": "¿Tienes un proyecto en mente?",
+    "subtitle": "Cuéntame qué necesitas o si solo quieres hablar. Te responderé pronto.",
     "directLabel": "O escribe directamente",
     "formNote": "Normalmente respondo en menos de 24 h. Sin compromiso.",
-    "selectedLabel": "Servicios marcados",
-    "selectedEmpty": "Ningún servicio marcado. También puedes contármelo directamente en el mensaje.",
-    "remove": "Quitar {{service}}",
+    "servicesLabel": "¿Qué necesitas?",
+    "servicesHint": "Opcional. Puedes marcar más de uno.",
     "prefill": "Hola Biel, me interesa: {{services}}.",
     "form": {
       "name": "Nombre",
@@ -107,7 +116,7 @@
       "emailPlaceholder": "tu@email.com",
       "message": "Mensaje",
       "messagePlaceholder": "Cuéntame tu proyecto…",
-      "submit": "Enviar el encargo",
+      "submit": "Enviar el mensaje",
       "sending": "Enviando…"
     },
     "toast": {
@@ -121,14 +130,18 @@
       }
     },
     "thanks": {
-      "title": "Gracias por contactar",
-      "description": "Tu mensaje se ha enviado correctamente. Te responderé lo antes posible."
+      "title": "Gracias por escribirme",
+      "description": "El mensaje se ha enviado correctamente. Te responderé lo antes posible."
     }
   },
   "footer": {
-    "signoff": "Hasta pronto,",
-    "message": "Gracias por pasarte. Si tienes una idea a medio hacer, cuéntamela y la miramos juntos.",
-    "imprint": "© {{year}} Biel Diaz Basullas · Hecho en Cataluña"
+    "statement": "Hagamos algo claro y bien hecho.",
+    "cta": "Escríbeme",
+    "nav": "Navegación",
+    "social": "Redes",
+    "contact": "Contacto",
+    "imprint": "© {{year}} Biel Diaz Basullas. Hecho en Cataluña.",
+    "backTop": "Volver arriba"
   },
   "seo": {
     "home": {

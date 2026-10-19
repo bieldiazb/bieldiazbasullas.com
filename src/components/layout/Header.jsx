@@ -1,18 +1,15 @@
 'use client'
 
+import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "@/hooks/use-theme"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
+import { lockScroll } from "@/lib/lenis"
 
 const LANGS = ["ca", "es", "en"]
 
-// ── Header ────────────────────────────────────────────────────────
-// Fila superior sobre el camp verd: monograma, enllaços, idioma, tema
-// i l'única acció. Barra plana, sense vidre ni ombres.
-
-export default function Header() {
+// ── LangSwitch ────────────────────────────────────────────────────
+function LangSwitch({ className = "" }) {
   const { t, i18n } = useTranslation()
-  const { theme, setTheme } = useTheme()
   const lang = i18n.resolvedLanguage || "ca"
 
   const changeLang = (value) => {
@@ -20,35 +17,117 @@ export default function Header() {
     try { localStorage.setItem("lang", value) } catch { /* sense storage */ }
   }
 
+  return (
+    <div role="group" aria-label={t("nav.language")} className={`flex ${className}`}>
+      {LANGS.map((l) => (
+        <button
+          key={l}
+          type="button"
+          lang={l}
+          onClick={() => changeLang(l)}
+          aria-pressed={lang === l}
+          className={`min-h-[44px] min-w-[36px] px-1.5 text-[0.875rem] font-semibold uppercase transition-colors ${
+            lang === l ? "text-ink" : "text-slate hover:text-ink"
+          }`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+// ── Header ────────────────────────────────────────────────────────
+// Barra blanca de 64px (DESIGN.md nav-bar): nom en minúscula, menú
+// centrat i la píndola negra. S'amaga en baixar i torna en pujar.
+// Al mòbil, el menú s'obre en un panell a pantalla completa.
+
+export default function Header() {
+  const { t } = useTranslation()
+  const [open, setOpen] = useState(false)
+  const headerRef = useRef(null)
+  const panelRef  = useRef(null)
+  const toggleRef = useRef(null)
+
   const NAV = [
     { label: t("nav.services"), href: "#services" },
     { label: t("nav.projects"), href: "#projects" },
     { label: t("nav.about"),    href: "#about"    },
+    { label: t("nav.contact"),  href: "#contact"  },
   ]
+
+  // ── S'amaga en baixar, torna en pujar ──
+  useEffect(() => {
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const hide = gsap.quickTo(headerRef.current, "yPercent", { duration: 0.45, ease: "power3.out" })
+      ScrollTrigger.create({
+        start: 0,
+        end: "max",
+        onUpdate: (self) => {
+          const down = self.direction === 1 && self.scroll() > 240
+          hide(down ? -100 : 0)
+        },
+      })
+    })
+    return () => mm.revert()
+  }, [])
+
+  // ── Menú mòbil: bloqueja el scroll, fa inert la resta i gestiona el focus ──
+  useEffect(() => {
+    const outside = [document.getElementById("main"), document.querySelector("footer")]
+    if (!open) return
+
+    lockScroll(true)
+    outside.forEach(el => el && (el.inert = true))
+    gsap.set(headerRef.current, { yPercent: 0 })
+    panelRef.current?.querySelector("a")?.focus()
+
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false) }
+    document.addEventListener("keydown", onKey)
+
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.from(panelRef.current.querySelectorAll("[data-menu-item]"), {
+        y: 16, opacity: 0, duration: 0.5, ease: "power3.out", stagger: 0.05,
+      })
+    })
+
+    const toggle = toggleRef.current
+    return () => {
+      lockScroll(false)
+      outside.forEach(el => el && (el.inert = false))
+      document.removeEventListener("keydown", onKey)
+      mm.revert()
+      toggle?.focus()
+    }
+  }, [open])
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 bg-ground text-on-ground"
-      style={{ height: "var(--header-h)" }}
+      ref={headerRef}
+      // Si el focus de teclat entra a la barra amagada, la tornem a mostrar
+      onFocusCapture={() => gsap.to(headerRef.current, { yPercent: 0, duration: 0.2 })}
+      className="fixed inset-x-0 top-0 z-50 bg-canvas"
+      style={{
+        height: "var(--header-h)",
+        paddingLeft: "env(safe-area-inset-left)",
+        paddingRight: "env(safe-area-inset-right)",
+      }}
     >
-      <div className="mx-auto flex h-full items-center justify-between gap-4 px-4 md:px-7">
+      <div className="container-page flex h-full items-center justify-between gap-4">
 
-        {/* ── Monograma ── */}
-        <a
-          href="#home"
-          aria-label={t("nav.home")}
-          className="font-serif text-[1.75rem] italic leading-none text-on-ground no-underline"
-          translate="no"
-        >
-          bdb
+        {/* ── Nom ── */}
+        <a href="#home" aria-label={t("nav.home")} className="text-[1.0625rem] font-semibold tracking-[-0.02em] text-ink" translate="no">
+          biel diaz basullas
         </a>
 
-        {/* ── Enllaços (escriptori) ── */}
-        <nav aria-label={t("nav.main")} className="hidden md:block">
-          <ul className="flex gap-8">
-            {NAV.map(({ label, href }) => (
+        {/* ── Menú (escriptori) ── */}
+        <nav aria-label={t("nav.main")} className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
+          <ul className="flex gap-1">
+            {NAV.slice(0, 3).map(({ label, href }) => (
               <li key={href}>
-                <a href={href} className="link text-[0.9375rem] text-on-ground no-underline hover:underline">
+                <a href={href} className="inline-flex min-h-[44px] items-center px-3 text-[0.875rem] font-semibold text-ink-soft transition-colors hover:text-slate">
                   {label}
                 </a>
               </li>
@@ -56,42 +135,59 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-1 md:gap-3">
-          {/* ── Idioma ── */}
-          <div role="group" aria-label={t("nav.language")} className="flex">
-            {LANGS.map((l) => (
-              <button
-                key={l}
-                type="button"
-                onClick={() => changeLang(l)}
-                aria-pressed={lang === l}
-                lang={l}
-                className={`min-h-[44px] min-w-[36px] px-1.5 text-[0.875rem] uppercase transition-colors ${
-                  lang === l ? "text-on-ground underline underline-offset-4" : "text-on-ground-soft hover:text-on-ground"
-                }`}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
+        <div className="flex items-center gap-2">
+          <LangSwitch className="hidden lg:flex" />
+          <a href="#contact" className="btn btn-primary">{t("nav.action")}</a>
 
-          {/* ── Tema ── */}
+          {/* ── Botó del menú (mòbil) ── */}
           <button
+            ref={toggleRef}
             type="button"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label={theme === "dark" ? t("nav.themeLight") : t("nav.themeDark")}
-            className="grid min-h-[44px] min-w-[44px] place-items-center text-on-ground-soft transition-colors hover:text-on-ground"
+            onClick={() => setOpen(o => !o)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+            className="grid size-12 place-items-center rounded-full text-ink transition-colors hover:bg-hairline lg:hidden"
           >
-            {theme === "dark" ? <Sun aria-hidden size={18} /> : <Moon aria-hidden size={18} />}
+            <span aria-hidden className="relative block h-3 w-5">
+              <span className={`absolute left-0 h-[1.5px] w-5 bg-current transition-transform duration-300 ${open ? "top-1.5 rotate-45" : "top-0"}`} />
+              <span className={`absolute left-0 h-[1.5px] w-5 bg-current transition-transform duration-300 ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
+            </span>
           </button>
-
-          {/* ── Acció ── */}
-          <a href="#contact" className="btn ml-1 min-h-[40px] px-4 text-[0.9375rem]">
-            <span className="hidden sm:inline">{t("nav.action")}</span>
-            <span className="sm:hidden">{t("nav.actionShort")}</span>
-          </a>
         </div>
       </div>
+
+      {/* ── Panell del menú (mòbil) ── */}
+      {open && (
+        <div
+          id="mobile-menu"
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("nav.menu")}
+          className="fixed inset-x-0 bottom-0 top-[var(--header-h)] flex flex-col overflow-y-auto bg-canvas lg:hidden"
+        >
+          <nav aria-label={t("nav.main")} className="container-page pt-8">
+            <ul>
+              {NAV.map(({ label, href }) => (
+                <li key={href} data-menu-item className="border-b border-hairline">
+                  <a
+                    href={href}
+                    // Reprèn Lenis abans que gestioni l'àncora
+                    onClick={() => { lockScroll(false); setOpen(false) }}
+                    className="t-heading flex min-h-[64px] items-center text-ink"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div data-menu-item className="container-page mt-auto pb-8 pt-10">
+            <LangSwitch />
+          </div>
+        </div>
+      )}
     </header>
   )
 }
