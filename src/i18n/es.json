@@ -20,83 +20,19 @@
   },
   "services": {
     "eyebrow": "SERVICIOS",
-    "title": "Planes de servicios",
-    "recommended": "Recomendado",
-    "cta": "Contactar",
-    "features": [
-      { "key": "pages", "label": "Tipo de web", "description": "Número y tipo de páginas del sitio web" },
-      { "key": "design", "label": "Diseño moderno y responsive" },
-      { "key": "contact", "label": "Formulario de contacto" },
-      { "key": "map", "label": "Mapa o WhatsApp" },
-      { "key": "seo", "label": "SEO básico" },
-      { "key": "google", "label": "Google Business Profile" },
-      { "key": "texts", "label": "Textos optimizados" },
-      { "key": "hosting", "label": "Dominio y hosting gestionados" },
-      { "key": "analytics", "label": "Analíticas" },
-      { "key": "performance", "label": "Optimización de rendimiento" },
-      { "key": "revisions", "label": "Rondas de cambios" }
-    ],
-    "packs": [
-      {
-        "id": "local",
-        "name": "Presencia Local",
-        "price": "350 €",
-        "time": "7–10 días",
-        "highlight": false,
-        "features": {
-          "pages": "Landing (1 página)",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": false,
-          "google": false,
-          "texts": false,
-          "hosting": false,
-          "analytics": false,
-          "performance": false,
-          "revisions": 1
-        }
-      },
-      {
-        "id": "professional",
-        "name": "Negocio Profesional",
-        "price": "450–800 €",
-        "time": "14–21 días",
-        "highlight": true,
-        "features": {
-          "pages": "4–5 páginas",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": true,
-          "google": true,
-          "texts": true,
-          "hosting": false,
-          "analytics": false,
-          "performance": false,
-          "revisions": 2
-        }
-      },
-      {
-        "id": "full",
-        "name": "Todo Hecho",
-        "price": "1.400–2.000 €",
-        "time": "21–30 días",
-        "highlight": false,
-        "features": {
-          "pages": "Web personalizada",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": true,
-          "google": true,
-          "texts": true,
-          "hosting": true,
-          "analytics": true,
-          "performance": true,
-          "revisions": 3
-        }
-      }
+    "title": "Qué puedo hacer por ti",
+    "intro": "Webs y aplicaciones a medida para que tu negocio funcione mejor. Sin plantillas ni complicaciones.",
+    "count_one": "{{count}} servicio",
+    "count_other": "{{count}} servicios",
+    "ctaText": "¿No encuentras lo que buscas? Cuéntame tu proyecto y lo hablamos.",
+    "cta": "Hablemos",
+    "items": [
+      { "id": "custom-apps", "title": "Apps de gestión a medida", "description": "Herramientas hechas a tu manera de trabajar: clientes, reservas, inventario o lo que necesites, todo en un solo lugar. Se acabaron las hojas de cálculo que no se hablan entre sí." },
+      { "id": "gyms", "title": "Gestión para gimnasios", "description": "Socios, cuotas, horarios y reservas de clases desde una sola app. Tú te centras en entrenar y pasas menos tiempo con papeles." },
+      { "id": "portfolios", "title": "Portfolios web a medida", "description": "Una web que enseña tu trabajo como se merece, diseñada desde cero y sin plantillas. Ideal para creativos y profesionales que quieren destacar." },
+      { "id": "wordpress", "title": "Webs básicas en WordPress", "description": "Una web sencilla, rápida y que puedes actualizar tú mismo. Perfecta para empezar a estar en internet sin complicaciones." },
+      { "id": "seo", "title": "Gestión de SEO", "description": "Hago que te encuentren en Google: revisión técnica, contenidos y ficha de Google Business. Más visitas de gente que busca justo lo que ofreces." },
+      { "id": "smb", "title": "Apps para pymes", "description": "Digitalizo los procesos de tu negocio con apps pensadas para equipos pequeños: presupuestos, pedidos o tareas. Fáciles de usar desde el primer día." }
     ]
   },
   "projects": {

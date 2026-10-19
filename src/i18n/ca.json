@@ -20,83 +20,19 @@
   },
   "services": {
     "eyebrow": "SERVEIS",
-    "title": "Packs de serveis",
-    "recommended": "Recomanat",
-    "cta": "Contactar",
-    "features": [
-      { "key": "pages", "label": "Tipus de web", "description": "Nombre i tipus de pàgines del lloc web" },
-      { "key": "design", "label": "Disseny modern i responsive" },
-      { "key": "contact", "label": "Formulari de contacte" },
-      { "key": "map", "label": "Mapa o WhatsApp" },
-      { "key": "seo", "label": "SEO bàsic" },
-      { "key": "google", "label": "Google Business Profile" },
-      { "key": "texts", "label": "Textos optimitzats" },
-      { "key": "hosting", "label": "Domini i hosting gestionats" },
-      { "key": "analytics", "label": "Analítiques" },
-      { "key": "performance", "label": "Optimització de rendiment" },
-      { "key": "revisions", "label": "Rondes de canvis" }
-    ],
-    "packs": [
-      {
-        "id": "local",
-        "name": "Presència Local",
-        "price": "350 €",
-        "time": "7–10 dies",
-        "highlight": false,
-        "features": {
-          "pages": "Landing (1 pàgina)",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": false,
-          "google": false,
-          "texts": false,
-          "hosting": false,
-          "analytics": false,
-          "performance": false,
-          "revisions": 1
-        }
-      },
-      {
-        "id": "professional",
-        "name": "Negoci Professional",
-        "price": "450–800 €",
-        "time": "14–21 dies",
-        "highlight": true,
-        "features": {
-          "pages": "4–5 pàgines",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": true,
-          "google": true,
-          "texts": true,
-          "hosting": false,
-          "analytics": false,
-          "performance": false,
-          "revisions": 2
-        }
-      },
-      {
-        "id": "full",
-        "name": "Tot Fet",
-        "price": "1.400–2.000 €",
-        "time": "21–30 dies",
-        "highlight": false,
-        "features": {
-          "pages": "Web personalitzada",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": true,
-          "google": true,
-          "texts": true,
-          "hosting": true,
-          "analytics": true,
-          "performance": true,
-          "revisions": 3
-        }
-      }
+    "title": "Què puc fer per tu",
+    "intro": "Webs i aplicacions fetes a mida perquè el teu negoci funcioni millor. Sense plantilles ni complicacions.",
+    "count_one": "{{count}} servei",
+    "count_other": "{{count}} serveis",
+    "ctaText": "No trobes el que busques? Explica'm el teu projecte i en parlem.",
+    "cta": "Parlem-ne",
+    "items": [
+      { "id": "custom-apps", "title": "Apps de gestió a mida", "description": "Eines fetes a la teva manera de treballar: clients, reserves, inventari o el que necessitis, tot en un sol lloc. S'han acabat els fulls de càlcul que no es parlen entre ells." },
+      { "id": "gyms", "title": "Gestió per a gimnasos", "description": "Socis, quotes, horaris i reserves de classes des d'una sola app. Tu et centres a entrenar i passes menys temps amb papers." },
+      { "id": "portfolios", "title": "Portfolis web a mida", "description": "Una web que ensenya la teva feina com es mereix, dissenyada des de zero i sense plantilles. Ideal per a creatius i professionals que volen destacar." },
+      { "id": "wordpress", "title": "Webs bàsiques en WordPress", "description": "Una web senzilla, ràpida i que pots actualitzar tu mateix. Perfecta per començar a ser a internet sense complicacions." },
+      { "id": "seo", "title": "Gestió de SEO", "description": "Faig que et trobin a Google: revisió tècnica, continguts i fitxa de Google Business. Més visites de gent que busca just el que ofereixes." },
+      { "id": "smb", "title": "Apps per a pimes", "description": "Digitalitzo els processos del teu negoci amb apps pensades per a equips petits: pressupostos, comandes o tasques. Fàcils d'usar des del primer dia." }
     ]
   },
   "projects": {

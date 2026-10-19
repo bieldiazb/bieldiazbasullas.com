@@ -20,83 +20,19 @@
   },
   "services": {
     "eyebrow": "SERVICES",
-    "title": "Service plans",
-    "recommended": "Recommended",
-    "cta": "Contact",
-    "features": [
-      { "key": "pages", "label": "Website type", "description": "Number and type of pages" },
-      { "key": "design", "label": "Modern & responsive design" },
-      { "key": "contact", "label": "Contact form" },
-      { "key": "map", "label": "Map or WhatsApp" },
-      { "key": "seo", "label": "Basic SEO" },
-      { "key": "google", "label": "Google Business Profile" },
-      { "key": "texts", "label": "Optimized texts" },
-      { "key": "hosting", "label": "Domain & hosting managed" },
-      { "key": "analytics", "label": "Analytics" },
-      { "key": "performance", "label": "Performance optimization" },
-      { "key": "revisions", "label": "Revision rounds" }
-    ],
-    "packs": [
-      {
-        "id": "local",
-        "name": "Local Presence",
-        "price": "350 €",
-        "time": "7–10 days",
-        "highlight": false,
-        "features": {
-          "pages": "Landing (1 page)",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": false,
-          "google": false,
-          "texts": false,
-          "hosting": false,
-          "analytics": false,
-          "performance": false,
-          "revisions": 1
-        }
-      },
-      {
-        "id": "professional",
-        "name": "Professional Business",
-        "price": "450–800 €",
-        "time": "14–21 days",
-        "highlight": true,
-        "features": {
-          "pages": "4–5 pages",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": true,
-          "google": true,
-          "texts": true,
-          "hosting": false,
-          "analytics": false,
-          "performance": false,
-          "revisions": 2
-        }
-      },
-      {
-        "id": "full",
-        "name": "All Done",
-        "price": "1,400–2,000 €",
-        "time": "21–30 days",
-        "highlight": false,
-        "features": {
-          "pages": "Custom website",
-          "design": true,
-          "contact": true,
-          "map": true,
-          "seo": true,
-          "google": true,
-          "texts": true,
-          "hosting": true,
-          "analytics": true,
-          "performance": true,
-          "revisions": 3
-        }
-      }
+    "title": "What I can do for you",
+    "intro": "Custom websites and apps that help your business run better. No templates, no hassle.",
+    "count_one": "{{count}} service",
+    "count_other": "{{count}} services",
+    "ctaText": "Can't find what you're looking for? Tell me about your project and let's talk.",
+    "cta": "Let's talk",
+    "items": [
+      { "id": "custom-apps", "title": "Custom management apps", "description": "Tools built around the way you work: clients, bookings, inventory or whatever you need, all in one place. No more spreadsheets that don't talk to each other." },
+      { "id": "gyms", "title": "Gym management", "description": "Members, fees, schedules and class bookings from a single app. You focus on training and spend less time on paperwork." },
+      { "id": "portfolios", "title": "Custom portfolio websites", "description": "A site that shows your work the way it deserves, designed from scratch with no templates. Ideal for creatives and professionals who want to stand out." },
+      { "id": "wordpress", "title": "Simple WordPress websites", "description": "A simple, fast website you can update yourself. Perfect for getting online without the hassle." },
+      { "id": "seo", "title": "SEO management", "description": "I help people find you on Google: technical review, content and your Google Business profile. More visits from people looking for exactly what you offer." },
+      { "id": "smb", "title": "Apps for small businesses", "description": "I digitise your business processes with apps built for small teams: quotes, orders or tasks. Easy to use from day one." }
     ]
   },
   "projects": {
