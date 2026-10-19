@@ -105,7 +105,10 @@
           "Own product",
           "Web game",
           "Simulator",
-          "Basketball"
+          "Basketball",
+          "HTML",
+          "CSS",
+          "JavaScript"
         ],
         "links": [
           {

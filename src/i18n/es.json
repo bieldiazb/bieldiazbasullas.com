@@ -105,7 +105,10 @@
           "Producto propio",
           "Juego web",
           "Simulador",
-          "Baloncesto"
+          "Baloncesto",
+          "HTML",
+          "CSS",
+          "JavaScript"
         ],
         "links": [
           {
