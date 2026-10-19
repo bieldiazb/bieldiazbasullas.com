@@ -183,7 +183,7 @@ export default function EntryCTA() {
             <button
               onClick={() => {
                 close()
-                setTimeout(() => document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" }), 600)
+                setTimeout(() => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" }), 600)
               }}
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",

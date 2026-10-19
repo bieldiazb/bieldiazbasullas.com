@@ -23,29 +23,31 @@ export function SectionReveal({ children, y = 40, duration = 0.9, delay = 0 }) {
     const el = ref.current
     if (!el) return
 
-    gsap.fromTo(el,
-      { opacity: 0, y },
-      {
-        opacity: 1,
-        y: 0,
-        duration,
-        delay,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 88%",
-          once: true,
-        },
-      }
-    )
+    // Amb prefers-reduced-motion: reduce el contingut es mostra sense animació
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo(el,
+        { opacity: 0, y },
+        {
+          opacity: 1,
+          y: 0,
+          duration,
+          delay,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      )
+    })
 
-    return () => ScrollTrigger.getAll()
-      .filter(t => t.vars?.trigger === el)
-      .forEach(t => t.kill())
+    return () => mm.revert()
   }, [y, duration, delay])
 
   return (
-    <div ref={ref} style={{ opacity: 0 }}>
+    <div ref={ref}>
       {children}
     </div>
   )
