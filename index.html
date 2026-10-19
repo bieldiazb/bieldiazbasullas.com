@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#12392F" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0B211B" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Biel Diaz Basullas</title>
 
     <!-- Icons -->
@@ -17,19 +16,8 @@
     <link rel="alternate" hreflang="es" href="https://bieldiazbasullas.com/es" />
     <link rel="alternate" hreflang="en" href="https://bieldiazbasullas.com/en" />
 
-    <!-- Fonts: preconnect primer, després preload del CSS crític -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Instrument Serif (títols) + Inter (text) -->
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
-
-    <!-- Tema (evita flash) -->
-    <script>
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark") document.documentElement.classList.add("dark");
-    </script>
+    <!-- Switzer (Fontshare, ITF Free Font License), allotjada al projecte -->
+    <link rel="preload" href="/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   </head>
   <body>
     <div id="root"></div>
