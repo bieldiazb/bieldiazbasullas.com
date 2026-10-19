@@ -227,6 +227,8 @@
     "subtitle": "Explica’m què necessites o si només vols parlar. Et respondré aviat.",
     "directLabel": "O escriu directament",
     "formNote": "Normalment responc en menys de 24 h. Sense compromís.",
+    "privacyNote": "En enviar el formulari, {{name}} tractarà les teves dades només per respondre’t. Més informació i com exercir els teus drets a la",
+    "privacyLink": "Política de privacitat",
     "servicesLabel": "Què necessites?",
     "servicesHint": "Opcional. Pots marcar-ne més d’un.",
     "prefill": "Hola Biel, m’interessa: {{services}}.",
@@ -262,16 +264,17 @@
     "social": "Xarxes",
     "contact": "Contacte",
     "imprint": "© {{year}} Biel Diaz Basullas. Fet a Catalunya.",
-    "backTop": "Torna a dalt"
-  },
-  "seo": {
-    "home": {
-      "title": "Biel Diaz Basullas | Desenvolupador web i dissenyador",
-      "description": "Webs i apps a mida per a negocis i professionals de Catalunya: apps de gestió, gimnasos, portfolis, WordPress, SEO i apps per a pimes."
-    }
+    "backTop": "Torna a dalt",
+    "legal": "Avís legal",
+    "privacy": "Privacitat",
+    "cookies": "Cookies",
+    "legalNav": "Informació legal",
+    "cookiePrefs": "Preferències de cookies"
   },
   "cookies": {
-    "text": "Utilitzem cookies pròpies i de tercers per millorar l’experiència i analitzar l’ús del lloc web.",
+    "label": "Avís de cookies",
+    "text": "Fem servir cookies d’analítica per saber com s’utilitza la web. Només s’activen si les acceptes.",
+    "more": "Política de cookies",
     "accept": "Acceptar",
     "reject": "Rebutjar"
   }

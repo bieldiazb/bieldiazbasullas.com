@@ -1,7 +1,9 @@
+import { lazy, Suspense } from "react"
 import { useTranslation } from "react-i18next"
 
 import { Seo } from "./components/Seo"
 import { OrderProvider } from "@/lib/order"
+import { route } from "@/lib/routes"
 
 import Header        from "@/components/layout/Header"
 import Footer        from "@/components/layout/Footer"
@@ -17,16 +19,16 @@ import SmoothScroll  from "@/components/SmoothScroll"
 import Intro         from "@/components/Intro"
 import CursorLabel   from "@/components/CursorLabel"
 
+// Les pàgines legals i la 404 es carreguen a part: no pesen a l'inici
+const LegalPage = lazy(() => import("@/components/LegalPage"))
+
 export default function App() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
+  const { page, lang } = route
 
   return (
     <OrderProvider>
-      <Seo
-        lang={i18n.resolvedLanguage}
-        title={t("seo.home.title")}
-        description={t("seo.home.description")}
-      />
+      <Seo page={page} lang={lang} />
       <SmoothScroll />
       <Intro />
       <CursorLabel />
@@ -42,12 +44,20 @@ export default function App() {
 
       <Header />
       <main id="main" tabIndex={-1} className="outline-none">
-        <Hero />
-        <Services />
-        <Projects />
-        <About />
-        <Interlude />
-        <Contact />
+        {page === "home" ? (
+          <>
+            <Hero />
+            <Services />
+            <Projects />
+            <About />
+            <Interlude />
+            <Contact />
+          </>
+        ) : (
+          <Suspense fallback={<div className="min-h-[100svh]" />}>
+            <LegalPage page={page} lang={lang} />
+          </Suspense>
+        )}
       </main>
       <Footer />
 

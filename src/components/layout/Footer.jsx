@@ -3,16 +3,11 @@ import { useTranslation } from "react-i18next"
 import { ArrowUpRight } from "lucide-react"
 import { gsap } from "@/lib/gsap"
 import Clock from "@/components/Clock"
+import { OWNER, SOCIALS } from "@/lib/legal"
+import { homeLink, pathFor, route } from "@/lib/routes"
+import { consentEnabled, openConsent } from "@/lib/consent"
 
-const EMAIL = "bieldiazbasullas@proton.me"
-
-const SOCIALS = [
-  { href: "https://www.instagram.com/bieldiazbasullas/",              label: "Instagram" },
-  { href: "https://www.linkedin.com/in/biel-diaz-basullas-ba7a2b39a", label: "LinkedIn"  },
-  { href: "https://github.com/bieldiazb",                              label: "GitHub"    },
-  { href: "https://www.fiverr.com/s/XL96N1m",                         label: "Fiverr"    },
-  { href: "https://www.upwork.com/freelancers/~01906485989d1d213e",    label: "Upwork"    },
-]
+const EMAIL = OWNER.email
 
 // ── Footer ────────────────────────────────────────────────────────
 // Superfície final negra (DESIGN.md footer): una frase amb l'acció,
@@ -35,11 +30,18 @@ export default function Footer() {
   }, [])
 
   const NAV = [
-    { label: t("nav.services"), href: "#services" },
-    { label: t("nav.projects"), href: "#projects" },
-    { label: t("nav.about"),    href: "#about"    },
-    { label: t("nav.contact"),  href: "#contact"  },
+    { label: t("nav.services"), href: homeLink("#services") },
+    { label: t("nav.projects"), href: homeLink("#projects") },
+    { label: t("nav.about"),    href: homeLink("#about")    },
+    { label: t("nav.contact"),  href: homeLink("#contact")  },
   ]
+
+  const LEGAL = [
+    { label: t("footer.legal"),   href: pathFor("legal", route.lang)   },
+    { label: t("footer.privacy"), href: pathFor("privacy", route.lang) },
+    { label: t("footer.cookies"), href: pathFor("cookies", route.lang) },
+  ]
+  const metaLink = "t-meta inline-flex min-h-[44px] items-center text-stone hover:text-white"
 
   const linkClass = "inline-flex min-h-[32px] items-center gap-1 text-[1rem] text-white hover:text-stone"
 
@@ -95,10 +97,20 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6">
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-t border-white/15 pt-4">
           <p className="t-meta text-stone">{t("footer.imprint", { year })}</p>
+          <nav aria-label={t("footer.legalNav")}>
+            <ul className="flex flex-wrap gap-x-5">
+              {LEGAL.map(({ label, href }) => (
+                <li key={href}><a href={href} className={metaLink}>{label}</a></li>
+              ))}
+              {consentEnabled && (
+                <li><button type="button" onClick={openConsent} className={metaLink}>{t("footer.cookiePrefs")}</button></li>
+              )}
+            </ul>
+          </nav>
           <p className="t-meta text-stone">Barcelona <Clock lang={i18n.resolvedLanguage || "ca"} className="text-white" /></p>
-          <a href="#home" className="t-meta inline-flex min-h-[44px] items-center text-stone hover:text-white">{t("footer.backTop")}</a>
+          <a href="#main" className={metaLink}>{t("footer.backTop")}</a>
         </div>
       </div>
     </footer>

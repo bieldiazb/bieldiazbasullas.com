@@ -7,8 +7,10 @@ import { useToast } from "@/hooks/use-toast"
 import { useOrder } from "@/lib/order"
 import { useReveal } from "@/lib/useReveal"
 import SectionLabel from "@/components/SectionLabel"
+import { OWNER } from "@/lib/legal"
+import { pathFor, route } from "@/lib/routes"
 
-const EMAIL = "bieldiazbasullas@proton.me"
+const EMAIL = OWNER.email
 const FORM_ENDPOINT = "https://formspree.io/f/maqwoqee"
 
 // DESIGN.md form-field: línia inferior que s'enfosqueix en focus
@@ -163,6 +165,12 @@ export default function Contact() {
                     {loading ? t("contact.form.sending") : t("contact.form.submit")}
                   </button>
                 </div>
+
+                {/* Informació bàsica de protecció de dades (RGPD art. 13) */}
+                <p className="t-meta mt-6 max-w-[60ch] text-slate">
+                  {t("contact.privacyNote", { name: OWNER.name })}{" "}
+                  <a href={pathFor("privacy", route.lang)} className="text-link text-[1em] font-normal text-ink">{t("contact.privacyLink")}</a>.
+                </p>
               </form>
             )}
           </div>

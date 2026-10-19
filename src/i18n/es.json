@@ -227,6 +227,8 @@
     "subtitle": "Cuéntame qué necesitas o si solo quieres hablar. Te responderé pronto.",
     "directLabel": "O escribe directamente",
     "formNote": "Normalmente respondo en menos de 24 h. Sin compromiso.",
+    "privacyNote": "Al enviar el formulario, {{name}} tratará tus datos solo para responderte. Más información y cómo ejercer tus derechos en la",
+    "privacyLink": "Política de privacidad",
     "servicesLabel": "¿Qué necesitas?",
     "servicesHint": "Opcional. Puedes marcar más de uno.",
     "prefill": "Hola Biel, me interesa: {{services}}.",
@@ -262,16 +264,17 @@
     "social": "Redes",
     "contact": "Contacto",
     "imprint": "© {{year}} Biel Diaz Basullas. Hecho en Cataluña.",
-    "backTop": "Volver arriba"
-  },
-  "seo": {
-    "home": {
-      "title": "Biel Diaz Basullas | Desarrollador web y diseñador",
-      "description": "Webs y apps a medida para negocios y profesionales de Cataluña: apps de gestión, gimnasios, portfolios, WordPress, SEO y apps para pymes."
-    }
+    "backTop": "Volver arriba",
+    "legal": "Aviso legal",
+    "privacy": "Privacidad",
+    "cookies": "Cookies",
+    "legalNav": "Información legal",
+    "cookiePrefs": "Preferencias de cookies"
   },
   "cookies": {
-    "text": "Usamos cookies propias y de terceros para mejorar la experiencia y analizar el uso del sitio web.",
+    "label": "Aviso de cookies",
+    "text": "Usamos cookies de analítica para saber cómo se usa la web. Solo se activan si las aceptas.",
+    "more": "Política de cookies",
     "accept": "Aceptar",
     "reject": "Rechazar"
   }
