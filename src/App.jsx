@@ -17,6 +17,7 @@ import { Toaster }   from "./components/ui/toaster"
 
 import Cursor         from "@/components/Cursor"
 import ScrollProgress from "@/components/ScrollProgress"
+import SmoothScroll   from "@/components/SmoothScroll"
 import { SectionReveal } from "@/components/SectionReveal"
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
       />
 
       {/* ── UI globals ─────────────────────────────────── */}
+      <SmoothScroll paused={loading} />
       <Cursor />
       <ScrollProgress />
 
