@@ -88,6 +88,34 @@
         "alt": "Tauler de la demo de Repwise, amb els ingressos del mes, els clients actius, les sessions d’avui i el calendari de la setmana"
       },
       {
+        "id": "swish",
+        "title": "Swish & Legacy",
+        "category": "Joc web",
+        "year": "2026",
+        "description": "Simulador gratuït de la carrera d’un jugador de bàsquet, que es juga al navegador sense descarregar res. No jugues els partits: prens les decisions de la carrera i les temporades se simulen a partir de les teves valoracions, el teu equip i l’atzar.",
+        "featuresLabel": "Què inclou",
+        "features": [
+          "Crees el jugador als 14 anys: posició, nacionalitat, estil de joc i arquetip",
+          "Institut i universitat dels Estats Units, NBA, Eurolliga i lligues d’Europa, Àsia, Austràlia i Sud-amèrica",
+          "Draft, MVP i campionats, amb l’historial temporada a temporada",
+          "Saló de la Fama, 29 assoliments i un repte diari",
+          "En anglès i castellà"
+        ],
+        "tags": [
+          "Producte propi",
+          "Joc web",
+          "Simulador",
+          "Bàsquet"
+        ],
+        "links": [
+          {
+            "kind": "play",
+            "url": "https://swishandlegacy.com/"
+          }
+        ],
+        "alt": "Pantalla de creació de jugador de Swish & Legacy, amb la samarreta, la pista amb les posicions i les opcions d’estil de joc"
+      },
+      {
         "id": "camescola",
         "title": "CamEscola",
         "category": "Plataforma de gestió",
@@ -158,7 +186,8 @@
         ],
         "alt": "Portada de la web de Tresdegé, amb el nom de l’estudi en gran sobre un fons blau"
       }
-    ]
+    ],
+    "play": "Juga ara"
   },
   "interlude": {
     "text": "Treballes directament amb mi, sense intermediaris ni plantilles.",

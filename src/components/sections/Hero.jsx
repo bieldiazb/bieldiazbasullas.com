@@ -77,7 +77,7 @@ export default function Hero() {
         {/* ── Feina recent ── */}
         <div className="mt-16 md:mt-24">
           <p data-fade className="t-meta text-white/60">{t("hero.workLabel")}</p>
-          <ul ref={stripRef} className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+          <ul ref={stripRef} className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-5 md:gap-4 [&>li:nth-child(n+5)]:hidden md:[&>li:nth-child(n+5)]:block">
             {projects.map((p, i) => (
               <li key={p.id}>
                 <a href={`#project-${p.id}`} className="group block">

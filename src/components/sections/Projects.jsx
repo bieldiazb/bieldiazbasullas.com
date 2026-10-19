@@ -11,7 +11,7 @@ import SectionLabel from "@/components/SectionLabel"
 const domainOf = (url) => url.replace(/^https?:\/\//, "").replace(/\/$/, "")
 
 // ── ProjectLinks ──────────────────────────────────────────────────
-// demo → píndola blanca · site → enllaç al domini · visit → píndola blanca
+// demo / play / visit → píndola blanca · site → enllaç al domini
 function ProjectLinks({ links, t }) {
   const newTab = <span className="sr-only">{t("projects.newTab")}</span>
   return (
@@ -24,7 +24,7 @@ function ProjectLinks({ links, t }) {
         </a>
       ) : (
         <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="btn btn-on-dark">
-          {kind === "demo" ? t("projects.demo") : t("projects.visit")}
+          {kind === "demo" ? t("projects.demo") : kind === "play" ? t("projects.play") : t("projects.visit")}
           <ArrowUpRight aria-hidden size={16} />
           {newTab}
         </a>

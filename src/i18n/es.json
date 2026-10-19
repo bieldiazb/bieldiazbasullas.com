@@ -88,6 +88,34 @@
         "alt": "Panel de la demo de Repwise, con los ingresos del mes, los clientes activos, las sesiones de hoy y el calendario de la semana"
       },
       {
+        "id": "swish",
+        "title": "Swish & Legacy",
+        "category": "Juego web",
+        "year": "2026",
+        "description": "Simulador gratuito de la carrera de un jugador de baloncesto, que se juega en el navegador sin descargar nada. No juegas los partidos: tomas las decisiones de la carrera y las temporadas se simulan a partir de tus valoraciones, tu equipo y el azar.",
+        "featuresLabel": "Qué incluye",
+        "features": [
+          "Creas al jugador a los 14 años: posición, nacionalidad, estilo de juego y arquetipo",
+          "Instituto y universidad de Estados Unidos, NBA, Euroliga y ligas de Europa, Asia, Australia y Sudamérica",
+          "Draft, MVP y campeonatos, con el historial temporada a temporada",
+          "Salón de la Fama, 29 logros y un reto diario",
+          "En inglés y castellano"
+        ],
+        "tags": [
+          "Producto propio",
+          "Juego web",
+          "Simulador",
+          "Baloncesto"
+        ],
+        "links": [
+          {
+            "kind": "play",
+            "url": "https://swishandlegacy.com/"
+          }
+        ],
+        "alt": "Pantalla de creación de jugador de Swish & Legacy, con la camiseta, la pista con las posiciones y las opciones de estilo de juego"
+      },
+      {
         "id": "camescola",
         "title": "CamEscola",
         "category": "Plataforma de gestión",
@@ -158,7 +186,8 @@
         ],
         "alt": "Portada de la web de Tresdegé, con el nombre del estudio en grande sobre un fondo azul"
       }
-    ]
+    ],
+    "play": "Juega ahora"
   },
   "interlude": {
     "text": "Trabajas directamente conmigo, sin intermediarios ni plantillas.",
