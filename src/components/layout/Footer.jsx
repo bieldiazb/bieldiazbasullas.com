@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import { ArrowUpRight } from "lucide-react"
 import { gsap } from "@/lib/gsap"
+import Clock from "@/components/Clock"
 
 const EMAIL = "bieldiazbasullas@proton.me"
 
@@ -12,22 +13,6 @@ const SOCIALS = [
   { href: "https://www.fiverr.com/s/XL96N1m",                         label: "Fiverr"    },
   { href: "https://www.upwork.com/freelancers/~01906485989d1d213e",    label: "Upwork"    },
 ]
-
-// ── Clock ─────────────────────────────────────────────────────────
-// Hora de Barcelona en directe (s'actualitza cada 30 s).
-function Clock({ lang }) {
-  const [now, setNow] = useState(() => new Date())
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 30000)
-    return () => clearInterval(id)
-  }, [])
-  const time = new Intl.DateTimeFormat(lang, { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Madrid" }).format(now)
-  return (
-    <p className="t-meta text-stone">
-      Barcelona <time className="index text-white" dateTime={now.toISOString()}>{time}</time>
-    </p>
-  )
-}
 
 // ── Footer ────────────────────────────────────────────────────────
 // Superfície final negra (DESIGN.md footer): una frase amb l'acció,
@@ -112,7 +97,7 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6">
           <p className="t-meta text-stone">{t("footer.imprint", { year })}</p>
-          <Clock lang={i18n.resolvedLanguage || "ca"} />
+          <p className="t-meta text-stone">Barcelona <Clock lang={i18n.resolvedLanguage || "ca"} className="text-white" /></p>
           <a href="#home" className="t-meta inline-flex min-h-[44px] items-center text-stone hover:text-white">{t("footer.backTop")}</a>
         </div>
       </div>

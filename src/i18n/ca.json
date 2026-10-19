@@ -19,7 +19,17 @@
     "lead": "Per a negocis i professionals de Catalunya. Dissenyo i programo eines clares i fàcils d’usar: des d’una web en WordPress fins a l’app que porta el teu gimnàs.",
     "primary": "Parlem del teu projecte",
     "secondary": "Veure la feina",
-    "workLabel": "Feina recent"
+    "workLabel": "Feina recent",
+    "pause": "Pausa el passi",
+    "play": "Reprèn el passi",
+    "slide": "{{n}} de {{total}}",
+    "pick": "Mostra {{title}}",
+    "availabilityLabel": "Disponibilitat",
+    "availability": "Agafo projectes nous",
+    "placeLabel": "Des de",
+    "place": "Barcelona",
+    "replyLabel": "Resposta",
+    "reply": "En menys de 24 h"
   },
   "services": {
     "eyebrow": "Serveis",

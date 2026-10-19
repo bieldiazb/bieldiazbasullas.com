@@ -19,7 +19,17 @@
     "lead": "For businesses and professionals in Catalonia. I design and build clear, easy-to-use tools: from a WordPress site to the app that runs your gym.",
     "primary": "Tell me about your project",
     "secondary": "See the work",
-    "workLabel": "Recent work"
+    "workLabel": "Recent work",
+    "pause": "Pause the slideshow",
+    "play": "Resume the slideshow",
+    "slide": "{{n}} of {{total}}",
+    "pick": "Show {{title}}",
+    "availabilityLabel": "Availability",
+    "availability": "Taking on new projects",
+    "placeLabel": "Based in",
+    "place": "Barcelona",
+    "replyLabel": "Reply",
+    "reply": "Within 24 hours"
   },
   "services": {
     "eyebrow": "Services",
