@@ -21,6 +21,7 @@ export default function SmoothScroll() {
       anchors: { offset: 0 },
     })
     setLenis(lenis)
+    if (document.documentElement.classList.contains("intro-active")) lenis.stop()
 
     lenis.on("scroll", ScrollTrigger.update)
     const tick = (time) => lenis.raf(time * 1000)

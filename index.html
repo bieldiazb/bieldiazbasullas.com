@@ -18,8 +18,68 @@
 
     <!-- Switzer (Fontshare, ITF Free Font License), allotjada al projecte -->
     <link rel="preload" href="/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Loader d'entrada: estils crítics perquè es vegi des del primer pintat -->
+    <style>
+      html.intro-active { overflow: hidden; }
+      #intro {
+        position: fixed; inset: 0; z-index: 100;
+        display: flex; flex-direction: column; justify-content: flex-end;
+        padding: clamp(20px, 4vw, 48px);
+        background: #1a1a1a; color: #fff;
+        font-family: "Switzer", system-ui, sans-serif;
+        clip-path: inset(0 0 0 0);
+        pointer-events: none;
+      }
+      #intro .intro-name {
+        margin: 0;
+        font-size: clamp(3rem, 11vw, 10.5rem); font-weight: 500;
+        line-height: 0.95; letter-spacing: -0.045em;
+      }
+      #intro .intro-word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+      #intro .intro-word > span { display: inline-block; transform: translateY(110%); }
+      #intro .intro-foot {
+        display: flex; justify-content: space-between; gap: 16px;
+        margin-top: clamp(24px, 4vw, 48px); padding-top: 16px;
+        border-top: 1px solid rgb(255 255 255 / 0.18);
+        font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+        color: rgb(255 255 255 / 0.7);
+      }
+      #intro .intro-count { font-variant-numeric: tabular-nums; color: #fff; }
+      @media (prefers-reduced-motion: reduce) {
+        #intro .intro-word > span { transform: none; }
+      }
+    </style>
+    <noscript><style>#intro { display: none; } html.intro-active { overflow: auto; }</style></noscript>
   </head>
   <body>
+    <div id="intro" aria-hidden="true">
+      <p class="intro-name">
+        <span class="intro-word"><span>biel</span></span>
+        <span class="intro-word"><span>diaz</span></span>
+        <span class="intro-word"><span>basullas</span></span>
+      </p>
+      <div class="intro-foot">
+        <span class="intro-count">000</span>
+        <span>Barcelona</span>
+      </div>
+    </div>
+    <script>
+      // Només a la primera visita de la sessió
+      (function () {
+        var seen = false
+        try { seen = sessionStorage.getItem("intro-seen") === "1" } catch (e) {}
+        var el = document.getElementById("intro")
+        if (seen) { el.parentNode.removeChild(el); return }
+        document.documentElement.classList.add("intro-active")
+        // Seguretat: si l'app no arrenca, el loader no tapa mai la pàgina
+        setTimeout(function () {
+          if (!document.body.contains(el)) return
+          el.parentNode.removeChild(el)
+          document.documentElement.classList.remove("intro-active")
+        }, 4000)
+      })()
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import { gsap } from "@/lib/gsap"
 import { PROJECT_IMAGES } from "@/assets/projects"
+import { introDone } from "@/lib/intro"
 
 // ── Hero ──────────────────────────────────────────────────────────
 // Panell fosc a sang (DESIGN.md hero-photo): etiqueta, títol gran, una
@@ -20,13 +21,16 @@ export default function Hero() {
   const projects = Array.isArray(items) ? items : []
 
   useEffect(() => {
+    let alive = true
     const mm = gsap.matchMedia()
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      // Entrada: les paraules del títol pugen dins la seva màscara
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" } })
+      // Entrada: les paraules del títol pugen dins la seva màscara.
+      // Queda en pausa fins que el loader comença a retirar-se.
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out" } })
       tl.from(rootRef.current.querySelectorAll("[data-word]"), { yPercent: 110, duration: 1.1, stagger: 0.045 })
         .from(rootRef.current.querySelectorAll("[data-fade]"), { y: 16, opacity: 0, duration: 0.9, stagger: 0.08 }, "-=0.8")
         .from(stripRef.current.children, { y: 40, opacity: 0, duration: 1, stagger: 0.08 }, "-=0.7")
+      introDone.then(() => { if (alive) tl.play() })
 
       // Sortida: el text puja i s'esvaeix; la tira va més lenta (parallax)
       gsap.to(textRef.current, {
@@ -38,7 +42,7 @@ export default function Hero() {
         scrollTrigger: { trigger: rootRef.current, start: "top top", end: "bottom top", scrub: true },
       })
     })
-    return () => mm.revert()
+    return () => { alive = false; mm.revert() }
   }, [title])
 
   return (
@@ -73,8 +77,8 @@ export default function Hero() {
         {/* ── Feina recent ── */}
         <div className="mt-16 md:mt-24">
           <p data-fade className="t-meta text-white/60">{t("hero.workLabel")}</p>
-          <ul ref={stripRef} className="mt-4 grid grid-cols-3 gap-2 md:gap-4">
-            {projects.map((p) => (
+          <ul ref={stripRef} className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4">
+            {projects.map((p, i) => (
               <li key={p.id}>
                 <a href={`#project-${p.id}`} className="group block">
                   <span className="block aspect-video overflow-hidden rounded-md bg-surface-cool">
@@ -82,7 +86,7 @@ export default function Hero() {
                       src={PROJECT_IMAGES[p.id]}
                       alt=""
                       width="1280" height="720"
-                      fetchPriority="high"
+                      fetchPriority={i < 2 ? "high" : "auto"}
                       className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </span>
