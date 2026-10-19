@@ -4,6 +4,7 @@ import { initReactI18next } from "react-i18next"
 import ca from "./ca.json"
 import es from "./es.json"
 import en from "./en.json"
+import { route } from "@/lib/routes"
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -11,7 +12,8 @@ i18n.use(initReactI18next).init({
     es: { translation: es },
     en: { translation: en },
   },
-  lng: localStorage.getItem("lang") || "ca",
+  // L'idioma el marca la URL (/, /es/, /en/)
+  lng: route.lang,
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,

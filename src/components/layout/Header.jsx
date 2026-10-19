@@ -4,34 +4,28 @@ import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
 import { lockScroll } from "@/lib/lenis"
-
-const LANGS = ["ca", "es", "en"]
+import { LANGS, homeLink, langLink } from "@/lib/routes"
 
 // ── LangSwitch ────────────────────────────────────────────────────
 function LangSwitch({ className = "" }) {
   const { t, i18n } = useTranslation()
   const lang = i18n.resolvedLanguage || "ca"
 
-  const changeLang = (value) => {
-    i18n.changeLanguage(value)
-    try { localStorage.setItem("lang", value) } catch { /* sense storage */ }
-  }
-
   return (
     <div role="group" aria-label={t("nav.language")} className={`flex ${className}`}>
       {LANGS.map((l) => (
-        <button
+        <a
           key={l}
-          type="button"
+          href={langLink(l)}
+          hrefLang={l}
           lang={l}
-          onClick={() => changeLang(l)}
-          aria-pressed={lang === l}
-          className={`min-h-[44px] min-w-[36px] px-1.5 text-[0.875rem] font-semibold uppercase ${
+          aria-current={lang === l ? "true" : undefined}
+          className={`inline-flex min-h-[44px] min-w-[36px] items-center justify-center px-1.5 text-[0.875rem] font-semibold uppercase ${
             lang === l ? "text-ink" : "text-slate hover:text-ink"
           }`}
         >
           {l}
-        </button>
+        </a>
       ))}
     </div>
   )
@@ -50,10 +44,10 @@ export default function Header() {
   const toggleRef = useRef(null)
 
   const NAV = [
-    { label: t("nav.services"), href: "#services" },
-    { label: t("nav.projects"), href: "#projects" },
-    { label: t("nav.about"),    href: "#about"    },
-    { label: t("nav.contact"),  href: "#contact"  },
+    { label: t("nav.services"), href: homeLink("#services") },
+    { label: t("nav.projects"), href: homeLink("#projects") },
+    { label: t("nav.about"),    href: homeLink("#about")    },
+    { label: t("nav.contact"),  href: homeLink("#contact")  },
   ]
 
   // ── S'amaga en baixar, torna en pujar ──
@@ -119,7 +113,7 @@ export default function Header() {
         <div className="container-page flex h-full items-center justify-between gap-4">
 
           {/* ── Nom ── */}
-          <a href="#home" aria-label={t("nav.home")} className="text-[1rem] font-semibold tracking-[-0.02em] text-ink" translate="no">
+          <a href={homeLink()} aria-label={t("nav.home")} className="text-[1rem] font-semibold tracking-[-0.02em] text-ink" translate="no">
             biel diaz basullas
           </a>
 
@@ -138,7 +132,7 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <LangSwitch className="hidden lg:flex" />
-            <a href="#contact" className="btn btn-primary">{t("nav.action")}</a>
+            <a href={homeLink("#contact")} className="btn btn-primary">{t("nav.action")}</a>
 
             {/* ── Botó del menú (mòbil) ── */}
             <button
