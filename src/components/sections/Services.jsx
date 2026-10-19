@@ -122,7 +122,8 @@ export default function Services() {
 
         {/* ── Title + intro ─────────────────────────────────────── */}
         <div className="md:flex md:items-end md:justify-between" style={{ gap: "3rem", marginBottom: "4rem" }}>
-          <div style={{ overflow: "hidden" }}>
+          {/* paddingTop: deixa espai als accents de les majúscules (Què, Qué) */}
+          <div style={{ overflow: "hidden", paddingTop: "0.15em" }}>
             <h2 id="services-title" ref={titleRef} style={{
               fontFamily: "'Bebas Neue', sans-serif",
               fontSize: "clamp(3.5rem, 10vw, 9rem)",
