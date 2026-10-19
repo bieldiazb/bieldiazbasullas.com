@@ -43,41 +43,120 @@
   "projects": {
     "eyebrow": "Projectes",
     "title": "Feina recent",
-    "intro": "Tres projectes fets de principi a fi: disseny, desenvolupament i posada en marxa.",
-    "tools": "Eines",
+    "intro": "Productes i apps fets de principi a fi: disseny, desenvolupament i posada en marxa.",
+    "labels": {
+      "year": "Any",
+      "type": "Tipus",
+      "tags": "Etiquetes",
+      "status": "Estat"
+    },
     "visit": "Visita la web",
+    "demo": "Veure demo",
     "newTab": "(s’obre en una pestanya nova)",
+    "view": "Veure",
     "items": [
       {
-        "id": "tresdege",
-        "title": "Web Dissenyador Gràfic",
-        "category": "Portfoli",
-        "description": "Portfoli per a un estudi de disseny gràfic de Barcelona, amb els treballs i els serveis en una web àgil. La feina es veu abans que res i el contacte queda sempre a mà.",
+        "id": "repwise",
+        "title": "Repwise",
+        "category": "Producte propi",
         "year": "2026",
-        "url": "https://tresdege.com/",
-        "alt": "Portada de la web de Tresdegé, amb el nom de l’estudi en gran sobre un fons blau",
-        "tags": ["React", "UX/UI", "Web App"]
+        "description": "Programa de gestió per a entrenadors personals i clubs petits: clients, sessions, abonaments i factures en un sol lloc. La llista d’espera es gestiona sola i els clients reserven des del mòbil.",
+        "featuresLabel": "Què inclou",
+        "features": [
+          "Sessions individuals o de grup amb llista d’espera automàtica",
+          "Abonaments per paquets o mensuals, amb avisos abans que s’acabin",
+          "Factures amb numeració automàtica i descàrrega en PDF",
+          "Portal del client per reservar i cancel·lar des del mòbil",
+          "En català, castellà i anglès"
+        ],
+        "tags": [
+          "Producte propi",
+          "Gimnasos i entrenadors",
+          "Gestió",
+          "Laravel"
+        ],
+        "links": [
+          {
+            "kind": "demo",
+            "url": "https://demo.repwise.dev/"
+          },
+          {
+            "kind": "site",
+            "url": "https://repwise.dev/"
+          }
+        ],
+        "alt": "Tauler de la demo de Repwise, amb els ingressos del mes, els clients actius, les sessions d’avui i el calendari de la setmana"
+      },
+      {
+        "id": "camescola",
+        "title": "CamEscola",
+        "category": "Plataforma de gestió",
+        "year": "2026",
+        "description": "Plataforma de gestió per a una escola esportiva d’atletisme. Les famílies veuen les marques dels seus fills, consulten les properes competicions i s’hi apunten. Inclou gestió d’usuaris i estadístiques.",
+        "featuresLabel": "Part d’administració",
+        "features": [
+          "Gestió d’usuaris i permisos",
+          "Creació d’esdeveniments",
+          "Importador de PDF",
+          "Importació i exportació massiva de dades",
+          "Enviament automàtic dels inscrits a les competicions per correu electrònic"
+        ],
+        "status": "Demo en directe pròximament",
+        "tags": [
+          "App a mida",
+          "Escola esportiva",
+          "Gestió",
+          "React",
+          "Firebase"
+        ],
+        "links": [
+          {
+            "kind": "site",
+            "url": "https://camescola.cat/"
+          }
+        ],
+        "alt": "Pantalla d’accés de CamEscola, amb el camp del codi de l’atleta i una foto aèria d’una pista d’atletisme"
       },
       {
         "id": "sergigarcia",
-        "title": "Plataforma d’entrenaments",
-        "category": "App web",
-        "description": "Aplicació web per a entrenadors: organitza els entrenaments i el seguiment dels atletes des d’un sol lloc, al mòbil o a l’ordinador.",
+        "title": "Sergi Garcia Training",
+        "category": "App a mida",
         "year": "2025",
-        "url": "https://sergigarciatraining.com/",
-        "alt": "Pantalla d’accés de la plataforma d’entrenaments, amb el formulari a l’esquerra i una foto d’un atleta a la dreta",
-        "tags": ["React", "Firebase", "UX/UI"]
+        "description": "App per a entrenadors que organitza els entrenaments amb els seus clients en un calendari compartit. Cada entrenament té el seu feedback, així l’entrenador sap com ha anat cada sessió.",
+        "tags": [
+          "App a mida",
+          "Entrenadors",
+          "Gestió",
+          "React",
+          "Firebase"
+        ],
+        "links": [
+          {
+            "kind": "visit",
+            "url": "https://sergigarciatraining.com/"
+          }
+        ],
+        "alt": "Pantalla d’accés de Sergi Garcia Training, amb el formulari a l’esquerra i una foto d’un atleta entrenant a la dreta"
       },
       {
-        "id": "camsub10",
-        "title": "Portal per a pares i mares d’atletisme",
-        "category": "Portal",
-        "description": "Portal perquè les famílies d’atletes consultin marques, competicions i el perfil esportiu dels seus fills, sense haver de buscar-ho en grups de missatges.",
+        "id": "tresdege",
+        "title": "Tresdegé",
+        "category": "Portfoli",
         "year": "2026",
-        "url": "",
-        "access": "Accés privat per a famílies i entrenadors",
-        "alt": "Pantalla d’accés del portal d’atletisme, amb el codi de l’atleta i una foto aèria d’una pista",
-        "tags": ["React", "Firebase", "Web App"]
+        "description": "Portfoli per a un estudi de disseny gràfic de Barcelona, amb els treballs i els serveis en una web àgil. La feina es veu abans que res i el contacte queda sempre a mà.",
+        "tags": [
+          "React",
+          "Portfoli",
+          "UX/UI",
+          "Web App"
+        ],
+        "links": [
+          {
+            "kind": "visit",
+            "url": "https://tresdege.com/"
+          }
+        ],
+        "alt": "Portada de la web de Tresdegé, amb el nom de l’estudi en gran sobre un fons blau"
       }
     ]
   },

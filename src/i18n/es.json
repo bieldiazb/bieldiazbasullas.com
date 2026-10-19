@@ -43,41 +43,120 @@
   "projects": {
     "eyebrow": "Proyectos",
     "title": "Trabajo reciente",
-    "intro": "Tres proyectos hechos de principio a fin: diseño, desarrollo y puesta en marcha.",
-    "tools": "Herramientas",
+    "intro": "Productos y apps hechos de principio a fin: diseño, desarrollo y puesta en marcha.",
+    "labels": {
+      "year": "Año",
+      "type": "Tipo",
+      "tags": "Etiquetas",
+      "status": "Estado"
+    },
     "visit": "Visita la web",
+    "demo": "Ver demo",
     "newTab": "(se abre en una pestaña nueva)",
+    "view": "Ver",
     "items": [
       {
-        "id": "tresdege",
-        "title": "Web Diseñador Gráfico",
-        "category": "Portfolio",
-        "description": "Portfolio para un estudio de diseño gráfico de Barcelona, con los trabajos y los servicios en una web ágil. El trabajo se ve antes que nada y el contacto queda siempre a mano.",
+        "id": "repwise",
+        "title": "Repwise",
+        "category": "Producto propio",
         "year": "2026",
-        "url": "https://tresdege.com/",
-        "alt": "Portada de la web de Tresdegé, con el nombre del estudio en grande sobre un fondo azul",
-        "tags": ["React", "UX/UI", "Web App"]
+        "description": "Programa de gestión para entrenadores personales y clubs pequeños: clientes, sesiones, bonos y facturas en un solo lugar. La lista de espera se gestiona sola y los clientes reservan desde el móvil.",
+        "featuresLabel": "Qué incluye",
+        "features": [
+          "Sesiones individuales o de grupo con lista de espera automática",
+          "Bonos por paquetes o mensuales, con avisos antes de que se acaben",
+          "Facturas con numeración automática y descarga en PDF",
+          "Portal del cliente para reservar y cancelar desde el móvil",
+          "En catalán, castellano e inglés"
+        ],
+        "tags": [
+          "Producto propio",
+          "Gimnasios y entrenadores",
+          "Gestión",
+          "Laravel"
+        ],
+        "links": [
+          {
+            "kind": "demo",
+            "url": "https://demo.repwise.dev/"
+          },
+          {
+            "kind": "site",
+            "url": "https://repwise.dev/"
+          }
+        ],
+        "alt": "Panel de la demo de Repwise, con los ingresos del mes, los clientes activos, las sesiones de hoy y el calendario de la semana"
+      },
+      {
+        "id": "camescola",
+        "title": "CamEscola",
+        "category": "Plataforma de gestión",
+        "year": "2026",
+        "description": "Plataforma de gestión para una escuela deportiva de atletismo. Las familias ven las marcas de sus hijos, consultan las próximas competiciones y se apuntan. Incluye gestión de usuarios y estadísticas.",
+        "featuresLabel": "Parte de administración",
+        "features": [
+          "Gestión de usuarios y permisos",
+          "Creación de eventos",
+          "Importador de PDF",
+          "Importación y exportación masiva de datos",
+          "Envío automático de los inscritos a las competiciones por correo electrónico"
+        ],
+        "status": "Demo en directo próximamente",
+        "tags": [
+          "App a medida",
+          "Escuela deportiva",
+          "Gestión",
+          "React",
+          "Firebase"
+        ],
+        "links": [
+          {
+            "kind": "site",
+            "url": "https://camescola.cat/"
+          }
+        ],
+        "alt": "Pantalla de acceso de CamEscola, con el campo del código del atleta y una foto aérea de una pista de atletismo"
       },
       {
         "id": "sergigarcia",
-        "title": "Plataforma de entrenamientos",
-        "category": "App web",
-        "description": "Aplicación web para entrenadores: organiza los entrenamientos y el seguimiento de los atletas desde un solo lugar, en el móvil o en el ordenador.",
+        "title": "Sergi Garcia Training",
+        "category": "App a medida",
         "year": "2025",
-        "url": "https://sergigarciatraining.com/",
-        "alt": "Pantalla de acceso de la plataforma de entrenamientos, con el formulario a la izquierda y una foto de un atleta a la derecha",
-        "tags": ["React", "Firebase", "UX/UI"]
+        "description": "App para entrenadores que organiza los entrenamientos con sus clientes en un calendario compartido. Cada entrenamiento tiene su feedback, así el entrenador sabe cómo ha ido cada sesión.",
+        "tags": [
+          "App a medida",
+          "Entrenadores",
+          "Gestión",
+          "React",
+          "Firebase"
+        ],
+        "links": [
+          {
+            "kind": "visit",
+            "url": "https://sergigarciatraining.com/"
+          }
+        ],
+        "alt": "Pantalla de acceso de Sergi Garcia Training, con el formulario a la izquierda y una foto de un atleta entrenando a la derecha"
       },
       {
-        "id": "camsub10",
-        "title": "Portal para padres y madres de atletismo",
-        "category": "Portal",
-        "description": "Portal para que las familias de atletas consulten marcas, competiciones y el perfil deportivo de sus hijos, sin tener que buscarlo en grupos de mensajes.",
+        "id": "tresdege",
+        "title": "Tresdegé",
+        "category": "Portfolio",
         "year": "2026",
-        "url": "",
-        "access": "Acceso privado para familias y entrenadores",
-        "alt": "Pantalla de acceso del portal de atletismo, con el código del atleta y una foto aérea de una pista",
-        "tags": ["React", "Firebase", "Web App"]
+        "description": "Portfolio para un estudio de diseño gráfico de Barcelona, con los trabajos y los servicios en una web ágil. El trabajo se ve antes que nada y el contacto queda siempre a mano.",
+        "tags": [
+          "React",
+          "Portfolio",
+          "UX/UI",
+          "Web App"
+        ],
+        "links": [
+          {
+            "kind": "visit",
+            "url": "https://tresdege.com/"
+          }
+        ],
+        "alt": "Portada de la web de Tresdegé, con el nombre del estudio en grande sobre un fondo azul"
       }
     ]
   },

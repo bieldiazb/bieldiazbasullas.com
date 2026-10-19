@@ -43,41 +43,120 @@
   "projects": {
     "eyebrow": "Projects",
     "title": "Recent work",
-    "intro": "Three projects built end to end: design, development and launch.",
-    "tools": "Tools",
+    "intro": "Products and apps built end to end: design, development and launch.",
+    "labels": {
+      "year": "Year",
+      "type": "Type",
+      "tags": "Tags",
+      "status": "Status"
+    },
     "visit": "Visit the site",
+    "demo": "See the demo",
     "newTab": "(opens in a new tab)",
+    "view": "View",
     "items": [
       {
-        "id": "tresdege",
-        "title": "Graphic Designer Website",
-        "category": "Portfolio",
-        "description": "A portfolio for a graphic design studio in Barcelona, with its work and services in a fast website. The work comes first and the contact details are always within reach.",
+        "id": "repwise",
+        "title": "Repwise",
+        "category": "Own product",
         "year": "2026",
-        "url": "https://tresdege.com/",
-        "alt": "Home page of the Tresdegé website, with the studio name set large on a blue background",
-        "tags": ["React", "UX/UI", "Web App"]
+        "description": "Management software for personal trainers and small clubs: clients, sessions, memberships and invoices in one place. The waitlist runs itself and clients book from their phone.",
+        "featuresLabel": "What’s inside",
+        "features": [
+          "One-to-one or group sessions with an automatic waitlist",
+          "Session packs or monthly plans, with alerts before they run out",
+          "Invoices with automatic numbering and PDF download",
+          "A client portal to book and cancel from a phone",
+          "In Catalan, Spanish and English"
+        ],
+        "tags": [
+          "Own product",
+          "Gyms and trainers",
+          "Management",
+          "Laravel"
+        ],
+        "links": [
+          {
+            "kind": "demo",
+            "url": "https://demo.repwise.dev/"
+          },
+          {
+            "kind": "site",
+            "url": "https://repwise.dev/"
+          }
+        ],
+        "alt": "Repwise demo dashboard, showing this month’s income, active clients, today’s sessions and the week’s calendar"
+      },
+      {
+        "id": "camescola",
+        "title": "CamEscola",
+        "category": "Management platform",
+        "year": "2026",
+        "description": "A management platform for an athletics sports school. Families see their children’s personal bests, check upcoming competitions and sign up for them. It includes user management and statistics.",
+        "featuresLabel": "Admin side",
+        "features": [
+          "User and permission management",
+          "Event creation",
+          "PDF importer",
+          "Bulk data import and export",
+          "Automatic email of competition entries"
+        ],
+        "status": "Live demo coming soon",
+        "tags": [
+          "Custom app",
+          "Sports school",
+          "Management",
+          "React",
+          "Firebase"
+        ],
+        "links": [
+          {
+            "kind": "site",
+            "url": "https://camescola.cat/"
+          }
+        ],
+        "alt": "CamEscola sign-in screen, with the athlete code field and an aerial photo of an athletics track"
       },
       {
         "id": "sergigarcia",
-        "title": "Training platform",
-        "category": "Web app",
-        "description": "A web app for coaches: it keeps training plans and athlete follow-up in one place, on a phone or a computer.",
+        "title": "Sergi Garcia Training",
+        "category": "Custom app",
         "year": "2025",
-        "url": "https://sergigarciatraining.com/",
-        "alt": "Sign-in screen of the training platform, with the form on the left and a photo of an athlete on the right",
-        "tags": ["React", "Firebase", "UX/UI"]
+        "description": "An app for coaches that organises training with their clients in a shared calendar. Every workout gets its own feedback, so the coach knows how each session went.",
+        "tags": [
+          "Custom app",
+          "Coaches",
+          "Management",
+          "React",
+          "Firebase"
+        ],
+        "links": [
+          {
+            "kind": "visit",
+            "url": "https://sergigarciatraining.com/"
+          }
+        ],
+        "alt": "Sergi Garcia Training sign-in screen, with the form on the left and a photo of an athlete training on the right"
       },
       {
-        "id": "camsub10",
-        "title": "Athletics parents’ portal",
-        "category": "Portal",
-        "description": "A portal where athletes’ families check personal bests, competitions and their children’s sports profile, without digging through group chats.",
+        "id": "tresdege",
+        "title": "Tresdegé",
+        "category": "Portfolio",
         "year": "2026",
-        "url": "",
-        "access": "Private access for families and coaches",
-        "alt": "Sign-in screen of the athletics portal, with the athlete code field and an aerial photo of a track",
-        "tags": ["React", "Firebase", "Web App"]
+        "description": "A portfolio for a graphic design studio in Barcelona, with its work and services in a fast website. The work comes first and the contact details are always within reach.",
+        "tags": [
+          "React",
+          "Portfolio",
+          "UX/UI",
+          "Web App"
+        ],
+        "links": [
+          {
+            "kind": "visit",
+            "url": "https://tresdege.com/"
+          }
+        ],
+        "alt": "Home page of the Tresdegé website, with the studio name set large on a blue background"
       }
     ]
   },
