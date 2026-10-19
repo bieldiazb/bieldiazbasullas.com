@@ -1,31 +1,42 @@
 {
   "nav": {
+    "skip": "Skip to content",
     "about": "About",
     "projects": "Projects",
     "services": "Services",
-    "contact": "Contact"
+    "contact": "Contact",
+    "action": "Start a project",
+    "actionShort": "Start",
+    "home": "Biel Diaz Basullas, home",
+    "language": "Language",
+    "themeDark": "Switch to dark mode",
+    "themeLight": "Switch to light mode",
+    "main": "Main navigation"
   },
   "hero": {
-    "title": "biel diaz basullas",
-    "subtitle": "WEB DEVELOPER | PORTFOLIO 2026 ©"
-  },
-  "about": {
-    "label": "ABOUT",
-    "title": "I design & build\ndigital experiences",
-    "subtitle": "Web developer & designer focused on clarity, motion and detail-driven interfaces.",
-    "text": "I help people and projects create clear, well-structured, and easy-to-use websites. I focus on solving the problem of confusing or poorly designed websites by combining design, development, and close attention to detail.",
-    "experiencie": "Years of experience",
-    "projects": "Projects delivered",
-    "coffee": "coffees consumed"
+    "nameLine1": "Biel Diaz",
+    "nameLine2": "Basullas",
+    "lead": "Web developer and designer. I build custom websites and apps for businesses and professionals in Catalonia.",
+    "sheet": "Work order",
+    "place": "Barcelona",
+    "fields": [
+      { "label": "For", "value": "Your business" },
+      { "label": "Work", "value": "Custom websites and apps" },
+      { "label": "How", "value": "Directly with me, no middlemen" }
+    ],
+    "signed": "Signed",
+    "signature": "Biel",
+    "stamp": "Taking on work"
   },
   "services": {
-    "eyebrow": "SERVICES",
-    "title": "What I can do for you",
-    "intro": "Custom websites and apps that help your business run better. No templates, no hassle.",
-    "count_one": "{{count}} service",
-    "count_other": "{{count}} services",
-    "ctaText": "Can't find what you're looking for? Tell me about your project and let's talk.",
-    "cta": "Let's talk",
+    "title": "Services",
+    "intro": "Open what interests you and tick it: I'll add it to your order.",
+    "add": "Add to my order",
+    "added": "Added to my order",
+    "summary_zero": "You haven't ticked any services yet.",
+    "summary_one": "You've ticked {{count}} service.",
+    "summary_other": "You've ticked {{count}} services.",
+    "review": "Review your order",
     "items": [
       { "id": "custom-apps", "title": "Custom management apps", "description": "Tools built around the way you work: clients, bookings, inventory or whatever you need, all in one place. No more spreadsheets that don't talk to each other." },
       { "id": "gyms", "title": "Gym management", "description": "Members, fees, schedules and class bookings from a single app. You focus on training and spend less time on paperwork." },
@@ -36,89 +47,98 @@
     ]
   },
   "projects": {
-    "eyebrow": "PROJECTS",
-    "title": "Highlighted Works",
+    "title": "Delivered work",
+    "labels": { "tools": "Tools", "site": "Website" },
+    "visit": "Visit the site",
+    "newTab": "(opens in a new tab)",
     "items": [
       {
         "title": "Graphic Designer Website",
-        "subtitle": "Portfolio and graphic design services",
+        "category": "Portfolio",
+        "description": "A portfolio for a graphic designer, with the work and services in a fast website. The work comes first and the contact details are always within reach.",
         "year": "2026",
         "url": "https://tresdege.com/",
-        "video": "/video-projects3.webm",
         "tags": ["React", "Portfolio", "UX/UI", "Web App"]
       },
       {
-        "title": "Training Management Platform",
-        "subtitle": "Web application for coaches",
+        "title": "Training platform",
+        "category": "Web app",
+        "description": "A web app for coaches: it keeps training plans and athlete follow-up in one place, on a phone or a computer.",
         "year": "2025",
         "url": "https://sergigarciatraining.com/",
-        "video": "/video-projects1.mp4",
         "tags": ["React", "Firebase", "UX/UI", "Web App"]
       },
       {
-        "title": "Athletics Parents Portal",
-        "subtitle": "Athlete tracking and performance overview",
+        "title": "Athletics parents' portal",
+        "category": "Portal",
+        "description": "A portal where athletes' families follow results and sports news without digging through group chats.",
         "year": "2026",
         "url": "https://www.camsub10.site/",
-        "video": "/video-projects2.mp4",
-        "tags": ["React", "Firebase", "Sports data", "Web App"]
+        "tags": ["React", "Firebase", "Sports info", "Web App"]
       }
     ]
   },
+  "about": {
+    "greeting": "Hi, I'm Biel.",
+    "paragraphs": [
+      "I help people and businesses get a website that is clear, tidy and easy to use.",
+      "I focus on fixing confusing or careless websites, combining design, development and close attention to detail.",
+      "I've been building websites for over 3 years and have delivered more than 20 projects, mostly with React, Firebase and WordPress.",
+      "You work directly with me: we talk, I show you proposals and we refine them until the site does the job you need."
+    ],
+    "name": "Biel Diaz Basullas",
+    "role": "Web developer and designer",
+    "portraitAlt": "Illustrated portrait of Biel",
+    "stub": "Tear here and write to me"
+  },
   "contact": {
-    "eyebrow": "CONTACT",
-    "title": "Let's work together",
-    "subtitle": "Have a project in mind or just want to talk?\nFill the form and I'll get back to you.",
-    "available": "Available for projects",
-    "directLabel": "Or write directly",
-    "formLabel": "Send a message",
-    "formNote": "I usually reply within 24h · No commitment",
-    "left": {
-      "description": "I help brands and individuals build digital experiences that feel modern, fast and carefully crafted.",
-      "emailLabel": "Email me directly →"
-    },
+    "title": "Let's start your project",
+    "subtitle": "Got a project in mind or just want to talk? Fill in the order and I'll get back to you soon.",
+    "directLabel": "Or write to me directly",
+    "formNote": "I usually reply within 24 hours. No commitment.",
+    "selectedLabel": "Ticked services",
+    "selectedEmpty": "No services ticked. You can also tell me about it in your message.",
+    "remove": "Remove {{service}}",
+    "prefill": "Hi Biel, I'm interested in: {{services}}.",
     "form": {
       "name": "Name",
-      "namePlaceholder": "Your name",
+      "namePlaceholder": "Your name…",
       "email": "Email",
       "emailPlaceholder": "you@email.com",
       "message": "Message",
-      "messagePlaceholder": "Tell me about your project",
-      "submit": "Send message",
+      "messagePlaceholder": "Tell me about your project…",
+      "submit": "Send my order",
       "sending": "Sending…"
     },
     "toast": {
       "success": {
-        "title": "Message sent ✨",
-        "description": "I'll get back to you very soon."
+        "title": "Message sent",
+        "description": "I'll get back to you as soon as possible."
       },
       "error": {
         "title": "Something went wrong",
-        "description": "Please try again later."
+        "description": "Try again in a little while or email me directly."
       }
     },
     "thanks": {
-      "title": "Thanks for reaching out",
-      "description": "Your message has been sent successfully.\nI'll reply as soon as possible."
+      "title": "Thanks for getting in touch",
+      "description": "Your message has been sent. I'll get back to you as soon as possible."
     }
+  },
+  "footer": {
+    "signoff": "See you soon,",
+    "message": "Thanks for stopping by. If you have a half-finished idea, tell me about it and we'll look at it together.",
+    "imprint": "© {{year}} Biel Diaz Basullas · Made in Catalonia"
   },
   "seo": {
     "home": {
-      "title": "Biel Diaz Basullas | Web Developer Portfolio 2026",
-      "description": "Explore the portfolio of Biel Diaz Basullas, a skilled web developer specializing in crafting modern, high-performance digital experiences. Discover projects, services, and get in touch for collaborations."
+      "title": "Biel Diaz Basullas | Web developer and designer",
+      "description": "Custom websites and apps for businesses and professionals in Catalonia: management apps, gyms, portfolios, WordPress, SEO and small-business apps."
     }
   },
   "cookies": {
-    "text": "We use our own and third-party cookies to improve the experience and analyze website usage.",
+    "text": "We use our own and third-party cookies to improve your experience and analyse how the site is used.",
     "accept": "Accept",
     "reject": "Reject"
-  },
-  "cta": {
-    "entry": {
-      "title": "Do you have a web project in mind?",
-      "description": "I can help you build a clear, professional and easy-to-use website. Let's talk with no commitment.",
-      "primary": "Let's talk",
-      "secondary": "Not now"
-    }
   }
 }

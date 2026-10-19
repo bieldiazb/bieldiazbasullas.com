@@ -1,11 +1,10 @@
 'use client'
 
 import { useTranslation } from "react-i18next"
-import { useRef, useEffect } from "react"
-import { LayoutDashboard, Dumbbell, Palette, Globe, TrendingUp, Store } from "lucide-react"
-import { gsap } from "@/lib/gsap"
-
-const ACCENT = "#256cd0"
+import { LayoutDashboard, Dumbbell, Palette, Globe, TrendingUp, Store, Plus, Check } from "lucide-react"
+import { useOrder } from "@/lib/order"
+import { useReveal } from "@/lib/useReveal"
+import { Scallops } from "@/components/paper/Scallops"
 
 // Icona per a cada servei (clau = id a i18n)
 const ICONS = {
@@ -17,195 +16,90 @@ const ICONS = {
   smb:           Store,
 }
 
+// ── Services ──────────────────────────────────────────────────────
+// Un full amb la paraula gegant i una fila plena per servei. Cada fila
+// s'obre (details) i deixa afegir el servei a l'encàrrec.
+
 export default function Services() {
   const { t } = useTranslation()
-
-  const sectionRef = useRef(null)
-  const bgNumRef   = useRef(null)
-  const titleRef   = useRef(null)
-  const listRef    = useRef(null)
+  const { selected, toggle, has } = useOrder()
+  const ref = useReveal()
 
   const items = t("services.items", { returnObjects: true })
   const services = Array.isArray(items) ? items : []
-
-  // ── Animacions (només si l'usuari no demana menys moviment) ──
-  useEffect(() => {
-    const mm = gsap.matchMedia()
-
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.fromTo(bgNumRef.current,
-        { yPercent: -10 },
-        {
-          yPercent: 10, ease: "none",
-          scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: true },
-        }
-      )
-
-      gsap.fromTo(titleRef.current,
-        { yPercent: 105, opacity: 0 },
-        {
-          yPercent: 0, opacity: 1, duration: 1.0, ease: "expo.out",
-          scrollTrigger: { trigger: titleRef.current, start: "top 88%", once: true },
-        }
-      )
-
-      const rows = listRef.current?.querySelectorAll(".service-item") ?? []
-      gsap.fromTo(rows,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: "expo.out", stagger: 0.07,
-          scrollTrigger: { trigger: listRef.current, start: "top 82%", once: true },
-        }
-      )
-    })
-
-    return () => mm.revert()
-  }, [services.length])
-
   if (!services.length) return null
 
-  const px = { paddingLeft: "clamp(1.25rem, 5vw, 5rem)", paddingRight: "clamp(1.25rem, 5vw, 5rem)" }
-  const monoSm = { fontFamily: "'Geist Mono', monospace", fontSize: "0.75rem", letterSpacing: "0.1em", fontWeight: 300 }
+  const word = t("services.title")
 
   return (
-    <section
-      ref={sectionRef}
-      id="services"
-      aria-labelledby="services-title"
-      style={{ position: "relative", overflowX: "hidden", paddingBottom: "6rem" }}
-    >
+    <section id="services" aria-labelledby="services-title" className="px-3 py-24 md:py-40">
+      <div ref={ref} className="paper relative mx-auto max-w-[720px] px-5 pb-16 pt-10 md:px-10">
 
-      {/* ── Background number ─────────────────────────────────── */}
-      <div ref={bgNumRef} aria-hidden style={{
-        position: "absolute", top: "-0.05em", right: "-0.05em",
-        fontFamily: "'Bebas Neue', sans-serif",
-        fontSize: "clamp(16rem, 40vw, 36rem)",
-        lineHeight: 0.8, letterSpacing: "-0.04em",
-        color: "hsl(var(--foreground))", opacity: 0.03,
-        pointerEvents: "none", userSelect: "none", zIndex: 0,
-      }}>04</div>
-
-      {/* ── Grid lines ────────────────────────────────────────── */}
-      <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        {[25, 50, 75].map(pct => (
-          <div key={pct} style={{
-            position: "absolute", top: 0, bottom: 0, left: `${pct}%`,
-            width: "1px", background: "hsl(var(--border) / 0.07)",
-          }} />
-        ))}
-      </div>
-
-      {/* ── Header band ───────────────────────────────────────── */}
-      <div style={{
-        position: "relative", zIndex: 1,
-        borderTop: "1px solid hsl(var(--border) / 0.5)",
-        borderBottom: "1px solid hsl(var(--border) / 0.5)",
-        padding: "0.875rem 0", marginBottom: "5rem",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        ...px,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <span aria-hidden style={{
-            fontFamily: "'Bebas Neue', sans-serif", fontSize: "0.75rem",
-            letterSpacing: "0.16em", color: ACCENT, opacity: 0.9,
-          }}>04</span>
-          <span style={{ ...monoSm, textTransform: "uppercase", color: "hsl(var(--muted-foreground))" }}>
-            {t("services.eyebrow")}
+        <h2
+          id="services-title"
+          data-reveal
+          className="font-serif leading-[0.8] text-ink"
+          style={{ containerType: "inline-size" }}
+        >
+          {/* La mida s'ajusta a la llargada de la paraula perquè ompli l'amplada del full */}
+          <span className="block whitespace-nowrap" style={{ fontSize: `${Math.min(44, 318 / word.length)}cqw` }}>
+            {word}
           </span>
-        </div>
-        <span style={{ ...monoSm, color: "hsl(var(--muted-foreground))", textTransform: "uppercase" }}>
-          {t("services.count", { count: services.length })}
-        </span>
-      </div>
+        </h2>
 
-      <div style={{ position: "relative", zIndex: 1, ...px }}>
+        <p data-reveal className="mt-6 max-w-[44ch] text-[1.25rem] leading-snug text-ink">
+          {t("services.intro")}
+        </p>
 
-        {/* ── Title + intro ─────────────────────────────────────── */}
-        <div className="md:flex md:items-end md:justify-between" style={{ gap: "3rem", marginBottom: "4rem" }}>
-          {/* paddingTop: deixa espai als accents de les majúscules (Què, Qué) */}
-          <div style={{ overflow: "hidden", paddingTop: "0.15em" }}>
-            <h2 id="services-title" ref={titleRef} style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: "clamp(3.5rem, 10vw, 9rem)",
-              lineHeight: 0.88, letterSpacing: "0.01em",
-              color: "hsl(var(--foreground))", margin: 0,
-              textWrap: "balance",
-            }}>
-              {t("services.title")}
-            </h2>
-          </div>
-          <p style={{
-            ...monoSm, fontSize: "0.875rem", letterSpacing: "0.02em", lineHeight: 1.6,
-            color: "hsl(var(--muted-foreground))", maxWidth: "38ch",
-            margin: 0, marginTop: "1.5rem",
-          }}>
-            {t("services.intro")}
-          </p>
-        </div>
-
-        {/* ── Services list ─────────────────────────────────────── */}
-        <ul ref={listRef} className="grid md:grid-cols-2" style={{
-          listStyle: "none", margin: 0, padding: 0,
-          borderTop: "1px solid hsl(var(--border) / 0.4)",
-        }}>
+        <ul className="mt-8 space-y-1.5">
           {services.map((service, i) => {
             const Icon = ICONS[service.id] ?? LayoutDashboard
+            const on = has(service.id)
             return (
-              <li
-                key={service.id}
-                className={`service-item group relative py-8 ${i % 2 === 1 ? "md:border-l md:pl-10" : "md:pr-10"}`}
-                style={{
-                  borderBottom: "1px solid hsl(var(--border) / 0.4)",
-                  borderColor: "hsl(var(--border) / 0.4)",
-                  display: "grid", gridTemplateColumns: "auto 1fr", columnGap: "1.25rem",
-                }}
-              >
-                {/* Línia d'accent en hover */}
-                <span aria-hidden className="absolute left-0 top-[-1px] h-[2px] w-full origin-left scale-x-0 motion-safe:transition-transform motion-safe:duration-500 group-hover:scale-x-100"
-                  style={{ background: ACCENT, transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }} />
+              <li key={service.id} data-reveal>
+                <details className="group bg-paper-2" open={i === 0}>
+                  <summary className="flex min-h-[56px] cursor-pointer list-none items-center gap-4 px-[18px] py-3 transition-colors hover:bg-paper-3 [&::-webkit-details-marker]:hidden">
+                    {/* Casella del full: plena quan el servei és a l'encàrrec */}
+                    <span
+                      aria-hidden
+                      className={`grid size-5 shrink-0 place-items-center transition-colors ${on ? "bg-stamp text-on-stamp" : "bg-paper"}`}
+                    >
+                      {on && <Check size={14} strokeWidth={3} />}
+                    </span>
+                    <Icon aria-hidden size={20} strokeWidth={1.75} className="shrink-0 text-ink-soft" />
+                    <span className="flex-1 text-[1.0625rem] font-medium text-ink">{service.title}</span>
+                    <Plus aria-hidden size={20} className="shrink-0 text-ink transition-transform duration-300 group-open:rotate-45" />
+                  </summary>
 
-                <Icon
-                  aria-hidden
-                  size={22} strokeWidth={1.5} color={ACCENT}
-                  className="motion-safe:transition-transform motion-safe:duration-300 group-hover:-translate-y-0.5"
-                  style={{ marginTop: "0.35rem" }}
-                />
-                <div>
-                  <h3 style={{
-                    fontFamily: "'Bebas Neue', sans-serif",
-                    fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-                    letterSpacing: "0.03em", lineHeight: 0.95,
-                    color: "hsl(var(--foreground))", margin: 0, marginBottom: "0.75rem",
-                  }}>{service.title}</h3>
-                  <p style={{
-                    ...monoSm, fontSize: "0.875rem", letterSpacing: "0.01em", lineHeight: 1.6,
-                    color: "hsl(var(--muted-foreground))", margin: 0, maxWidth: "52ch",
-                  }}>{service.description}</p>
-                </div>
+                  <div className="px-[18px] pb-5 pt-1 md:pl-[76px]">
+                    <p className="max-w-[52ch] text-[1rem] text-ink">{service.description}</p>
+                    <button
+                      type="button"
+                      onClick={() => toggle(service.id)}
+                      aria-pressed={on}
+                      className={`mt-4 inline-flex min-h-[44px] items-center gap-2 px-4 text-[0.9375rem] font-medium transition-colors ${
+                        on ? "bg-stamp text-on-stamp hover:bg-ink hover:text-paper" : "bg-paper text-ink hover:bg-ink hover:text-paper"
+                      }`}
+                    >
+                      {on ? <Check aria-hidden size={16} /> : <Plus aria-hidden size={16} />}
+                      {on ? t("services.added") : t("services.add")}
+                    </button>
+                  </div>
+                </details>
               </li>
             )
           })}
         </ul>
 
-        {/* ── CTA ───────────────────────────────────────────────── */}
-        <div className="md:flex md:items-center md:justify-between" style={{ gap: "2rem", marginTop: "3.5rem" }}>
-          <p style={{
-            ...monoSm, fontSize: "0.875rem", letterSpacing: "0.02em", lineHeight: 1.6,
-            color: "hsl(var(--foreground))", margin: 0, marginBottom: "1.25rem",
-          }}>
-            {t("services.ctaText")}
+        {/* ── Resum de l'encàrrec ── */}
+        <div data-reveal className="mt-10 flex flex-wrap items-center justify-between gap-4">
+          <p aria-live="polite" className="text-[1rem] text-ink">
+            {t("services.summary", { count: selected.length })}
           </p>
-          <a
-            href="#contact"
-            className="inline-block border border-[#256cd0] bg-[#256cd0] text-white motion-safe:transition-colors motion-safe:duration-200 hover:border-foreground hover:bg-foreground hover:text-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#256cd0]"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: "1rem", letterSpacing: "0.14em",
-              padding: "0.75rem 2rem", textDecoration: "none",
-            }}
-          >{t("services.cta")}</a>
+          <a href="#contact" className="btn">{t("services.review")}</a>
         </div>
 
+        <Scallops edge="bottom" />
       </div>
     </section>
   )

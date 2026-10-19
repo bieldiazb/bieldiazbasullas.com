@@ -1,63 +1,53 @@
-import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 
 import { Seo } from "./components/Seo"
+import { OrderProvider } from "@/lib/order"
 
 import Header        from "@/components/layout/Header"
 import Footer        from "@/components/layout/Footer"
 import Hero          from "@/components/sections/Hero"
-import About         from "@/components/sections/About"
-import Projects      from "@/components/sections/Projects"
 import Services      from "@/components/sections/Services"
+import Projects      from "@/components/sections/Projects"
+import About         from "@/components/sections/About"
 import Contact       from "@/components/sections/Contact"
-import Loader        from "@/components/sections/Loader"
-import EntryCTA      from "@/components/EntryCTA"
 import CookieBanner  from "./components/CookieBanner"
 import { Toaster }   from "./components/ui/toaster"
-
-import Cursor         from "@/components/Cursor"
-import ScrollProgress from "@/components/ScrollProgress"
-import SmoothScroll   from "@/components/SmoothScroll"
-import { SectionReveal } from "@/components/SectionReveal"
+import SmoothScroll  from "@/components/SmoothScroll"
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
   const { t, i18n } = useTranslation()
 
-  useEffect(() => {
-    document.body.style.overflow = loading ? "hidden" : "auto"
-  }, [loading])
-
   return (
-    <main className="relative min-h-screen bg-background text-foreground">
+    <OrderProvider>
       <Seo
-        lang={i18n.language}
+        lang={i18n.resolvedLanguage}
         title={t("seo.home.title")}
         description={t("seo.home.description")}
       />
+      <SmoothScroll />
 
-      {/* ── UI globals ─────────────────────────────────── */}
-      <SmoothScroll paused={loading} />
-      <Cursor />
-      <ScrollProgress />
+      <a
+        href="#main"
+        className="btn fixed left-3 top-3 z-[60] -translate-y-24 focus:translate-y-0"
+      >
+        {t("nav.skip")}
+      </a>
 
-      <Header />
-      <EntryCTA />
-
-      {/* ── Hero — sense reveal (ja té la seva pròpia animació) */}
-      <Hero />
-
-      {/* ── Seccions amb reveal en scroll ──────────────── */}
-      <SectionReveal><About /></SectionReveal>
-      <SectionReveal><Projects /></SectionReveal>
-      <SectionReveal><Services /></SectionReveal>
-      <SectionReveal><Contact /></SectionReveal>
+      {/* ── La pàgina: llisca cap amunt i destapa el peu (cortina) ── */}
+      <div className="curtain-page">
+        <Header />
+        <main id="main" tabIndex={-1} className="outline-none">
+          <Hero />
+          <Services />
+          <Projects />
+          <About />
+          <Contact />
+        </main>
+      </div>
 
       <Footer />
       <Toaster />
       <CookieBanner />
-
-      {loading && <Loader onFinish={() => setLoading(false)} />}
-    </main>
+    </OrderProvider>
   )
 }

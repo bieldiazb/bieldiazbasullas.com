@@ -1,281 +1,65 @@
-import { useEffect, useRef } from "react"
+'use client'
+
 import { useTranslation } from "react-i18next"
-import { gsap, ScrollTrigger } from "@/lib/gsap"
-import TechStack from "./TechStack"
+import { useReveal } from "@/lib/useReveal"
+import { Scallops } from "@/components/paper/Scallops"
+import avatarLight from "@/assets/avatarw.png"
+import avatarDark  from "@/assets/avatard.png"
 
-const ACCENT = "#256cd0"
+const EMAIL = "bieldiazbasullas@proton.me"
 
-const STATS = [
-  { value: "3+",  label: "anys d'experiència" },
-  { value: "20+", label: "projectes entregats" },
-  { value: "∞",   label: "cafès consumits"     },
-]
+// ── About ─────────────────────────────────────────────────────────
+// Una carta en primera persona sobre un full, amb una tira per
+// arrencar al peu que porta l'email.
 
 export default function About() {
   const { t } = useTranslation()
-  const sectionRef  = useRef(null)
-  const bgNumRef    = useRef(null)
-  const revealRef   = useRef(null)
-  const statsRef    = useRef([])
-  const titleRef    = useRef(null)
-  const lineRef     = useRef(null)
-  const TEXT = t("about.text")
+  const ref = useReveal({ stagger: 0.07 })
 
-  // ── Background number parallax ─────────────────────────────────
-  useEffect(() => {
-    if (!bgNumRef.current) return
-    gsap.fromTo(bgNumRef.current,
-      { yPercent: -12 },
-      {
-        yPercent: 12,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      }
-    )
-  }, [])
-
-  // ── Title clip reveal ──────────────────────────────────────────
-  useEffect(() => {
-    if (!titleRef.current) return
-    const lines = titleRef.current.querySelectorAll(".title-line")
-    gsap.fromTo(lines,
-      { yPercent: 105, opacity: 0 },
-      {
-        yPercent: 0, opacity: 1,
-        duration: 1.0,
-        ease: "expo.out",
-        stagger: 0.08,
-        scrollTrigger: { trigger: titleRef.current, start: "top 85%", once: true },
-      }
-    )
-  }, [])
-
-  // ── Accent line wipe ───────────────────────────────────────────
-  useEffect(() => {
-    if (!lineRef.current) return
-    gsap.fromTo(lineRef.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        duration: 1.2,
-        ease: "expo.out",
-        transformOrigin: "left",
-        scrollTrigger: { trigger: lineRef.current, start: "top 88%", once: true },
-      }
-    )
-  }, [])
-
-  // ── Stats reveal ──────────────────────────────────────────────
-  useEffect(() => {
-    statsRef.current.forEach((el, i) => {
-      if (!el) return
-      gsap.fromTo(el,
-        { opacity: 0, y: 32 },
-        {
-          opacity: 1, y: 0,
-          duration: 0.8,
-          ease: "expo.out",
-          delay: i * 0.07,
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
-        }
-      )
-    })
-  }, [])
-
-  // ── Word reveal ───────────────────────────────────────────────
-  useEffect(() => {
-    if (!revealRef.current) return
-    const words = revealRef.current.querySelectorAll(".word")
-    gsap.fromTo(words,
-      { "--reveal": 0 },
-      {
-        "--reveal": 1,
-        stagger: 0.03,
-        ease: "none",
-        scrollTrigger: {
-          trigger: revealRef.current,
-          start: "top 80%",
-          end: "bottom 50%",
-          scrub: true,
-        },
-      }
-    )
-    return () => ScrollTrigger.getAll().forEach(st => st.kill())
-  }, [TEXT])
-
-  const px = { paddingLeft: "clamp(1.25rem, 5vw, 5rem)", paddingRight: "clamp(1.25rem, 5vw, 5rem)" }
+  const paragraphs = t("about.paragraphs", { returnObjects: true })
 
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-      style={{ position: "relative", overflowX: "hidden", paddingBottom: "6rem" }}
-    >
-      {/* ── Background section number ──────────────────────────── */}
-      <div
-        ref={bgNumRef}
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: "0",
-          right: "-0.05em",
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: "clamp(16rem, 40vw, 36rem)",
-          lineHeight: 0.8,
-          letterSpacing: "-0.04em",
-          color: "hsl(var(--foreground))",
-          opacity: 0.03,
-          pointerEvents: "none",
-          userSelect: "none",
-          zIndex: 0,
-        }}
-      >02</div>
+    <section id="about" aria-labelledby="about-title" className="px-3 pb-24 md:pb-40">
+      <div ref={ref} className="mx-auto max-w-[640px]">
 
-      {/* ── Vertical grid lines ───────────────────────────────── */}
-      <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        {[25, 50, 75].map(pct => (
-          <div key={pct} style={{
-            position: "absolute", top: 0, bottom: 0,
-            left: `${pct}%`,
-            width: "1px",
-            background: "hsl(var(--border) / 0.07)",
-          }} />
-        ))}
-      </div>
+        {/* ── Full ── */}
+        <div className="paper px-6 pb-12 pt-12 md:px-[60px] md:pb-14 md:pt-14">
+          <div data-reveal className="size-11 overflow-hidden rounded-full bg-paper-2">
+            <img src={avatarLight} alt={t("about.portraitAlt")} width="44" height="44" loading="lazy" className="size-full object-cover dark:hidden" />
+            <img src={avatarDark}  alt={t("about.portraitAlt")} width="44" height="44" loading="lazy" className="hidden size-full object-cover dark:block" />
+          </div>
 
-      {/* ── Header band ───────────────────────────────────────── */}
-      <div style={{
-        position: "relative", zIndex: 1,
-        borderTop: "1px solid hsl(var(--border) / 0.5)",
-        borderBottom: "1px solid hsl(var(--border) / 0.5)",
-        padding: "0.875rem 0",
-        marginBottom: "5rem",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        ...px,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <span style={{
-            fontFamily: "'Bebas Neue', sans-serif", fontSize: "0.875rem",
-            letterSpacing: "0.16em", color: ACCENT, opacity: 1,
-          }}>02</span>
-          <span style={{
-            fontFamily: "'Geist Mono', monospace", fontWeight: 300,
-            fontSize: "0.75rem", letterSpacing: "0.14em",
-            textTransform: "uppercase", color: "hsl(var(--muted-foreground))",
-          }}>{t("about.label")}</span>
-        </div>
-        <span style={{
-          fontFamily: "'Geist Mono', monospace", fontWeight: 300,
-          fontSize: "0.75rem", letterSpacing: "0.14em",
-          color: "hsl(var(--muted-foreground))", opacity: 0.6,
-          textTransform: "uppercase",
-        }}>BCN — 2026</span>
-      </div>
+          <h2
+            id="about-title"
+            data-reveal
+            className="mt-7 font-serif leading-tight text-ink"
+            style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)" }}
+          >
+            {t("about.greeting")}
+          </h2>
 
-      <div style={{ position: "relative", zIndex: 1, ...px }}>
-
-        {/* ── Title block ───────────────────────────────────────── */}
-        <div style={{ marginBottom: "5rem" }}>
-          {/* Accent line */}
-          <div ref={lineRef} style={{
-            width: "3rem", height: "2px",
-            background: ACCENT,
-            marginBottom: "1.5rem",
-            transformOrigin: "left",
-          }} />
-
-          <div ref={titleRef} style={{ overflow: "hidden" }}>
-            {t("about.title").split("\n").map((line, i) => (
-              <div key={i} style={{ overflow: "hidden" }}>
-                <h2 className="title-line" style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: "clamp(3.5rem, 10vw, 9rem)",
-                  lineHeight: 0.88, letterSpacing: "0.01em",
-                  color: "hsl(var(--foreground))",
-                  margin: 0, display: "block",
-                }}>{line}</h2>
-              </div>
+          <div className="mt-6 space-y-[1.55em] text-[1.0625rem] leading-[1.55] text-ink">
+            {Array.isArray(paragraphs) && paragraphs.map((p, i) => (
+              <p key={i} data-reveal>{p}</p>
             ))}
           </div>
+
+          <p data-reveal className="mt-10">
+            <span className="block font-serif text-[1.75rem] italic leading-tight text-ink">{t("about.name")}</span>
+            <span className="block text-[0.875rem] text-ink-soft">{t("about.role")}</span>
+          </p>
         </div>
 
-        {/* ── Stats row ─────────────────────────────────────────── */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
-          borderTop: "1px solid hsl(var(--border) / 0.4)",
-          borderBottom: "1px solid hsl(var(--border) / 0.4)",
-          marginBottom: "5rem",
-        }}>
-          {STATS.map((s, i) => (
-            <div
-              key={i}
-              ref={el => statsRef.current[i] = el}
-              style={{
-                padding: "2rem 0",
-                paddingLeft: i === 0 ? 0 : "clamp(0.75rem, 3vw, 2.5rem)",
-                borderRight: i < STATS.length - 1 ? "1px solid hsl(var(--border) / 0.4)" : "none",
-              }}
-            >
-              {/* Accent dot */}
-              <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: ACCENT, marginBottom: "0.75rem" }} />
-              <div style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-                lineHeight: 0.9, letterSpacing: "0.02em",
-                color: "hsl(var(--foreground))", marginBottom: "0.4rem",
-              }}>{s.value}</div>
-              <div style={{
-                fontFamily: "'Geist Mono', monospace",
-                fontSize: "0.75rem", letterSpacing: "0.14em",
-                textTransform: "uppercase", color: "hsl(var(--muted-foreground))",
-                fontWeight: 400,
-              }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Word reveal ───────────────────────────────────────── */}
-        <p
-          ref={revealRef}
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(1.75rem, 3.5vw, 3rem)",
-            lineHeight: 1.1, letterSpacing: "0.02em",
-            maxWidth: "100%", margin: "0 0 5rem",
-            wordBreak: "normal", overflowWrap: "normal", hyphens: "none",
-          }}
-        >
-          {TEXT.split(" ").map((word, i) => (
-            <span key={i} className="word" style={{
-              display: "inline-block",
-              marginRight: "0.16em",
-              whiteSpace: "nowrap",
-              "--reveal": 0,
-              color: `color-mix(in oklab, hsl(var(--border) / 0.5), hsl(var(--foreground)) calc(var(--reveal) * 100%))`,
-            }}>
-              {word}
-            </span>
-          ))}
-        </p>
-
-        {/* ── Tech stack ────────────────────────────────────────── */}
-        <div style={{ borderTop: "1px solid hsl(var(--border) / 0.4)", paddingTop: "2rem" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-            <span style={{
-              fontFamily: "'Geist Mono', monospace", fontSize: "0.75rem",
-              letterSpacing: "0.14em", textTransform: "uppercase",
-              color: ACCENT, fontWeight: 300, opacity: 0.8,
-            }}>Stack</span>
-            <div style={{ flex: 1, height: "1px", background: `linear-gradient(to right, ${ACCENT}40, hsl(var(--border) / 0.2))` }} />
+        {/* ── Tira per arrencar ── */}
+        <div className="perforation relative bg-paper-2 px-6 pb-8 pt-5 md:px-[60px]">
+          <div className="flex flex-col gap-3 md:min-h-[72px] md:flex-row md:items-center md:justify-between">
+            <p className="text-[0.875rem] text-ink-soft">{t("about.stub")}</p>
+            <a href={`mailto:${EMAIL}`} className="link break-all text-[1.125rem] font-medium text-ink" translate="no">
+              {EMAIL}
+            </a>
           </div>
-          <TechStack />
+          <Scallops edge="bottom" size={20} />
         </div>
-
       </div>
     </section>
   )

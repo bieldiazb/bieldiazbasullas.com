@@ -1,362 +1,123 @@
 'use client'
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import Grainient from "../Grainient"
+import { useEffect, useRef, useId } from "react"
+import { useTranslation } from "react-i18next"
+import { gsap } from "@/lib/gsap"
+import { Corners } from "@/components/paper/Scallops"
 
-const FONT_HREF =
-  "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist+Mono:wght@300;400&display=swap"
-
-function injectFont() {
-  if (typeof document === "undefined") return
-  if (document.querySelector(`link[href="${FONT_HREF}"]`)) return
-  const link = document.createElement("link")
-  link.rel = "stylesheet"
-  link.href = FONT_HREF
-  document.head.appendChild(link)
+// ── Stamp ─────────────────────────────────────────────────────────
+// Segell vermell del full: text en cercle i el monograma al centre.
+function Stamp({ text }) {
+  const id = useId()
+  const label = `${text} · ${text} · `
+  return (
+    <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden className="block">
+      <circle cx="60" cy="60" r="58" fill="var(--accent)" />
+      <circle cx="60" cy="60" r="31" fill="none" stroke="var(--on-accent)" strokeWidth="2" />
+      <defs>
+        <path id={id} d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0" />
+      </defs>
+      <text fill="var(--on-accent)" fontSize="11.5" fontWeight="600" letterSpacing="1.2" style={{ fontFamily: "Inter, sans-serif" }}>
+        <textPath href={`#${id}`} textLength="268">{label.toUpperCase()}</textPath>
+      </text>
+      <text x="60" y="68" textAnchor="middle" fill="var(--on-accent)" fontSize="24" fontStyle="italic" style={{ fontFamily: "'Instrument Serif', serif" }}>bdb</text>
+    </svg>
+  )
 }
 
-const MARQUEE_ITEMS = [
-  "Web Developer",
-  "UI / UX Design",
-  "React",
-  "Next.js",
-  "Motion Design",
-  "Creative Dev",
-  "Barcelona",
-  "Available 2026",
-]
-
 export default function Hero() {
-  injectFont()
+  const { t, i18n } = useTranslation()
+  const cardRef  = useRef(null)
+  const stampRef = useRef(null)
 
-  const line1Ref   = useRef(null)
-  const line2Ref   = useRef(null)
-  const tagRef     = useRef(null)
-  const scrollRef  = useRef(null)
-  const metaRef    = useRef(null)
-  const numRef     = useRef(null)
-  const marqueeRef = useRef(null)
-  const tickRef    = useRef(null)
-  const dividerRef = useRef(null)
+  const fields = t("hero.fields", { returnObjects: true })
+  const today = new Intl.DateTimeFormat(i18n.resolvedLanguage || "ca", {
+    day: "numeric", month: "long", year: "numeric",
+  }).format(new Date())
 
+  // ── Entrada: el full puja, les línies entren i el segell es pica ──
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "expo.out" } })
-
-    tl
-      .fromTo(tagRef.current,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.8 }, 0.2)
-      .fromTo(line1Ref.current,
-        { yPercent: 105 },
-        { yPercent: 0, duration: 1.3 }, 0.35)
-      .fromTo(line2Ref.current,
-        { yPercent: 105 },
-        { yPercent: 0, duration: 1.3 }, 0.48)
-      .fromTo(dividerRef.current,
-        { scaleX: 0 },
-        { scaleX: 1, duration: 1.0, transformOrigin: "left" }, 0.85)
-      .fromTo(metaRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.9 }, 0.75)
-      .fromTo(numRef.current,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.8 }, 0.8)
-      .fromTo(scrollRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.8 }, 1.1)
-      .fromTo(marqueeRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 1.0 }, 0.9)
-
-    // Marquee
-    const inner = marqueeRef.current?.querySelector(".marquee-inner")
-    if (inner) {
-      gsap.to(inner, {
-        xPercent: -50,
-        duration: 24,
-        ease: "none",
-        repeat: -1,
-      })
-    }
-
-    // Tick on vertical line
-    gsap.to(tickRef.current, {
-      y: "80%",
-      duration: 3.2,
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true,
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const tl = gsap.timeline({ defaults: { ease: "expo.out" } })
+      tl.from(cardRef.current, { y: 120, opacity: 0, duration: 1.2 })
+        .from(cardRef.current.querySelectorAll("[data-line]"), { y: 24, opacity: 0, duration: 0.9, stagger: 0.08 }, "-=0.8")
+        .from(stampRef.current, { scale: 1.6, rotation: -24, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.3")
     })
-
-    // Scroll line pulse
-    gsap.to(scrollRef.current?.querySelector(".scroll-line"), {
-      scaleY: 0.2,
-      repeat: -1,
-      yoyo: true,
-      duration: 1.6,
-      ease: "sine.inOut",
-      transformOrigin: "top center",
-    })
+    return () => mm.revert()
   }, [])
 
-  const mono = { fontFamily: "'Geist Mono', monospace", fontWeight: 300 }
+  const NAV = [
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.projects"), href: "#projects" },
+    { label: t("nav.about"),    href: "#about"    },
+  ]
 
   return (
-    <section
-      id="home"
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        backgroundColor: "#0b1a3d",
-      }}
-    >
-      {/* Background */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        <Grainient
-          color1="#0d1f4a"
-          color2="#256cd0"
-          color3="#08142e"
-          timeSpeed={0.6}
-          colorBalance={0}
-          warpStrength={1.2}
-          warpFrequency={5}
-          warpSpeed={2}
-          warpAmplitude={50}
-          blendAngle={0}
-          blendSoftness={0.2}
-          rotationAmount={500}
-          noiseScale={2.5}
-          grainAmount={0.06}
-          grainScale={1}
-          grainAnimated
-          contrast={1.6}
-          gamma={1}
-          saturation={0.6}
-          centerX={0}
-          centerY={0}
-          zoom={0.75}
-        />
-      </div>
+    <section id="home" aria-labelledby="hero-title" className="px-3 pt-[96px] md:pt-[190px]">
+      <div
+        ref={cardRef}
+        className="paper relative mx-auto flex w-full max-w-[680px] flex-col md:w-1/2"
+        style={{ aspectRatio: "5 / 7" }}
+      >
+        <Corners />
 
-      {/* Scan lines */}
-      <div style={{
-        position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none",
-        backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px)",
-      }} />
+        <div className="flex flex-1 flex-col px-6 pb-12 pt-14 text-center md:px-14">
 
-      {/* Vertical rule — left */}
-      <div style={{
-        position: "absolute",
-        left: "clamp(1.25rem, 4vw, 3.5rem)",
-        top: "18%", bottom: "18%",
-        width: "1px",
-        background: "rgba(255,255,255,0.07)",
-        zIndex: 5,
-        overflow: "hidden",
-      }}>
-        <div ref={tickRef} style={{
-          position: "absolute",
-          top: 0,
-          width: "100%",
-          height: "25%",
-          background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent)",
-        }} />
-      </div>
+          {/* ── Nom ── */}
+          <h1
+            id="hero-title"
+            className="font-serif italic leading-[0.95] text-ink"
+            style={{ fontSize: "clamp(3rem, 12vw, 5.5rem)" }}
+          >
+            <span data-line className="block md:-translate-x-[8%]">{t("hero.nameLine1")}</span>
+            <span data-line className="block md:translate-x-[8%]">{t("hero.nameLine2")}</span>
+          </h1>
 
-      {/* Meta — top right */}
-      <div ref={metaRef} className="hidden md:flex" style={{
-        position: "absolute",
-        top: "calc(72px + 1.5rem)",
-        right: "clamp(1.25rem, 4vw, 3.5rem)",
-        zIndex: 10,
-        flexDirection: "column",
-        alignItems: "flex-end",
-        gap: "0.35rem",
-      }}>
-        {["41°22'N / 2°10'E", "BCN — 2026"].map((txt, i) => (
-          <span key={i} style={{
-            ...mono,
-            fontSize: "0.475rem",
-            letterSpacing: "0.16em",
-            color: "rgba(255,255,255,0.28)",
-            textTransform: "uppercase",
-          }}>{txt}</span>
-        ))}
-      </div>
+          <p data-line className="mx-auto mt-8 max-w-[34ch] text-[1.25rem] leading-snug text-ink">
+            {t("hero.lead")}
+          </p>
 
-      {/* Project count — bottom left */}
-      <div ref={numRef} style={{
-        position: "absolute",
-        left: "clamp(1.25rem, 4vw, 3.5rem)",
-        bottom: "clamp(5rem, 10vh, 8rem)",
-        zIndex: 10,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "0.25rem",
-      }}>
-        <span style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)",
-          color: "rgba(255,255,255,0.85)",
-          lineHeight: 1,
-          letterSpacing: "0.04em",
-        }}>3</span>
-        <span style={{
-          ...mono,
-          fontSize: "0.42rem",
-          letterSpacing: "0.22em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.28)",
-        }}>Projects</span>
-      </div>
+          {/* ── Dades del full ── */}
+          <p data-line className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.9375rem] text-ink-soft">
+            <span>{t("hero.sheet")}</span>
+            <span aria-hidden className="inline-block size-2.5 rotate-45 bg-stamp" />
+            <span>{t("hero.place")}</span>
+            <span aria-hidden className="inline-block size-2.5 rotate-45 bg-stamp" />
+            <time dateTime={new Date().toISOString().slice(0, 10)}>{today}</time>
+          </p>
 
-      {/* ── Main content ── */}
-      <div style={{
-        position: "relative",
-        zIndex: 10,
-        flex: 1,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "calc(72px + 3rem) clamp(1.25rem, 6vw, 5rem) 2rem",
-      }}>
+          {/* ── Camps ── */}
+          <dl data-line className="mx-auto mt-12 w-full max-w-[420px] text-left">
+            {Array.isArray(fields) && fields.map(({ label, value }) => (
+              <div key={label} className="flex items-baseline gap-4 bg-paper-2 px-4 py-3 [&+&]:mt-1.5">
+                <dt className="w-[4.5rem] shrink-0 text-[0.875rem] text-ink-soft">{label}</dt>
+                <dd className="text-[1rem] font-medium text-ink">{value}</dd>
+              </div>
+            ))}
+          </dl>
 
-        {/* Eyebrow */}
-        <p ref={tagRef} style={{
-          ...mono,
-          fontSize: "clamp(0.5rem, 1.1vw, 0.6rem)",
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.38)",
-          margin: "0 0 clamp(1.2rem, 3vh, 2.5rem) 0",
-        }}>
-          Web Developer — Portfolio 2026 ©
-        </p>
-
-        {/* Name — 2 lines, full, centrat */}
-        <div>
-          <div style={{ overflow: "hidden" }}>
-            <h1 ref={line1Ref} style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(4.5rem, 19vw, 14rem)",
-              lineHeight: 0.87,
-              letterSpacing: "0.01em",
-              color: "rgba(255,255,255,0.97)",
-              margin: 0,
-            }}>BIEL DIAZ</h1>
+          {/* ── Signatura + segell ── */}
+          <div data-line className="mx-auto mt-auto flex w-full max-w-[420px] items-end justify-between pt-10">
+            <p className="text-left">
+              <span className="block text-[0.875rem] text-ink-soft">{t("hero.signed")}</span>
+              <span className="font-serif text-[2.5rem] italic leading-none text-ink" translate="no">{t("hero.signature")}</span>
+            </p>
+            <div ref={stampRef} className="-rotate-[8deg]">
+              <Stamp text={t("hero.stamp")} />
+            </div>
           </div>
 
-          <div style={{ overflow: "hidden", marginTop: "0.04em" }}>
-            <h1 ref={line2Ref} style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(4.5rem, 19vw, 14rem)",
-              lineHeight: 0.87,
-              letterSpacing: "0.01em",
-              color: "rgba(255,255,255,0.97)",
-              margin: 0,
-            }}>BASULLAS</h1>
-          </div>
-        </div>
-
-        {/* Hairline + rol */}
-        <div style={{
-          marginTop: "clamp(1.5rem, 4vh, 3rem)",
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-        }}>
-          <div ref={dividerRef} style={{
-            width: "2.5rem",
-            height: "1px",
-            background: "rgba(255,255,255,0.35)",
-            flexShrink: 0,
-          }} />
-          <span style={{
-            ...mono,
-            fontSize: "clamp(0.5rem, 1.1vw, 0.6rem)",
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.35)",
-          }}>
-            Creative Developer & UI Designer
-          </span>
+          {/* ── Enllaços (mòbil) a la part baixa del full ── */}
+          <nav aria-label={t("nav.main")} className="pt-12 md:hidden">
+            <ul className="flex justify-center gap-6 text-[1rem]">
+              {NAV.map(({ label, href }) => (
+                <li key={href}><a href={href} className="link">{label}</a></li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
-
-      {/* ── Marquee band ── */}
-      <div ref={marqueeRef} style={{
-        position: "relative",
-        zIndex: 10,
-        overflow: "hidden",
-        borderTop: "1px solid rgba(255,255,255,0.07)",
-        padding: "0.65rem 0",
-      }}>
-        <div className="marquee-inner" style={{
-          display: "flex",
-          width: "200%",
-          willChange: "transform",
-        }}>
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} style={{
-              ...mono,
-              fontSize: "0.48rem",
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.28)",
-              whiteSpace: "nowrap",
-              padding: "0 2rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "2rem",
-            }}>
-              {item}
-              <span style={{
-                display: "inline-block",
-                width: "3px", height: "3px",
-                borderRadius: "50%",
-                background: "#256cd0",
-                opacity: 0.65,
-                flexShrink: 0,
-              }} />
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Scroll indicator — bottom right ── */}
-      <div ref={scrollRef} style={{
-        position: "absolute",
-        bottom: "2.5rem",
-        right: "clamp(1.25rem, 4vw, 3.5rem)",
-        zIndex: 10,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "0.6rem",
-      }}>
-        <div className="scroll-line" style={{
-          width: "1px",
-          height: "2.5rem",
-          background: "linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0))",
-          transformOrigin: "top center",
-        }} />
-        <span style={{
-          ...mono,
-          fontSize: "0.4375rem",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,0.22)",
-          writingMode: "vertical-rl",
-        }}>scroll</span>
-      </div>
-
     </section>
   )
 }

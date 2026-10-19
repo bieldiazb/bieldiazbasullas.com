@@ -4,139 +4,51 @@ import { useEffect, useState, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import { gsap } from "@/lib/gsap"
 
-const ACCENT      = "#256cd0"
-const COOKIE_KEY  = "cookie-consent"
+const COOKIE_KEY = "cookie-consent"
+
+// ── CookieBanner ──────────────────────────────────────────────────
+// Tira de paper fixa a baix. Es guarda tant si s'accepta com si es
+// rebutja, perquè no torni a sortir a cada visita.
 
 export default function CookieBanner() {
-  const { t }           = useTranslation()
-  const [visible, setVisible] = useState(false)
-  const bannerRef       = useRef(null)
-
-  useEffect(() => {
-    if (localStorage.getItem(COOKIE_KEY) !== "accepted") {
-      setVisible(true)
-    }
-  }, [])
+  const { t } = useTranslation()
+  const [visible, setVisible] = useState(() => {
+    try { return !localStorage.getItem(COOKIE_KEY) } catch { return true }
+  })
+  const bannerRef = useRef(null)
 
   useEffect(() => {
     if (!visible || !bannerRef.current) return
-    gsap.fromTo(bannerRef.current,
-      { yPercent: 110, opacity: 0 },
-      { yPercent: 0, opacity: 1, duration: 0.7, ease: "expo.out", delay: 0.2 }
-    )
+    const mm = gsap.matchMedia()
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.from(bannerRef.current, { yPercent: 110, duration: 0.7, ease: "expo.out", delay: 0.6 })
+    })
+    return () => mm.revert()
   }, [visible])
 
   const dismiss = (accepted) => {
-    gsap.to(bannerRef.current, {
-      yPercent: 110, opacity: 0, duration: 0.45, ease: "expo.in",
-      onComplete: () => setVisible(false),
-    })
-    if (accepted) localStorage.setItem(COOKIE_KEY, "accepted")
+    try { localStorage.setItem(COOKIE_KEY, accepted ? "accepted" : "rejected") } catch { /* sense storage */ }
+    setVisible(false)
   }
 
   if (!visible) return null
 
   return (
     <div
-      style={{
-        position: "fixed",
-        bottom: 0, left: 0, right: 0,
-        zIndex: 55,
-        pointerEvents: "none",
-      }}
+      ref={bannerRef}
+      role="region"
+      aria-label="Cookies"
+      className="fixed inset-x-3 bottom-3 z-[55] mx-auto max-w-[760px] bg-paper text-ink"
     >
-      <div
-        ref={bannerRef}
-        style={{
-          pointerEvents: "all",
-          background: "hsl(var(--background))",
-          borderTop: "1px solid hsl(var(--border) / 0.5)",
-          position: "relative", overflow: "hidden",
-        }}
-      >
-        {/* Accent left line */}
-        <div style={{
-          position: "absolute", top: 0, left: 0,
-          width: `clamp(1.25rem, 5vw, 5rem)`,
-          height: "2px",
-          background: ACCENT,
-        }} />
-
-        {/* Grid lines */}
-        <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-          {[25, 50, 75].map(pct => (
-            <div key={pct} style={{
-              position: "absolute", top: 0, bottom: 0, left: `${pct}%`,
-              width: "1px", background: "hsl(var(--border) / 0.06)",
-            }} />
-          ))}
-        </div>
-
-        <div style={{
-          position: "relative", zIndex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "1rem",
-          padding: "1rem clamp(1.25rem, 5vw, 5rem)",
-        }}>
-
-          {/* Label + text */}
-          <div style={{ display: "flex", alignItems: "baseline", gap: "1.25rem", flex: 1, minWidth: "200px" }}>
-            <span style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: "0.875rem", letterSpacing: "0.1em",
-              color: ACCENT, flexShrink: 0,
-            }}>COOKIES</span>
-            <p style={{
-              fontFamily: "'Geist Mono', monospace", fontWeight: 300,
-              fontSize: "0.6875rem", letterSpacing: "0.04em", lineHeight: 1.7,
-              color: "hsl(var(--muted-foreground))",
-              margin: 0,
-            }}>
-              {t("cookies.text")}
-            </p>
-          </div>
-
-          {/* Actions */}
-          <div style={{ display: "flex", gap: "0.5rem", flexShrink: 0 }}>
-            <button
-              onClick={() => dismiss(false)}
-              style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: "0.875rem", letterSpacing: "0.14em",
-                padding: "0.5rem 1.5rem",
-                background: "transparent",
-                color: "hsl(var(--muted-foreground))",
-                border: "1px solid hsl(var(--border) / 0.4)",
-                cursor: "pointer",
-                transition: "color 0.2s ease, border-color 0.2s ease",
-              }}
-              onMouseEnter={e => { e.currentTarget.style.color = "hsl(var(--foreground))"; e.currentTarget.style.borderColor = "hsl(var(--border))" }}
-              onMouseLeave={e => { e.currentTarget.style.color = "hsl(var(--muted-foreground))"; e.currentTarget.style.borderColor = "hsl(var(--border) / 0.4)" }}
-            >
-              {t("cookies.reject")}
-            </button>
-
-            <button
-              onClick={() => dismiss(true)}
-              style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: "0.875rem", letterSpacing: "0.14em",
-                padding: "0.5rem 1.5rem",
-                background: ACCENT, color: "#fff",
-                border: `1px solid ${ACCENT}`,
-                cursor: "pointer",
-                transition: "opacity 0.2s ease",
-              }}
-              onMouseEnter={e => e.currentTarget.style.opacity = "0.8"}
-              onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-            >
-              {t("cookies.accept")}
-            </button>
-          </div>
-
+      <div className="flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between">
+        <p className="text-[0.9375rem] leading-snug">{t("cookies.text")}</p>
+        <div className="flex shrink-0 gap-2">
+          <button type="button" onClick={() => dismiss(false)} className="btn btn-paper bg-paper-2">
+            {t("cookies.reject")}
+          </button>
+          <button type="button" onClick={() => dismiss(true)} className="btn">
+            {t("cookies.accept")}
+          </button>
         </div>
       </div>
     </div>
