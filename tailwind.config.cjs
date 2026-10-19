@@ -23,8 +23,8 @@ module.exports = {
         muted: "hsl(var(--muted))",
         "muted-foreground": "hsl(var(--muted-foreground))",
 
-        accent: "hsl(var(--accent))",
-        "accent-foreground": "hsl(var(--accent-foreground))",
+        accent: "hsl(var(--accent-hsl))",
+        "accent-foreground": "hsl(var(--foreground))",
 
         destructive: "hsl(var(--destructive))",
         "destructive-foreground": "hsl(var(--destructive-foreground))",
@@ -32,9 +32,22 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+
+        // Full d'encàrrec
+        ground: "var(--ground)",
+        "on-ground": "var(--on-ground)",
+        "on-ground-soft": "var(--on-ground-soft)",
+        paper: "var(--paper)",
+        "paper-2": "var(--paper-2)",
+        "paper-3": "var(--paper-3)",
+        ink: "var(--ink)",
+        "ink-soft": "var(--ink-soft)",
+        stamp: "var(--accent)",
+        "on-stamp": "var(--on-accent)",
       },
       fontFamily: {
-        sans: ["Outfit", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        serif: ["'Instrument Serif'", "Georgia", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
