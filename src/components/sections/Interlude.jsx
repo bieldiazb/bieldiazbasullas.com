@@ -21,7 +21,7 @@ export default function Interlude() {
       })
       gsap.from(panelRef.current.querySelectorAll("[data-text]"), {
         y: 24, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.08,
-        scrollTrigger: { trigger: panelRef.current, start: "top 70%", once: true },
+        scrollTrigger: { trigger: panelRef.current, start: "top 70%", toggleActions: "play none none none" },
       })
     })
     return () => mm.revert()

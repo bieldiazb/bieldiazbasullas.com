@@ -38,9 +38,12 @@ export default function Marquee() {
   useEffect(() => {
     const mm = gsap.matchMedia()
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const st = { trigger: rootRef.current, start: "top bottom", end: "bottom top", scrub: 0.8 }
-      gsap.fromTo(rowA.current, { xPercent: 0 },   { xPercent: -25, ease: "none", scrollTrigger: st })
-      gsap.fromTo(rowB.current, { xPercent: -25 }, { xPercent: 0,   ease: "none", scrollTrigger: st })
+      // Un objecte nou per a cada ScrollTrigger: el comparteixen, ScrollTrigger
+      // el modifica en crear el primer i el segon falla si la pàgina carrega
+      // ja desplaçada (p. ex. amb #contact a la URL)
+      const st = () => ({ trigger: rootRef.current, start: "top bottom", end: "bottom top", scrub: 0.8 })
+      gsap.fromTo(rowA.current, { xPercent: 0 },   { xPercent: -25, ease: "none", scrollTrigger: st() })
+      gsap.fromTo(rowB.current, { xPercent: -25 }, { xPercent: 0,   ease: "none", scrollTrigger: st() })
     })
     return () => mm.revert()
   }, [])

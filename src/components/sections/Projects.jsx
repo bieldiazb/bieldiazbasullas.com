@@ -60,7 +60,7 @@ export default function Projects() {
       sectionRef.current.querySelectorAll("[data-project]").forEach((card) => {
         const frame = card.querySelector("[data-frame]")
         const img = card.querySelector("img")
-        gsap.timeline({ scrollTrigger: { trigger: card, start: "top 80%", once: true } })
+        gsap.timeline({ scrollTrigger: { trigger: card, start: "top 80%", toggleActions: "play none none none" } })
           .from(frame, { opacity: 0, y: 48, duration: 1.1, ease: "expo.out" })
           .from(img, { scale: 1.1, duration: 1.6, ease: "expo.out" }, 0)
           .from(card.querySelectorAll("[data-text]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, 0.2)

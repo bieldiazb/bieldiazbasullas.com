@@ -24,7 +24,7 @@ export function useReveal({ y = 24, stagger = 0.08, start = "top 80%" } = {}) {
           autoSplit: true,
           onSplit: (self) => gsap.from(self.lines, {
             yPercent: 105, duration: 1.1, ease: "expo.out", stagger: 0.09,
-            scrollTrigger: { trigger: target, start: "top 88%", once: true },
+            scrollTrigger: { trigger: target, start: "top 88%", toggleActions: "play none none none" },
           }),
         })
       })
@@ -33,7 +33,7 @@ export function useReveal({ y = 24, stagger = 0.08, start = "top 80%" } = {}) {
       if (parts.length) {
         gsap.from(parts, {
           y, opacity: 0, duration: 0.9, ease: "expo.out", stagger,
-          scrollTrigger: { trigger: el, start, once: true },
+          scrollTrigger: { trigger: el, start, toggleActions: "play none none none" },
         })
       }
     })

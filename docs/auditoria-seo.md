@@ -14,7 +14,10 @@
 > - ✅ Títols, descripcions i frase de l'inici amb Manresa i el Bages
 > - ✅ Dades estructurades del negoci local (`ProfessionalService`) amb zona de servei i serveis
 > - ✅ Cloudflare Web Analytics mencionat a privacitat i cookies
-> - ⏳ Pendent de decisió: nom (Díaz o Diaz), pàgines de servei, preguntes freqüents i casos d'èxit
+> - ✅ Nom unificat: "Biel Díaz Basullas"
+> - ✅ Pàgines de servei (6 × 3 idiomes) i pàgina local "Disseny web a Manresa i el Bages", amb dades estructurades (Service, BreadcrumbList, FAQPage)
+> - ✅ Preguntes freqüents a l'inici (FAQPage) i enllaços interns cap a serveis i pàgina local
+> - ⏳ Pendent: casos d'èxit (calen dades reals) i articles
 > - ⏳ Pendent (manual): publicar, Search Console, redirecció de `www`, Google Business Profile, enllaços des de clients i directoris
 
 ## Resum
