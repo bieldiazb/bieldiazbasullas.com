@@ -78,7 +78,7 @@ export default function Contact() {
 
           {/* ── Títol ── */}
           <div className="md:col-span-5">
-            <SectionLabel index="04" data-reveal className="text-slate">{t("contact.eyebrow")}</SectionLabel>
+            <SectionLabel index="05" data-reveal className="text-slate">{t("contact.eyebrow")}</SectionLabel>
             <h2 data-split id="contact-title" className="t-display mt-5 text-ink">
               {t("contact.title")}
             </h2>

@@ -5,6 +5,7 @@ import { gsap } from "@/lib/gsap"
 import Clock from "@/components/Clock"
 import { OWNER, SOCIALS } from "@/lib/legal"
 import { homeLink, pathFor, route } from "@/lib/routes"
+import { CONTENT, serviceLinks } from "@/seo/meta"
 import { consentEnabled, openConsent } from "@/lib/consent"
 
 const EMAIL = OWNER.email
@@ -38,7 +39,7 @@ export default function Footer() {
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.from(markRef.current, {
         yPercent: 40, opacity: 0, duration: 1.2, ease: "expo.out",
-        scrollTrigger: { trigger: markRef.current, start: "top 95%", once: true },
+        scrollTrigger: { trigger: markRef.current, start: "top 95%", toggleActions: "play none none none" },
       })
     })
     return () => mm.revert()
@@ -49,6 +50,7 @@ export default function Footer() {
     { label: t("nav.projects"), href: homeLink("#projects") },
     { label: t("nav.about"),    href: homeLink("#about")    },
     { label: t("nav.contact"),  href: homeLink("#contact")  },
+    { label: CONTENT[route.lang].local.h1, href: pathFor("local", route.lang) },
   ]
 
   const LEGAL = [
@@ -63,13 +65,21 @@ export default function Footer() {
   return (
     <footer className="on-dark overflow-hidden bg-footer-bg text-white">
       <div className="container-page pb-8 pt-16 md:pt-24">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
             <p className="t-heading max-w-[16ch]">{t("footer.statement")}</p>
             <a href={`mailto:${EMAIL}`} className="btn btn-on-dark mt-8">{t("footer.cta")}</a>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-[auto_auto_auto] sm:justify-between md:col-span-7">
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-[auto_auto_auto_auto] sm:justify-between lg:col-span-8">
+            <nav aria-label={CONTENT[route.lang].ui.services}>
+              <h2 className="t-eyebrow text-stone">{CONTENT[route.lang].ui.services}</h2>
+              <ul className="mt-4 space-y-1">
+                {serviceLinks(route.lang).map(({ id, path, title }) => (
+                  <li key={id}><a href={path} className={linkClass}>{title}</a></li>
+                ))}
+              </ul>
+            </nav>
             <nav aria-label={t("footer.nav")}>
               <h2 className="t-eyebrow text-stone">{t("footer.nav")}</h2>
               <ul className="mt-4 space-y-1">

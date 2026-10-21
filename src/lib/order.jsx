@@ -6,8 +6,16 @@ import { createContext, useContext, useState, useCallback, useMemo } from "react
 
 const OrderContext = createContext({ selected: [], toggle: () => {}, has: () => false })
 
+// Des d'una pàgina de servei, l'enllaç "Parlem" porta ?servei=<id> i el
+// formulari arriba amb aquell servei ja marcat
+const initialSelection = () => {
+  if (typeof window === "undefined") return []
+  const id = new URLSearchParams(window.location.search).get("servei")
+  return id && /^[a-z-]+$/.test(id) ? [id] : []
+}
+
 export function OrderProvider({ children }) {
-  const [selected, setSelected] = useState([])
+  const [selected, setSelected] = useState(initialSelection)
 
   const toggle = useCallback((id) => {
     setSelected(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id])

@@ -7,6 +7,8 @@ import { gsap } from "@/lib/gsap"
 import { useOrder } from "@/lib/order"
 import { useReveal } from "@/lib/useReveal"
 import SectionLabel from "@/components/SectionLabel"
+import { PATHS, route, servicePage } from "@/lib/routes"
+import { CONTENT } from "@/seo/meta"
 
 // Icona per a cada servei (clau = id a i18n)
 const ICONS = {
@@ -36,7 +38,7 @@ export default function Services() {
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       // Cada fila: la línia es dibuixa i el contingut puja
       rootRef.current.querySelectorAll("[data-row]").forEach((row) => {
-        gsap.timeline({ scrollTrigger: { trigger: row, start: "top 88%", once: true } })
+        gsap.timeline({ scrollTrigger: { trigger: row, start: "top 88%", toggleActions: "play none none none" } })
           .from(row.querySelector("[data-rule]"), { scaleX: 0, duration: 1, ease: "expo.inOut" })
           .from(row.querySelectorAll("[data-cell]"), { y: 20, opacity: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, "-=0.6")
       })
@@ -73,7 +75,12 @@ export default function Services() {
                     <Icon aria-hidden size={24} strokeWidth={1.5} className="mt-0.5 shrink-0 text-ink transition-transform duration-500 ease-out group-hover:-rotate-6" />
                     <h3 className="t-title text-ink transition-transform duration-500 ease-out group-hover:translate-x-1.5">{service.title}</h3>
                   </div>
-                  <p data-cell className="t-body max-w-[52ch] text-graphite md:col-span-5">{service.description}</p>
+                  <div data-cell className="md:col-span-5">
+                    <p className="t-body max-w-[52ch] text-graphite">{service.description}</p>
+                    <a href={PATHS[route.lang][servicePage(service.id)]} className="text-link mt-3 inline-block text-ink">
+                      {CONTENT[route.lang].ui.more}<span className="sr-only">: {service.title}</span>
+                    </a>
+                  </div>
                   <div data-cell className="md:col-span-2 md:flex md:items-start md:justify-end">
                     <button
                       type="button"

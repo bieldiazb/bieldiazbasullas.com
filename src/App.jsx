@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import { Seo } from "./components/Seo"
 import { OrderProvider } from "@/lib/order"
-import { route } from "@/lib/routes"
+import { route, serviceIdOf } from "@/lib/routes"
 
 import Header        from "@/components/layout/Header"
 import Footer        from "@/components/layout/Footer"
@@ -14,14 +14,25 @@ import Marquee       from "@/components/sections/Marquee"
 import Interlude     from "@/components/sections/Interlude"
 import About         from "@/components/sections/About"
 import Contact       from "@/components/sections/Contact"
+import HomeFaq       from "@/components/sections/HomeFaq"
 import CookieBanner  from "./components/CookieBanner"
 import { Toaster }   from "./components/ui/toaster"
 import SmoothScroll  from "@/components/SmoothScroll"
 import Intro         from "@/components/Intro"
 import CursorLabel   from "@/components/CursorLabel"
+import HashScroll    from "@/components/HashScroll"
 
-// Les pàgines legals i la 404 es carreguen a part: no pesen a l'inici
-const LegalPage = lazy(() => import("@/components/LegalPage"))
+// Les altres pàgines es carreguen a part: no pesen a l'inici
+const LegalPage   = lazy(() => import("@/components/LegalPage"))
+const ServicePage = lazy(() => import("@/components/ServicePage"))
+const LocalPage   = lazy(() => import("@/components/LocalPage"))
+
+function Page({ page, lang }) {
+  const serviceId = serviceIdOf(page)
+  if (serviceId) return <ServicePage id={serviceId} lang={lang} />
+  if (page === "local") return <LocalPage lang={lang} />
+  return <LegalPage page={page} lang={lang} />
+}
 
 export default function App() {
   const { t } = useTranslation()
@@ -53,11 +64,12 @@ export default function App() {
             <Projects />
             <About />
             <Interlude />
+            <HomeFaq />
             <Contact />
           </>
         ) : (
           <Suspense fallback={<div className="min-h-[100svh]" />}>
-            <LegalPage page={page} lang={lang} />
+            <Page page={page} lang={lang} />
           </Suspense>
         )}
       </main>
@@ -65,6 +77,7 @@ export default function App() {
 
       <Toaster />
       <CookieBanner />
+      <HashScroll />
     </OrderProvider>
   )
 }

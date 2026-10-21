@@ -97,6 +97,8 @@
   .t-hero, .t-display, .t-heading { text-wrap: balance; }
   /* SplitText calcula les línies tal com es pinten: sense balance */
   [data-split] { text-wrap: wrap; }
+  /* La màscara de cada línia deixa espai a les lletres que baixen (g, p, j) */
+  [data-split] > div { padding-bottom: 0.14em; margin-bottom: -0.14em; }
   .t-hero      { font-size: clamp(2.75rem, 6.4vw, 6.5rem); font-weight: 400; line-height: 0.98; letter-spacing: -0.035em; }
   .t-display   { font-size: clamp(2.25rem, 3.6vw, 3rem);   font-weight: 400; line-height: 1;    letter-spacing: -0.025em; }
   .t-heading   { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 400; line-height: 1;   letter-spacing: -0.025em; }
