@@ -31,10 +31,15 @@ export function parseRoute(pathname) {
 
 export const pathFor = (page, lang) => PATHS[lang]?.[page] ?? PATHS[DEFAULT_LANG].home
 
-// Ruta actual (la pàgina es carrega sencera a cada canvi de ruta)
-export const route = typeof window === "undefined"
+// Ruta actual (la pàgina es carrega sencera a cada canvi de ruta).
+// Al prerender del build (sense window) es fixa amb setRoute per a cada pàgina.
+export let route = typeof window === "undefined"
   ? { lang: DEFAULT_LANG, page: "home" }
   : parseRoute(window.location.pathname)
+
+export function setRoute(next) {
+  route = next
+}
 
 // Enllaç a una secció de l'inici: a l'inici és una àncora; des d'una
 // pàgina legal, porta a l'inici de l'idioma actual
