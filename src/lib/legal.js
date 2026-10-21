@@ -17,7 +17,7 @@ export const OWNER = {
 export const SITE_URL = `https://${OWNER.domain}`
 
 // Data de l'última revisió dels textos legals (AAAA-MM-DD)
-export const LEGAL_UPDATED = "2026-10-19"
+export const LEGAL_UPDATED = "2026-10-21"
 
 export const SOCIALS = [
   { href: "https://www.instagram.com/bieldiazbasullas/",              label: "Instagram" },

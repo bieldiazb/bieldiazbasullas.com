@@ -51,18 +51,20 @@ export default function legalEn({ owner, address, paths, storage }) {
         { heading: "What data is collected", blocks: [
           "Only what you send through the contact form or by email: your name, your email address, your message and, if you ticked any, the services you are interested in.",
           "In addition, as with any website, the hosting service logs technical connection data (such as your IP address and browser) for security and operational reasons.",
+          "Cloudflare Web Analytics is also used to see, in aggregate, how many visits the website gets and which pages are viewed. It does not use cookies or store anything in your browser, and it does not identify who visits the website.",
         ] },
         { heading: "What it is used for", blocks: [
           { list: [
             "Replying to your enquiry and, if you ask, preparing a project proposal.",
             "Serving the website, protecting it from malicious traffic and fixing errors (technical connection data).",
+            "Understanding, in aggregate and anonymously, how the website is used (Cloudflare Web Analytics).",
           ] },
           "It is not used to send you advertising or to build profiles, and no automated decisions are made.",
         ] },
         { heading: "Legal basis", blocks: [
           { list: [
             "Enquiries: your request and taking pre-contractual steps at your request (Art. 6(1)(b) GDPR), and your consent when you submit the form (Art. 6(1)(a) GDPR).",
-            "Technical data: the legitimate interest in keeping the website secure and running (Art. 6(1)(f) GDPR).",
+            "Technical data and aggregate statistics: the legitimate interest in keeping the website secure, running and knowing how it is used (Art. 6(1)(f) GDPR).",
           ] },
         ] },
         { heading: "How long it is kept", blocks: [
@@ -71,7 +73,7 @@ export default function legalEn({ owner, address, paths, storage }) {
         { heading: "Who has access", blocks: [
           "Data is not shared with third parties unless required by law. These providers help run the website and process data on the owner’s behalf:",
           { list: [
-            "Cloudflare, Inc. (United States): website hosting and delivery.",
+            "Cloudflare, Inc. (United States): website hosting and delivery, and cookie-free visit statistics (Cloudflare Web Analytics).",
             "Formspree, Inc. (United States): receiving and forwarding contact form messages.",
             "Proton AG (Switzerland): the email service used to reply to enquiries.",
           ] },
@@ -118,7 +120,7 @@ export default function legalEn({ owner, address, paths, storage }) {
         { heading: "Analytics", blocks: [
           storage.hasConsent
             ? "Analytics tools only run if you accept them in the cookie banner. You can change your mind at any time from the “Cookie preferences” link in the footer."
-            : "If an analytics tool is added in the future, this policy will be updated and the tool will not run until you accept it in the cookie banner. You will be able to change your mind at any time.",
+            : "To see how many visits the website gets, it uses Cloudflare Web Analytics, which counts them in aggregate without cookies or data in your browser, so your consent is not needed. If a tool that does use them is added in the future, this policy will be updated and it will not run until you accept it in the cookie banner.",
         ] },
         { heading: "How to manage them", blocks: [
           "You can view, block or delete cookies and local storage from your browser settings. The website will keep working, although you may see the intro animation again.",

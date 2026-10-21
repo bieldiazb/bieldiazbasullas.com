@@ -51,18 +51,20 @@ export default function legalCa({ owner, address, paths, storage }) {
         { heading: "Quines dades es recullen", blocks: [
           "Només les que tu facis arribar a través del formulari de contacte o per correu electrònic: el teu nom, la teva adreça de correu electrònic, el missatge i, si n’has marcat, els serveis que t’interessen.",
           "A més, com passa amb qualsevol web, el servei d’allotjament registra dades tècniques de la connexió (com l’adreça IP i el navegador) per motius de seguretat i funcionament.",
+          "També es fa servir Cloudflare Web Analytics per saber, de manera agregada, quantes visites rep la web i quines pàgines es consulten. Aquesta eina no fa servir cookies ni guarda res al teu navegador, i no identifica qui visita la web.",
         ] },
         { heading: "Per a què es fan servir", blocks: [
           { list: [
             "Respondre la teva consulta i, si ho demanes, preparar-te una proposta de projecte.",
             "Servir la web, protegir-la de trànsit maliciós i resoldre errors (dades tècniques de connexió).",
+            "Conèixer de manera agregada i anònima l’ús de la web (Cloudflare Web Analytics).",
           ] },
           "No s’utilitzen per enviar-te publicitat ni per crear perfils, i no es prenen decisions automatitzades.",
         ] },
         { heading: "Base legal", blocks: [
           { list: [
             "Consultes: la teva sol·licitud i l’aplicació de mesures precontractuals a petició teva (art. 6.1.b RGPD) i el teu consentiment en enviar el formulari (art. 6.1.a RGPD).",
-            "Dades tècniques: l’interès legítim a mantenir la web segura i en funcionament (art. 6.1.f RGPD).",
+            "Dades tècniques i estadístiques agregades: l’interès legítim a mantenir la web segura, en funcionament i a saber com s’utilitza (art. 6.1.f RGPD).",
           ] },
         ] },
         { heading: "Quant de temps es conserven", blocks: [
@@ -71,7 +73,7 @@ export default function legalCa({ owner, address, paths, storage }) {
         { heading: "Qui hi té accés", blocks: [
           "Les dades no es cedeixen a tercers, llevat d’obligació legal. Per fer funcionar la web hi intervenen aquests proveïdors, que les tracten per compte del titular:",
           { list: [
-            "Cloudflare, Inc. (Estats Units): allotjament i distribució de la web.",
+            "Cloudflare, Inc. (Estats Units): allotjament i distribució de la web, i estadístiques de visites sense cookies (Cloudflare Web Analytics).",
             "Formspree, Inc. (Estats Units): recepció i enviament dels missatges del formulari de contacte.",
             "Proton AG (Suïssa): servei de correu electrònic amb què es responen les consultes.",
           ] },
@@ -118,7 +120,7 @@ export default function legalCa({ owner, address, paths, storage }) {
         { heading: "Analítica", blocks: [
           storage.hasConsent
             ? "Les eines d’analítica només s’activen si les acceptes al bàner de cookies. Pots canviar d’opinió en qualsevol moment des de l’enllaç «Preferències de cookies» del peu de pàgina."
-            : "Si en el futur s’afegeix una eina d’analítica, s’actualitzarà aquesta política i no s’activarà fins que no l’hagis acceptada al bàner de cookies. Podràs canviar d’opinió en qualsevol moment.",
+            : "Per saber quantes visites rep la web es fa servir Cloudflare Web Analytics, que les compta de manera agregada sense cookies ni dades al navegador; per això no cal el teu consentiment. Si en el futur s’afegeix una eina que sí que en faci servir, s’actualitzarà aquesta política i no s’activarà fins que no l’hagis acceptada al bàner de cookies.",
         ] },
         { heading: "Com gestionar-les", blocks: [
           "Pots consultar, bloquejar o esborrar les cookies i l’emmagatzematge local des de la configuració del navegador. La web continuarà funcionant, tot i que potser tornaràs a veure l’animació d’entrada.",

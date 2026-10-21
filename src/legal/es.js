@@ -51,18 +51,20 @@ export default function legalEs({ owner, address, paths, storage }) {
         { heading: "Qué datos se recogen", blocks: [
           "Solo los que nos hagas llegar a través del formulario de contacto o por correo electrónico: tu nombre, tu dirección de correo electrónico, el mensaje y, si los has marcado, los servicios que te interesan.",
           "Además, como ocurre con cualquier web, el servicio de alojamiento registra datos técnicos de la conexión (como la dirección IP y el navegador) por motivos de seguridad y funcionamiento.",
+          "También se utiliza Cloudflare Web Analytics para saber, de forma agregada, cuántas visitas recibe la web y qué páginas se consultan. Esta herramienta no usa cookies ni guarda nada en tu navegador, y no identifica a quién visita la web.",
         ] },
         { heading: "Para qué se utilizan", blocks: [
           { list: [
             "Responder a tu consulta y, si lo pides, prepararte una propuesta de proyecto.",
             "Servir la web, protegerla de tráfico malicioso y resolver errores (datos técnicos de conexión).",
+            "Conocer de forma agregada y anónima el uso de la web (Cloudflare Web Analytics).",
           ] },
           "No se utilizan para enviarte publicidad ni para crear perfiles, y no se toman decisiones automatizadas.",
         ] },
         { heading: "Base legal", blocks: [
           { list: [
             "Consultas: tu solicitud y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD) y tu consentimiento al enviar el formulario (art. 6.1.a RGPD).",
-            "Datos técnicos: el interés legítimo en mantener la web segura y en funcionamiento (art. 6.1.f RGPD).",
+            "Datos técnicos y estadísticas agregadas: el interés legítimo en mantener la web segura, en funcionamiento y en saber cómo se usa (art. 6.1.f RGPD).",
           ] },
         ] },
         { heading: "Cuánto tiempo se conservan", blocks: [
@@ -71,7 +73,7 @@ export default function legalEs({ owner, address, paths, storage }) {
         { heading: "Quién tiene acceso", blocks: [
           "Los datos no se ceden a terceros, salvo obligación legal. Para que la web funcione intervienen estos proveedores, que los tratan por cuenta del titular:",
           { list: [
-            "Cloudflare, Inc. (Estados Unidos): alojamiento y distribución de la web.",
+            "Cloudflare, Inc. (Estados Unidos): alojamiento y distribución de la web, y estadísticas de visitas sin cookies (Cloudflare Web Analytics).",
             "Formspree, Inc. (Estados Unidos): recepción y envío de los mensajes del formulario de contacto.",
             "Proton AG (Suiza): servicio de correo electrónico con el que se responden las consultas.",
           ] },
@@ -118,7 +120,7 @@ export default function legalEs({ owner, address, paths, storage }) {
         { heading: "Analítica", blocks: [
           storage.hasConsent
             ? "Las herramientas de analítica solo se activan si las aceptas en el banner de cookies. Puedes cambiar de opinión en cualquier momento desde el enlace «Preferencias de cookies» del pie de página."
-            : "Si en el futuro se añade una herramienta de analítica, se actualizará esta política y no se activará hasta que la hayas aceptado en el banner de cookies. Podrás cambiar de opinión en cualquier momento.",
+            : "Para saber cuántas visitas recibe la web se usa Cloudflare Web Analytics, que las cuenta de forma agregada sin cookies ni datos en el navegador; por eso no hace falta tu consentimiento. Si en el futuro se añade una herramienta que sí las use, se actualizará esta política y no se activará hasta que la hayas aceptado en el banner de cookies.",
         ] },
         { heading: "Cómo gestionarlas", blocks: [
           "Puedes consultar, bloquear o borrar las cookies y el almacenamiento local desde la configuración del navegador. La web seguirá funcionando, aunque quizá vuelvas a ver la animación de entrada.",

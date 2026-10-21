@@ -9,6 +9,14 @@
 
 ---
 
+> **Estat a 21 d'octubre de 2026 (branca `feature/serveis-sense-preus`)**
+> - ✅ Contingut escrit a l'HTML de cada pàgina (prerender al build)
+> - ✅ Títols, descripcions i frase de l'inici amb Manresa i el Bages
+> - ✅ Dades estructurades del negoci local (`ProfessionalService`) amb zona de servei i serveis
+> - ✅ Cloudflare Web Analytics mencionat a privacitat i cookies
+> - ⏳ Pendent de decisió: nom (Díaz o Diaz), pàgines de servei, preguntes freqüents i casos d'èxit
+> - ⏳ Pendent (manual): publicar, Search Console, redirecció de `www`, Google Business Profile, enllaços des de clients i directoris
+
 ## Resum
 
 **La web avui no apareix a Google per a res, ni tan sols si busques el nom.** No surten resultats amb `site:bieldiazbasullas.com` ni amb "Biel Diaz Basullas". La versió publicada (`main`) té problemes que impedeixen que l'indexin bé. La branca nova n'arregla la majoria, però encara en falta un de crític.
