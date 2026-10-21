@@ -52,12 +52,14 @@ export default function legalEn({ owner, address, paths, storage }) {
           "Only what you send through the contact form or by email: your name, your email address, your message and, if you ticked any, the services you are interested in.",
           "In addition, as with any website, the hosting service logs technical connection data (such as your IP address and browser) for security and operational reasons.",
           "Cloudflare Web Analytics is also used to see, in aggregate, how many visits the website gets and which pages are viewed. It does not use cookies or store anything in your browser, and it does not identify who visits the website.",
+          "If you accept it in the cookie banner, Google Analytics is also used to understand how the website is used: which pages are visited, where visits come from (for example, a search engine), the type of device and approximate location. Google Analytics uses cookies with a random identifier and does not run unless you accept it.",
         ] },
         { heading: "What it is used for", blocks: [
           { list: [
             "Replying to your enquiry and, if you ask, preparing a project proposal.",
             "Serving the website, protecting it from malicious traffic and fixing errors (technical connection data).",
             "Understanding, in aggregate and anonymously, how the website is used (Cloudflare Web Analytics).",
+            "If you accept it, analysing in more detail how the website is used in order to improve it (Google Analytics).",
           ] },
           "It is not used to send you advertising or to build profiles, and no automated decisions are made.",
         ] },
@@ -65,6 +67,7 @@ export default function legalEn({ owner, address, paths, storage }) {
           { list: [
             "Enquiries: your request and taking pre-contractual steps at your request (Art. 6(1)(b) GDPR), and your consent when you submit the form (Art. 6(1)(a) GDPR).",
             "Technical data and aggregate statistics: the legitimate interest in keeping the website secure, running and knowing how it is used (Art. 6(1)(f) GDPR).",
+            "Google Analytics: your consent in the cookie banner (Art. 6(1)(a) GDPR), which you can withdraw at any time.",
           ] },
         ] },
         { heading: "How long it is kept", blocks: [
@@ -74,12 +77,13 @@ export default function legalEn({ owner, address, paths, storage }) {
           "Data is not shared with third parties unless required by law. These providers help run the website and process data on the owner’s behalf:",
           { list: [
             "Cloudflare, Inc. (United States): website hosting and delivery, and cookie-free visit statistics (Cloudflare Web Analytics).",
+            "Google Ireland Limited (Ireland) and Google LLC (United States): visit statistics with Google Analytics, only if you accept it.",
             "Formspree, Inc. (United States): receiving and forwarding contact form messages.",
             "Proton AG (Switzerland): the email service used to reply to enquiries.",
           ] },
         ] },
         { heading: "International transfers", blocks: [
-          "Cloudflare and Formspree may process data in the United States. In those cases, the transfer is made with the safeguards provided for in the GDPR, such as the EU-US Data Privacy Framework or the standard contractual clauses approved by the European Commission. Switzerland has an adequacy decision from the European Commission.",
+          "Cloudflare, Google and Formspree may process data in the United States. In those cases, the transfer is made with the safeguards provided for in the GDPR, such as the EU-US Data Privacy Framework or the standard contractual clauses approved by the European Commission. Switzerland has an adequacy decision from the European Commission.",
         ] },
         { heading: "Your rights", blocks: [
           `You can exercise your rights of access, rectification, erasure, objection, restriction of processing and portability, and withdraw your consent at any time, by writing to ${owner.email}. Tell us which right you want to exercise; if necessary, we may ask you to verify your identity.`,
@@ -113,13 +117,17 @@ export default function legalEn({ owner, address, paths, storage }) {
             rows: [
               ["intro-seen", "Session storage (first-party)", "Remembers that you have already seen the intro animation so it does not repeat.", "Until you close the tab"],
               ...(storage.hasConsent ? [["cookie-consent", "Local storage (first-party)", "Stores your cookie preferences.", "12 months"]] : []),
+              ...(storage.hasConsent ? [
+                ["_ga", "Analytics cookie (Google Analytics)", "Distinguishes visitors with a random identifier. Only if you accept it.", "2 years"],
+                ["_ga_4PM01TM1G7", "Analytics cookie (Google Analytics)", "Keeps the state of the visit session. Only if you accept it.", "2 years"],
+              ] : []),
               ["__cf_bm", "Third-party cookie (Cloudflare)", "Security: tells legitimate traffic apart from bots. Only set if the hosting protection system requires it.", "30 minutes"],
             ],
           } },
         ] },
         { heading: "Analytics", blocks: [
           storage.hasConsent
-            ? "Analytics tools only run if you accept them in the cookie banner. You can change your mind at any time from the “Cookie preferences” link in the footer."
+            ? "Visits are counted with Cloudflare Web Analytics, which does not use cookies. In addition, if you accept it in the banner, Google Analytics (Google Ireland Limited) is enabled, which does use them; if you don’t accept it, it is not loaded. You can change your mind at any time from the “Cookie preferences” link in the footer, and if you withdraw your consent the Google Analytics cookies are deleted. More information: [how Google uses data](https://policies.google.com/technologies/partner-sites)."
             : "To see how many visits the website gets, it uses Cloudflare Web Analytics, which counts them in aggregate without cookies or data in your browser, so your consent is not needed. If a tool that does use them is added in the future, this policy will be updated and it will not run until you accept it in the cookie banner.",
         ] },
         { heading: "How to manage them", blocks: [

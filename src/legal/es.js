@@ -52,12 +52,14 @@ export default function legalEs({ owner, address, paths, storage }) {
           "Solo los que nos hagas llegar a través del formulario de contacto o por correo electrónico: tu nombre, tu dirección de correo electrónico, el mensaje y, si los has marcado, los servicios que te interesan.",
           "Además, como ocurre con cualquier web, el servicio de alojamiento registra datos técnicos de la conexión (como la dirección IP y el navegador) por motivos de seguridad y funcionamiento.",
           "También se utiliza Cloudflare Web Analytics para saber, de forma agregada, cuántas visitas recibe la web y qué páginas se consultan. Esta herramienta no usa cookies ni guarda nada en tu navegador, y no identifica a quién visita la web.",
+          "Si lo aceptas en el banner de cookies, también se usa Google Analytics para saber cómo se utiliza la web: qué páginas se visitan, de dónde llegan las visitas (por ejemplo, desde un buscador), el tipo de dispositivo y la ubicación aproximada. Google Analytics usa cookies con un identificador aleatorio y no se activa si no lo aceptas.",
         ] },
         { heading: "Para qué se utilizan", blocks: [
           { list: [
             "Responder a tu consulta y, si lo pides, prepararte una propuesta de proyecto.",
             "Servir la web, protegerla de tráfico malicioso y resolver errores (datos técnicos de conexión).",
             "Conocer de forma agregada y anónima el uso de la web (Cloudflare Web Analytics).",
+            "Si lo aceptas, analizar con más detalle cómo se usa la web para mejorarla (Google Analytics).",
           ] },
           "No se utilizan para enviarte publicidad ni para crear perfiles, y no se toman decisiones automatizadas.",
         ] },
@@ -65,6 +67,7 @@ export default function legalEs({ owner, address, paths, storage }) {
           { list: [
             "Consultas: tu solicitud y la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD) y tu consentimiento al enviar el formulario (art. 6.1.a RGPD).",
             "Datos técnicos y estadísticas agregadas: el interés legítimo en mantener la web segura, en funcionamiento y en saber cómo se usa (art. 6.1.f RGPD).",
+            "Google Analytics: tu consentimiento en el banner de cookies (art. 6.1.a RGPD), que puedes retirar en cualquier momento.",
           ] },
         ] },
         { heading: "Cuánto tiempo se conservan", blocks: [
@@ -74,12 +77,13 @@ export default function legalEs({ owner, address, paths, storage }) {
           "Los datos no se ceden a terceros, salvo obligación legal. Para que la web funcione intervienen estos proveedores, que los tratan por cuenta del titular:",
           { list: [
             "Cloudflare, Inc. (Estados Unidos): alojamiento y distribución de la web, y estadísticas de visitas sin cookies (Cloudflare Web Analytics).",
+            "Google Ireland Limited (Irlanda) y Google LLC (Estados Unidos): estadísticas de visitas con Google Analytics, solo si lo aceptas.",
             "Formspree, Inc. (Estados Unidos): recepción y envío de los mensajes del formulario de contacto.",
             "Proton AG (Suiza): servicio de correo electrónico con el que se responden las consultas.",
           ] },
         ] },
         { heading: "Transferencias internacionales", blocks: [
-          "Cloudflare y Formspree pueden tratar datos en Estados Unidos. En esos casos, la transferencia se realiza con las garantías que prevé el RGPD, como el Marco de Privacidad de Datos UE-EE. UU. o las cláusulas contractuales tipo aprobadas por la Comisión Europea. Suiza cuenta con una decisión de adecuación de la Comisión Europea.",
+          "Cloudflare, Google y Formspree pueden tratar datos en Estados Unidos. En esos casos, la transferencia se realiza con las garantías que prevé el RGPD, como el Marco de Privacidad de Datos UE-EE. UU. o las cláusulas contractuales tipo aprobadas por la Comisión Europea. Suiza cuenta con una decisión de adecuación de la Comisión Europea.",
         ] },
         { heading: "Tus derechos", blocks: [
           `Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, y retirar tu consentimiento en cualquier momento, escribiendo a ${owner.email}. Indica qué derecho quieres ejercer; si es necesario, podemos pedirte que acredites tu identidad.`,
@@ -113,13 +117,17 @@ export default function legalEs({ owner, address, paths, storage }) {
             rows: [
               ["intro-seen", "Almacenamiento de sesión (propio)", "Recuerda que ya has visto la animación de entrada para que no se repita.", "Hasta que cierras la pestaña"],
               ...(storage.hasConsent ? [["cookie-consent", "Almacenamiento local (propio)", "Guarda tus preferencias de cookies.", "12 meses"]] : []),
+              ...(storage.hasConsent ? [
+                ["_ga", "Cookie de analítica (Google Analytics)", "Distingue visitantes con un identificador aleatorio. Solo si la aceptas.", "2 años"],
+                ["_ga_4PM01TM1G7", "Cookie de analítica (Google Analytics)", "Mantiene el estado de la sesión de visita. Solo si la aceptas.", "2 años"],
+              ] : []),
               ["__cf_bm", "Cookie de terceros (Cloudflare)", "Seguridad: distingue el tráfico legítimo de los bots. Solo se establece si el sistema de protección del alojamiento lo requiere.", "30 minutos"],
             ],
           } },
         ] },
         { heading: "Analítica", blocks: [
           storage.hasConsent
-            ? "Las herramientas de analítica solo se activan si las aceptas en el banner de cookies. Puedes cambiar de opinión en cualquier momento desde el enlace «Preferencias de cookies» del pie de página."
+            ? "Para contar visitas se usa Cloudflare Web Analytics, que no utiliza cookies. Además, si lo aceptas en el banner, se activa Google Analytics (Google Ireland Limited), que sí las utiliza; si no lo aceptas, no se carga. Puedes cambiar de opinión en cualquier momento desde el enlace «Preferencias de cookies» del pie de página, y si retiras el consentimiento se borran las cookies de Google Analytics. Más información: [cómo usa Google los datos](https://policies.google.com/technologies/partner-sites)."
             : "Para saber cuántas visitas recibe la web se usa Cloudflare Web Analytics, que las cuenta de forma agregada sin cookies ni datos en el navegador; por eso no hace falta tu consentimiento. Si en el futuro se añade una herramienta que sí las use, se actualizará esta política y no se activará hasta que la hayas aceptado en el banner de cookies.",
         ] },
         { heading: "Cómo gestionarlas", blocks: [

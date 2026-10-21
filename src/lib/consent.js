@@ -1,13 +1,9 @@
 // ── Consentiment de cookies ───────────────────────────────────────
-// Ara la web no fa servir cap cookie que requereixi consentiment, així
-// que no hi ha categories i el bàner no surt.
-//
-// Per afegir analítica:
-//   1. Afegeix "analytics" a CONSENT_CATEGORIES.
-//   2. Carrega l'script de l'eina només dins de onConsent("analytics", ...).
-//   3. Actualitza la taula de la política de cookies (src/legal/*.js).
+// Categoria "analytics": Google Analytics (src/lib/analytics.js), que
+// només es carrega si el visitant l'accepta al bàner. Si s'afegeix una
+// altra eina, cal afegir-la també a la política de cookies (src/legal/*.js).
 
-export const CONSENT_CATEGORIES = []          // p. ex. ["analytics"]
+export const CONSENT_CATEGORIES = ["analytics"]
 export const CONSENT_KEY = "cookie-consent"
 const MAX_AGE_DAYS = 365                      // es torna a preguntar al cap d'un any
 
@@ -38,6 +34,12 @@ export function onConsent(category, fn) {
   run(getConsent())
   listeners.add(run)
   return () => listeners.delete(run)
+}
+
+// Executa fn cada cop que l'usuari canvia les preferències
+export function onConsentChange(fn) {
+  listeners.add(fn)
+  return () => listeners.delete(fn)
 }
 
 // Torna a obrir el bàner (enllaç "Preferències de cookies" del peu)

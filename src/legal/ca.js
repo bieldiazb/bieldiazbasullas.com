@@ -52,12 +52,14 @@ export default function legalCa({ owner, address, paths, storage }) {
           "Només les que tu facis arribar a través del formulari de contacte o per correu electrònic: el teu nom, la teva adreça de correu electrònic, el missatge i, si n’has marcat, els serveis que t’interessen.",
           "A més, com passa amb qualsevol web, el servei d’allotjament registra dades tècniques de la connexió (com l’adreça IP i el navegador) per motius de seguretat i funcionament.",
           "També es fa servir Cloudflare Web Analytics per saber, de manera agregada, quantes visites rep la web i quines pàgines es consulten. Aquesta eina no fa servir cookies ni guarda res al teu navegador, i no identifica qui visita la web.",
+          "Si ho acceptes al bàner de cookies, també es fa servir Google Analytics per saber com s’utilitza la web: quines pàgines es visiten, d’on arriben les visites (per exemple, des d’un cercador), el tipus de dispositiu i la ubicació aproximada. Google Analytics fa servir cookies amb un identificador aleatori i no s’activa si no l’acceptes.",
         ] },
         { heading: "Per a què es fan servir", blocks: [
           { list: [
             "Respondre la teva consulta i, si ho demanes, preparar-te una proposta de projecte.",
             "Servir la web, protegir-la de trànsit maliciós i resoldre errors (dades tècniques de connexió).",
             "Conèixer de manera agregada i anònima l’ús de la web (Cloudflare Web Analytics).",
+            "Si ho acceptes, analitzar amb més detall com s’utilitza la web per millorar-la (Google Analytics).",
           ] },
           "No s’utilitzen per enviar-te publicitat ni per crear perfils, i no es prenen decisions automatitzades.",
         ] },
@@ -65,6 +67,7 @@ export default function legalCa({ owner, address, paths, storage }) {
           { list: [
             "Consultes: la teva sol·licitud i l’aplicació de mesures precontractuals a petició teva (art. 6.1.b RGPD) i el teu consentiment en enviar el formulari (art. 6.1.a RGPD).",
             "Dades tècniques i estadístiques agregades: l’interès legítim a mantenir la web segura, en funcionament i a saber com s’utilitza (art. 6.1.f RGPD).",
+            "Google Analytics: el teu consentiment al bàner de cookies (art. 6.1.a RGPD), que pots retirar en qualsevol moment.",
           ] },
         ] },
         { heading: "Quant de temps es conserven", blocks: [
@@ -74,12 +77,13 @@ export default function legalCa({ owner, address, paths, storage }) {
           "Les dades no es cedeixen a tercers, llevat d’obligació legal. Per fer funcionar la web hi intervenen aquests proveïdors, que les tracten per compte del titular:",
           { list: [
             "Cloudflare, Inc. (Estats Units): allotjament i distribució de la web, i estadístiques de visites sense cookies (Cloudflare Web Analytics).",
+            "Google Ireland Limited (Irlanda) i Google LLC (Estats Units): estadístiques de visites amb Google Analytics, només si ho acceptes.",
             "Formspree, Inc. (Estats Units): recepció i enviament dels missatges del formulari de contacte.",
             "Proton AG (Suïssa): servei de correu electrònic amb què es responen les consultes.",
           ] },
         ] },
         { heading: "Transferències internacionals", blocks: [
-          "Cloudflare i Formspree poden tractar dades als Estats Units. En aquests casos, la transferència es fa amb les garanties que preveu el RGPD, com el Marc de Privacitat de Dades UE-EUA o les clàusules contractuals tipus aprovades per la Comissió Europea. Suïssa té una decisió d’adequació de la Comissió Europea.",
+          "Cloudflare, Google i Formspree poden tractar dades als Estats Units. En aquests casos, la transferència es fa amb les garanties que preveu el RGPD, com el Marc de Privacitat de Dades UE-EUA o les clàusules contractuals tipus aprovades per la Comissió Europea. Suïssa té una decisió d’adequació de la Comissió Europea.",
         ] },
         { heading: "Els teus drets", blocks: [
           `Pots exercir els drets d’accés, rectificació, supressió, oposició, limitació del tractament i portabilitat, i retirar el consentiment en qualsevol moment, escrivint a ${owner.email}. Indica quin dret vols exercir; si cal, et podem demanar que acreditis la teva identitat.`,
@@ -113,13 +117,17 @@ export default function legalCa({ owner, address, paths, storage }) {
             rows: [
               ["intro-seen", "Emmagatzematge de sessió (propi)", "Recorda que ja has vist l’animació d’entrada perquè no es repeteixi.", "Fins que tanques la pestanya"],
               ...(storage.hasConsent ? [["cookie-consent", "Emmagatzematge local (propi)", "Guarda les teves preferències de cookies.", "12 mesos"]] : []),
+              ...(storage.hasConsent ? [
+                ["_ga", "Cookie d’analítica (Google Analytics)", "Distingeix visitants amb un identificador aleatori. Només si l’acceptes.", "2 anys"],
+                ["_ga_4PM01TM1G7", "Cookie d’analítica (Google Analytics)", "Manté l’estat de la sessió de visita. Només si l’acceptes.", "2 anys"],
+              ] : []),
               ["__cf_bm", "Cookie de tercers (Cloudflare)", "Seguretat: distingeix el trànsit legítim dels bots. Només s’estableix si el sistema de protecció de l’allotjament ho requereix.", "30 minuts"],
             ],
           } },
         ] },
         { heading: "Analítica", blocks: [
           storage.hasConsent
-            ? "Les eines d’analítica només s’activen si les acceptes al bàner de cookies. Pots canviar d’opinió en qualsevol moment des de l’enllaç «Preferències de cookies» del peu de pàgina."
+            ? "Per comptar visites es fa servir Cloudflare Web Analytics, que no fa servir cookies. A més, si ho acceptes al bàner, s’activa Google Analytics (Google Ireland Limited), que sí que en fa servir; si no ho acceptes, no es carrega. Pots canviar d’opinió en qualsevol moment des de l’enllaç «Preferències de cookies» del peu de pàgina, i si retires el consentiment s’esborren les cookies de Google Analytics. Més informació: [com fa servir Google les dades](https://policies.google.com/technologies/partner-sites)."
             : "Per saber quantes visites rep la web es fa servir Cloudflare Web Analytics, que les compta de manera agregada sense cookies ni dades al navegador; per això no cal el teu consentiment. Si en el futur s’afegeix una eina que sí que en faci servir, s’actualitzarà aquesta política i no s’activarà fins que no l’hagis acceptada al bàner de cookies.",
         ] },
         { heading: "Com gestionar-les", blocks: [
