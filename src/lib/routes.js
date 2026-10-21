@@ -7,10 +7,25 @@
 export const LANGS = ["ca", "es", "en"]
 export const DEFAULT_LANG = "ca"
 
+// Serveis amb pàgina pròpia (mateixos ids que a i18n i src/content)
+export const SERVICE_IDS = ["custom-apps", "gyms", "portfolios", "wordpress", "seo", "smb"]
+export const servicePage = (id) => `service-${id}`
+export const serviceIdOf = (page) => (page?.startsWith("service-") ? page.slice(8) : null)
+
+const SERVICE_SLUGS = {
+  ca: { "custom-apps": "apps-de-gestio-a-mida", gyms: "gestio-per-a-gimnasos", portfolios: "portfolis-web-a-mida", wordpress: "webs-wordpress", seo: "seo", smb: "apps-per-a-pimes" },
+  es: { "custom-apps": "apps-de-gestion-a-medida", gyms: "gestion-para-gimnasios", portfolios: "portfolios-web-a-medida", wordpress: "webs-wordpress", seo: "seo", smb: "apps-para-pymes" },
+  en: { "custom-apps": "custom-management-apps", gyms: "gym-management", portfolios: "custom-portfolio-websites", wordpress: "wordpress-websites", seo: "seo", smb: "small-business-apps" },
+}
+const SERVICE_BASE = { ca: "/serveis", es: "/es/servicios", en: "/en/services" }
+const services = (lang) => Object.fromEntries(
+  SERVICE_IDS.map(id => [servicePage(id), `${SERVICE_BASE[lang]}/${SERVICE_SLUGS[lang][id]}`])
+)
+
 export const PATHS = {
-  ca: { home: "/",    legal: "/avis-legal",       privacy: "/privacitat",     cookies: "/cookies"    },
-  es: { home: "/es/", legal: "/es/aviso-legal",   privacy: "/es/privacidad",  cookies: "/es/cookies" },
-  en: { home: "/en/", legal: "/en/legal-notice",  privacy: "/en/privacy",     cookies: "/en/cookies" },
+  ca: { home: "/",    local: "/disseny-web-manresa",     ...services("ca"), legal: "/avis-legal",      privacy: "/privacitat",    cookies: "/cookies"    },
+  es: { home: "/es/", local: "/es/diseno-web-manresa",   ...services("es"), legal: "/es/aviso-legal",  privacy: "/es/privacidad", cookies: "/es/cookies" },
+  en: { home: "/en/", local: "/en/web-design-manresa",   ...services("en"), legal: "/en/legal-notice", privacy: "/en/privacy",    cookies: "/en/cookies" },
 }
 
 export const PAGES = Object.keys(PATHS.ca)

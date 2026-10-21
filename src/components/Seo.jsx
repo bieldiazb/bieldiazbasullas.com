@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { META } from "@/seo/meta"
+import { pageMeta } from "@/seo/meta"
 
 // ── Seo ───────────────────────────────────────────────────────────
 // Les metadades completes ja són a l'HTML estàtic de cada pàgina (les
@@ -9,8 +9,7 @@ import { META } from "@/seo/meta"
 
 export function Seo({ page, lang }) {
   useEffect(() => {
-    const m = META[lang]?.[page] ?? META[lang]?.notfound
-    if (!m) return
+    const m = pageMeta(page, lang)
     document.title = m.title
     document.documentElement.lang = lang
     document.querySelector('meta[name="description"]')?.setAttribute("content", m.description)

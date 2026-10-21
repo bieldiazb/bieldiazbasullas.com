@@ -3,15 +3,19 @@
 // build escriu a cada HTML estàtic (canonical, hreflang, Open Graph,
 // Twitter i dades estructurades). JS pla: l'importa vite.config.js.
 
-import { LANGS, DEFAULT_LANG, PATHS } from "../lib/routes.js"
+import { LANGS, DEFAULT_LANG, PATHS, SERVICE_IDS, servicePage, serviceIdOf } from "../lib/routes.js"
 import { OWNER, SITE_URL, SOCIALS } from "../lib/legal.js"
 import ca from "../i18n/ca.json" with { type: "json" }
 import es from "../i18n/es.json" with { type: "json" }
 import en from "../i18n/en.json" with { type: "json" }
+import contentCa from "../content/ca.js"
+import contentEs from "../content/es.js"
+import contentEn from "../content/en.js"
 
 const NAME = OWNER.name
 const SHORT_NAME = OWNER.name.split(" ").slice(0, 2).join(" ")   // "Biel Díaz"
 const SERVICES = { ca: ca.services.items, es: es.services.items, en: en.services.items }
+export const CONTENT = { ca: contentCa, es: contentEs, en: contentEn }
 
 export const META = {
   ca: {
@@ -43,17 +47,24 @@ export const META = {
   },
 }
 
+// Títol i descripció de qualsevol pàgina (també les de servei i la local)
+export function pageMeta(page, lang) {
+  const c = CONTENT[lang]
+  const id = serviceIdOf(page)
+  if (id && c.services[id]) return { title: c.services[id].metaTitle, description: c.services[id].metaDescription }
+  if (page === "local") return { title: c.local.metaTitle, description: c.local.metaDescription }
+  return META[lang][page] ?? META[lang].notfound
+}
+
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")
 export const absolute = (path) => SITE_URL + path
 
 // Dades estructurades (schema.org) de la pàgina d'inici: la persona, el
 // negoci local amb la zona on treballa i els serveis (sense preus), i el web
-function jsonLd(lang) {
+function homeGraph(lang) {
   const m = META[lang]
   const home = absolute(PATHS[lang].home)
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
+  return [
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
@@ -107,13 +118,69 @@ function jsonLd(lang) {
         inLanguage: LANGS,
         publisher: { "@id": `${SITE_URL}/#person` },
       },
-    ],
-  }
+  ]
 }
+
+const faqNode = (items) => ({
+  "@type": "FAQPage",
+  mainEntity: items.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+})
+
+const breadcrumbNode = (items) => ({
+  "@type": "BreadcrumbList",
+  itemListElement: items.map(([name, url], i) => ({ "@type": "ListItem", position: i + 1, name, item: url })),
+})
+
+// Dades estructurades segons la pàgina: inici (persona, negoci, web i
+// FAQ), servei (servei, ruta i FAQ) i pàgina local (ruta i FAQ)
+function jsonLdFor(page, lang) {
+  const c = CONTENT[lang]
+  const homeUrl = absolute(PATHS[lang].home)
+  const url = absolute(PATHS[lang][page])
+  let nodes = null
+
+  if (page === "home") {
+    nodes = [...homeGraph(lang), faqNode(c.homeFaq.items)]
+  } else if (page === "local") {
+    nodes = [
+      breadcrumbNode([[c.ui.home, homeUrl], [c.local.h1, url]]),
+      faqNode(c.local.faqs),
+    ]
+  } else if (serviceIdOf(page)) {
+    const s = c.services[serviceIdOf(page)]
+    nodes = [
+      {
+        "@type": "Service",
+        name: s.h1,
+        description: s.intro,
+        url,
+        serviceType: s.h1,
+        provider: { "@id": `${SITE_URL}/#business` },
+        areaServed: [
+          { "@type": "City", name: "Manresa" },
+          { "@type": "AdministrativeArea", name: "Bages" },
+          { "@type": "AdministrativeArea", name: "Catalunya" },
+        ],
+        inLanguage: lang,
+      },
+      breadcrumbNode([[c.ui.home, homeUrl], [c.ui.services, `${homeUrl}#services`], [s.h1, url]]),
+      faqNode(s.faqs),
+    ]
+  }
+  return nodes && { "@context": "https://schema.org", "@graph": nodes }
+}
+
+// Llista de serveis amb la seva URL (per enllaçar-los des de les pàgines)
+export const serviceLinks = (lang) =>
+  SERVICE_IDS.map(id => ({ id, path: PATHS[lang][servicePage(id)], title: CONTENT[lang].services[id].h1 }))
 
 // Bloc <head> d'una pàgina concreta
 export function headFor(page, lang) {
-  const m = META[lang][page] ?? META[lang].notfound
+  const m = pageMeta(page, lang)
   const indexable = page !== "notfound"
   const url = indexable ? absolute(PATHS[lang][page]) : null
   const image = absolute("/og-image.jpg")
@@ -145,7 +212,9 @@ export function headFor(page, lang) {
     `<meta name="twitter:image" content="${image}" />`,
   )
   if (url) tags.push(`<meta property="og:url" content="${url}" />`)
-  if (page === "home") tags.push(`<script type="application/ld+json">${JSON.stringify(jsonLd(lang))}</script>`)
+  const ld = indexable ? jsonLdFor(page, lang) : null
+  // "<" escapat dins del JSON perquè cap text pugui tancar l'etiqueta <script>
+  if (ld) tags.push(`<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`)
 
   return tags.map(t => `    ${t}`).join("\n")
 }

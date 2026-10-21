@@ -20,6 +20,10 @@ const template = fs.readFileSync(path.join(OUT, "index.html"), "utf8")
 if (!SEO_BLOCK.test(template)) throw new Error("prerender: falta el bloc <!-- seo:start --> a index.html")
 if (!template.includes(ROOT)) throw new Error(`prerender: falta ${ROOT} a index.html`)
 
+// Pes relatiu al sitemap: l'inici i la pàgina local primer, després els serveis
+const PRIORITY = { home: "1.0", local: "0.9" }
+const LEGAL = ["legal", "privacy", "cookies"]
+
 const fileFor = (urlPath) => (urlPath.endsWith("/") ? `${urlPath}index.html` : `${urlPath}.html`)
 
 async function page(pageId, lang) {
@@ -44,8 +48,8 @@ const urls = PAGES.flatMap((pageId) => LANGS.map((lang) => [
   "  <url>",
   `    <loc>${absolute(PATHS[lang][pageId])}</loc>`,
   ...LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${absolute(PATHS[l][pageId])}" />`),
-  `    <changefreq>${pageId === "home" ? "monthly" : "yearly"}</changefreq>`,
-  `    <priority>${pageId === "home" ? "1.0" : "0.3"}</priority>`,
+  `    <changefreq>${LEGAL.includes(pageId) ? "yearly" : "monthly"}</changefreq>`,
+  `    <priority>${PRIORITY[pageId] ?? (pageId.startsWith("service-") ? "0.8" : "0.3")}</priority>`,
   "  </url>",
 ].join("\n")))
 
