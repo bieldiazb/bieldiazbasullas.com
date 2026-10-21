@@ -45,7 +45,12 @@ export default function Intro() {
     // ── Amb animació ──
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const words = el.querySelectorAll(".intro-word > span")
-      gsap.fromTo(words, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 })
+      const avatar = el.querySelector(".intro-avatar")
+      // L'avatar apareix i saluda amb el cap; després entra el nom
+      gsap.timeline()
+        .fromTo(avatar, { scale: 0, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(2)" })
+        .to(avatar, { keyframes: { rotation: [0, -10, 8, -4, 0] }, duration: 0.7, ease: "power1.inOut" }, "-=0.1")
+      gsap.fromTo(words, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08, delay: 0.15 })
       const count = gsap.to(progress, { value: 90, duration: MIN_MS / 1000, ease: "power2.out", onUpdate: render })
 
       assetsReady().then(() => {
@@ -55,6 +60,7 @@ export default function Intro() {
           .add(() => count.kill())
           .to(progress, { value: 100, duration: 0.2, ease: "power1.out", onUpdate: render })
           .to(words, { yPercent: -110, duration: 0.45, ease: "expo.in", stagger: 0.03 })
+          .to(avatar, { scale: 0, rotation: 15, duration: 0.35, ease: "back.in(2)" }, "<")
           .to(el, { clipPath: "inset(0 0 100% 0)", duration: 0.7, ease: "expo.inOut" }, "-=0.3")
           // El hero entra mentre la màscara puja
           .add(markIntroDone, "-=0.5")

@@ -68,14 +68,16 @@
         color: rgb(255 255 255 / 0.7);
       }
       #intro .intro-count { font-variant-numeric: tabular-nums; color: #fff; }
+      #intro .intro-avatar { display: block; width: clamp(56px, 7vw, 96px); height: auto; margin-bottom: clamp(16px, 2.5vw, 32px); transform-origin: 50% 90%; transform: scale(0); }
       @media (prefers-reduced-motion: reduce) {
-        #intro .intro-word > span { transform: none; }
+        #intro .intro-word > span, #intro .intro-avatar { transform: none; }
       }
     </style>
     <noscript><style>#intro { display: none; } html.intro-active { overflow: auto; }</style></noscript>
   </head>
   <body>
     <div id="intro" aria-hidden="true">
+      <img class="intro-avatar" src="/avatar-dark.svg" alt="" width="96" height="111">
       <p class="intro-name">
         <span class="intro-word"><span>biel</span></span>
         <span class="intro-word"><span>diaz</span></span>

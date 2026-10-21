@@ -3,7 +3,7 @@
 import { useTranslation } from "react-i18next"
 import { useReveal } from "@/lib/useReveal"
 import SectionLabel from "@/components/SectionLabel"
-import avatar from "@/assets/avatarw.png"
+import Avatar from "@/components/Avatar"
 
 // ── About ─────────────────────────────────────────────────────────
 // Etiqueta + títol a l'esquerra, text i xifres a la dreta (5/7).
@@ -23,14 +23,10 @@ export default function About() {
           <div className="md:col-span-5">
             <SectionLabel index="03" data-reveal className="text-slate">{t("about.eyebrow")}</SectionLabel>
             <h2 data-split id="about-title" className="t-display mt-5 text-ink">{t("about.greeting")}</h2>
-            <img
-              data-reveal
-              src={avatar}
-              alt={t("about.portraitAlt")}
-              width="96" height="96"
-              loading="lazy"
-              className="mt-10 size-24 rounded-full bg-hairline object-cover"
-            />
+            <figure data-reveal className="mt-12">
+              <Avatar size={180} alt={t("about.portraitAlt")} className="w-[140px] md:w-[180px]" />
+              <figcaption className="t-meta mt-4 text-slate">{t("about.avatarCaption")}</figcaption>
+            </figure>
           </div>
 
           <div className="md:col-span-7">
