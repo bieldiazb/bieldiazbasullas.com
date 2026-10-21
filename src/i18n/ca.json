@@ -1,6 +1,7 @@
 {
   "nav": {
     "skip": "Salta al contingut",
+    "actionHover": "Som-hi!",
     "about": "Sobre mi",
     "projects": "Projectes",
     "services": "Serveis",
@@ -209,6 +210,7 @@
   },
   "about": {
     "eyebrow": "Sobre mi",
+    "avatarCaption": "Aquest sóc jo, més o menys.",
     "greeting": "Hola, sóc el Biel.",
     "lead": "Ajudo persones i negocis a tenir una web clara, ordenada i fàcil d’utilitzar.",
     "paragraphs": [
@@ -253,8 +255,8 @@
       }
     },
     "thanks": {
-      "title": "Gràcies per escriure’m",
-      "description": "El missatge s’ha enviat correctament. Et respondré al més aviat possible."
+      "title": "Rebut. Ara em toca a mi.",
+      "description": "Et respondré aviat, normalment en menys de 24 h."
     }
   },
   "footer": {
@@ -263,7 +265,7 @@
     "nav": "Navegació",
     "social": "Xarxes",
     "contact": "Contacte",
-    "imprint": "© {{year}} Biel Diaz Basullas. Fet a Catalunya.",
+    "imprint": "© {{year}} Biel Diaz Basullas. Fet a Sant Fruitós de Bages, amb massa cafè.",
     "backTop": "Torna a dalt",
     "legal": "Avís legal",
     "privacy": "Privacitat",
@@ -277,5 +279,17 @@
     "more": "Política de cookies",
     "accept": "Acceptar",
     "reject": "Rebutjar"
+  },
+  "game": {
+    "toggle": "Un descans? Tira a cistella",
+    "title": "Tira a cistella",
+    "hint": "Arrossega la pilota enrere i deixa-la anar. També pots fer servir el botó.",
+    "shoot": "Tira",
+    "made": "Cistelles",
+    "tries": "Intents",
+    "score": "Cistella!",
+    "miss": "Fora.",
+    "close": "Tanca el joc",
+    "canvas": "Joc de bàsquet: llança la pilota a la cistella"
   }
 }

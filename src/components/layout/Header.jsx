@@ -132,7 +132,13 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <LangSwitch className="hidden lg:flex" />
-            <a href={homeLink("#contact")} className="btn btn-primary">{t("nav.action")}</a>
+            {/* En passar-hi el ratolí, el text roda i diu "Som-hi!" */}
+          <a href={homeLink("#contact")} aria-label={t("nav.action")} className="btn btn-primary group">
+            <span className="relative block overflow-hidden">
+              <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full">{t("nav.action")}</span>
+              <span aria-hidden className="absolute inset-0 block translate-y-full text-center transition-transform duration-300 ease-out group-hover:translate-y-0">{t("nav.actionHover")}</span>
+            </span>
+          </a>
 
             {/* ── Botó del menú (mòbil) ── */}
             <button

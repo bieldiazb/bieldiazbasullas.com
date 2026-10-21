@@ -1,6 +1,7 @@
 {
   "nav": {
     "skip": "Skip to content",
+    "actionHover": "Let’s go!",
     "about": "About",
     "projects": "Projects",
     "services": "Services",
@@ -209,6 +210,7 @@
   },
   "about": {
     "eyebrow": "About",
+    "avatarCaption": "That’s me, more or less.",
     "greeting": "Hi, I’m Biel.",
     "lead": "I help people and businesses get a website that is clear, tidy and easy to use.",
     "paragraphs": [
@@ -253,8 +255,8 @@
       }
     },
     "thanks": {
-      "title": "Thanks for writing",
-      "description": "Your message has been sent. I’ll get back to you as soon as possible."
+      "title": "Got it. Now it’s my turn.",
+      "description": "I’ll get back to you soon, usually within 24 hours."
     }
   },
   "footer": {
@@ -263,7 +265,7 @@
     "nav": "Navigation",
     "social": "Social",
     "contact": "Contact",
-    "imprint": "© {{year}} Biel Diaz Basullas. Made in Catalonia.",
+    "imprint": "© {{year}} Biel Diaz Basullas. Made in Sant Fruitós de Bages, with too much coffee.",
     "backTop": "Back to top",
     "legal": "Legal notice",
     "privacy": "Privacy",
@@ -277,5 +279,17 @@
     "more": "Cookie policy",
     "accept": "Accept",
     "reject": "Reject"
+  },
+  "game": {
+    "toggle": "Need a break? Take a shot",
+    "title": "Take a shot",
+    "hint": "Drag the ball back and let go. You can also use the button.",
+    "shoot": "Shoot",
+    "made": "Baskets",
+    "tries": "Shots",
+    "score": "Swish!",
+    "miss": "Missed.",
+    "close": "Close the game",
+    "canvas": "Basketball game: throw the ball into the hoop"
   }
 }

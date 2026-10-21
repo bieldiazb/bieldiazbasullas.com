@@ -1,6 +1,7 @@
 {
   "nav": {
     "skip": "Saltar al contenido",
+    "actionHover": "¡Vamos!",
     "about": "Sobre mí",
     "projects": "Proyectos",
     "services": "Servicios",
@@ -209,6 +210,7 @@
   },
   "about": {
     "eyebrow": "Sobre mí",
+    "avatarCaption": "Este soy yo, más o menos.",
     "greeting": "Hola, soy Biel.",
     "lead": "Ayudo a personas y negocios a tener una web clara, ordenada y fácil de usar.",
     "paragraphs": [
@@ -253,8 +255,8 @@
       }
     },
     "thanks": {
-      "title": "Gracias por escribirme",
-      "description": "El mensaje se ha enviado correctamente. Te responderé lo antes posible."
+      "title": "Recibido. Ahora me toca a mí.",
+      "description": "Te responderé pronto, normalmente en menos de 24 h."
     }
   },
   "footer": {
@@ -263,7 +265,7 @@
     "nav": "Navegación",
     "social": "Redes",
     "contact": "Contacto",
-    "imprint": "© {{year}} Biel Diaz Basullas. Hecho en Cataluña.",
+    "imprint": "© {{year}} Biel Diaz Basullas. Hecho en Sant Fruitós de Bages, con demasiado café.",
     "backTop": "Volver arriba",
     "legal": "Aviso legal",
     "privacy": "Privacidad",
@@ -277,5 +279,17 @@
     "more": "Política de cookies",
     "accept": "Aceptar",
     "reject": "Rechazar"
+  },
+  "game": {
+    "toggle": "¿Un descanso? Tira a canasta",
+    "title": "Tira a canasta",
+    "hint": "Arrastra la pelota hacia atrás y suéltala. También puedes usar el botón.",
+    "shoot": "Tirar",
+    "made": "Canastas",
+    "tries": "Intentos",
+    "score": "¡Canasta!",
+    "miss": "Fuera.",
+    "close": "Cerrar el juego",
+    "canvas": "Juego de baloncesto: lanza la pelota a la canasta"
   }
 }

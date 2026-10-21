@@ -136,8 +136,8 @@ export default function legalCa({ owner, address, paths, storage }) {
     },
 
     notfound: {
-      title: "Aquesta pàgina no existeix",
-      text: "Potser l’enllaç és antic o hi ha un error a l’adreça.",
+      title: "Aquesta pàgina s’ha perdut, però jo no.",
+      text: "Potser l’enllaç és antic o hi ha un error a l’adreça. Mentrestant, pots tirar a cistella.",
       back: "Torna a l’inici",
     },
   }

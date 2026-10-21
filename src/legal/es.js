@@ -136,8 +136,8 @@ export default function legalEs({ owner, address, paths, storage }) {
     },
 
     notfound: {
-      title: "Esta página no existe",
-      text: "Quizá el enlace es antiguo o hay un error en la dirección.",
+      title: "Esta página se ha perdido, pero yo no.",
+      text: "Quizá el enlace es antiguo o hay un error en la dirección. Mientras tanto, puedes tirar a canasta.",
       back: "Volver al inicio",
     },
   }

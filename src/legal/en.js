@@ -136,8 +136,8 @@ export default function legalEn({ owner, address, paths, storage }) {
     },
 
     notfound: {
-      title: "This page doesn’t exist",
-      text: "The link may be old or the address may have a typo.",
+      title: "This page got lost, but I didn’t.",
+      text: "The link may be old or the address may have a typo. Meanwhile, take a shot.",
       back: "Back to home",
     },
   }
