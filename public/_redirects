@@ -1,0 +1,5 @@
+# Redireccions de Cloudflare Pages
+# La web antiga tenia el català a /ca; ara el català és a l'arrel
+/ca     /         301
+/ca/    /         301
+/ca/*   /:splat   301
