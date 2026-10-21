@@ -5,12 +5,17 @@
 
 import { LANGS, DEFAULT_LANG, PATHS } from "../lib/routes.js"
 import { OWNER, SITE_URL, SOCIALS } from "../lib/legal.js"
+import ca from "../i18n/ca.json" with { type: "json" }
+import es from "../i18n/es.json" with { type: "json" }
+import en from "../i18n/en.json" with { type: "json" }
 
 const NAME = OWNER.name
+const SHORT_NAME = OWNER.name.split(" ").slice(0, 2).join(" ")   // "Biel Díaz"
+const SERVICES = { ca: ca.services.items, es: es.services.items, en: en.services.items }
 
 export const META = {
   ca: {
-    home:     { title: `${NAME} | Desenvolupador web i dissenyador`, description: "Webs i apps a mida per a negocis i professionals de Catalunya: apps de gestió, gimnasos, portfolis, WordPress, SEO i apps per a pimes." },
+    home:     { title: `Disseny web i apps a mida a Manresa i el Bages | ${SHORT_NAME}`, description: "Webs i apps a mida per a negocis de Manresa, el Bages i Catalunya: apps de gestió, gimnasos, portfolis, WordPress i SEO. Tracte directe, sense intermediaris." },
     legal:    { title: `Avís legal | ${NAME}`, description: "Dades del titular i condicions d’ús del lloc web bieldiazbasullas.com." },
     privacy:  { title: `Política de privacitat | ${NAME}`, description: "Quines dades personals es recullen a bieldiazbasullas.com, per a què s’utilitzen i com exercir els teus drets." },
     cookies:  { title: `Política de cookies | ${NAME}`, description: "Què guarda bieldiazbasullas.com al teu navegador i per a què." },
@@ -19,7 +24,7 @@ export const META = {
     locale: "ca_ES",
   },
   es: {
-    home:     { title: `${NAME} | Desarrollador web y diseñador`, description: "Webs y apps a medida para negocios y profesionales de Cataluña: apps de gestión, gimnasios, portfolios, WordPress, SEO y apps para pymes." },
+    home:     { title: `Diseño web y apps a medida en Manresa y el Bages | ${SHORT_NAME}`, description: "Webs y apps a medida para negocios de Manresa, el Bages y Cataluña: apps de gestión, gimnasios, portfolios, WordPress y SEO. Trato directo, sin intermediarios." },
     legal:    { title: `Aviso legal | ${NAME}`, description: "Datos del titular y condiciones de uso del sitio web bieldiazbasullas.com." },
     privacy:  { title: `Política de privacidad | ${NAME}`, description: "Qué datos personales se recogen en bieldiazbasullas.com, para qué se usan y cómo ejercer tus derechos." },
     cookies:  { title: `Política de cookies | ${NAME}`, description: "Qué guarda bieldiazbasullas.com en tu navegador y para qué." },
@@ -28,7 +33,7 @@ export const META = {
     locale: "es_ES",
   },
   en: {
-    home:     { title: `${NAME} | Web developer and designer`, description: "Custom websites and apps for businesses and professionals in Catalonia: management apps, gyms, portfolios, WordPress, SEO and small-business apps." },
+    home:     { title: `Custom websites and apps in Manresa, Catalonia | ${SHORT_NAME}`, description: "Custom websites and apps for businesses in Manresa, the Bages and Catalonia: management apps, gyms, portfolios, WordPress and SEO. Work directly with me." },
     legal:    { title: `Legal notice | ${NAME}`, description: "Owner details and terms of use of the bieldiazbasullas.com website." },
     privacy:  { title: `Privacy policy | ${NAME}`, description: "What personal data bieldiazbasullas.com collects, what it is used for and how to exercise your rights." },
     cookies:  { title: `Cookie policy | ${NAME}`, description: "What bieldiazbasullas.com stores in your browser and why." },
@@ -41,9 +46,11 @@ export const META = {
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")
 export const absolute = (path) => SITE_URL + path
 
-// Dades estructurades (schema.org) de la pàgina d'inici
+// Dades estructurades (schema.org) de la pàgina d'inici: la persona, el
+// negoci local amb la zona on treballa i els serveis (sense preus), i el web
 function jsonLd(lang) {
   const m = META[lang]
+  const home = absolute(PATHS[lang].home)
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -51,14 +58,44 @@ function jsonLd(lang) {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
         name: NAME,
-        url: absolute(PATHS[lang].home),
+        url: home,
+        image: absolute("/avatar-light.svg"),
         jobTitle: m.jobTitle,
         email: `mailto:${OWNER.email}`,
+        worksFor: { "@id": `${SITE_URL}/#business` },
+        knowsLanguage: LANGS,
+        sameAs: SOCIALS.map(s => s.href),
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${SITE_URL}/#business`,
+        name: NAME,
+        description: m.home.description,
+        url: home,
+        image: absolute("/og-image.jpg"),
+        email: OWNER.email,
+        founder: { "@id": `${SITE_URL}/#person` },
         address: {
           "@type": "PostalAddress",
+          streetAddress: OWNER.street,
+          postalCode: OWNER.postalCode,
           addressLocality: OWNER.city,
-          addressRegion: "Catalunya",
+          addressRegion: OWNER.province,
           addressCountry: OWNER.country,
+        },
+        areaServed: [
+          { "@type": "City", name: "Manresa" },
+          { "@type": "AdministrativeArea", name: "Bages" },
+          { "@type": "AdministrativeArea", name: "Catalunya" },
+        ],
+        knowsLanguage: LANGS,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: m.jobTitle,
+          itemListElement: SERVICES[lang].map(s => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: s.title, description: s.description },
+          })),
         },
         sameAs: SOCIALS.map(s => s.href),
       },
