@@ -140,7 +140,7 @@ export default function Footer() {
             className="whitespace-nowrap font-medium leading-[0.85] tracking-[-0.055em]"
             style={{ fontSize: "14.6cqw" }}
           >
-            biel diaz basullas
+            biel díaz basullas
           </p>
         </div>
 

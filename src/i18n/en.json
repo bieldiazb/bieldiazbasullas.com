@@ -10,12 +10,12 @@
     "menu": "Menu",
     "openMenu": "Open the menu",
     "closeMenu": "Close the menu",
-    "home": "Biel Diaz Basullas, home",
+    "home": "Biel Díaz Basullas, home",
     "language": "Language",
     "main": "Main navigation"
   },
   "hero": {
-    "eyebrow": "Biel Diaz Basullas · Web developer and designer in Catalonia",
+    "eyebrow": "Biel Díaz Basullas · Web developer and designer in Catalonia",
     "title": "Custom websites and apps.",
     "lead": "For businesses and professionals in Manresa, the Bages and across Catalonia. I design and build clear, easy-to-use tools: from a WordPress site to the app that runs your gym.",
     "primary": "Tell me about your project",
@@ -265,7 +265,7 @@
     "nav": "Navigation",
     "social": "Social",
     "contact": "Contact",
-    "imprint": "© {{year}} Biel Diaz Basullas. Made in Sant Fruitós de Bages, with too much coffee.",
+    "imprint": "© {{year}} Biel Díaz Basullas. Made in Sant Fruitós de Bages, with too much coffee.",
     "backTop": "Back to top",
     "legal": "Legal notice",
     "privacy": "Privacy",

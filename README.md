@@ -1,4 +1,4 @@
-# 🌐 Biel Diaz Basullas Website
+# 🌐 Biel Díaz Basullas Website
 
 > A modern, responsive web application built with cutting-edge frontend technologies.
 

@@ -114,7 +114,7 @@ export default function Header() {
 
           {/* ── Nom ── */}
           <a href={homeLink()} aria-label={t("nav.home")} className="text-[1rem] font-semibold tracking-[-0.02em] text-ink" translate="no">
-            biel diaz basullas
+            biel díaz basullas
           </a>
 
           {/* ── Menú (escriptori) ── */}

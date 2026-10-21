@@ -10,12 +10,12 @@
     "menu": "Menú",
     "openMenu": "Obre el menú",
     "closeMenu": "Tanca el menú",
-    "home": "Biel Diaz Basullas, inici",
+    "home": "Biel Díaz Basullas, inici",
     "language": "Idioma",
     "main": "Navegació principal"
   },
   "hero": {
-    "eyebrow": "Biel Diaz Basullas · Desenvolupador web i dissenyador al Bages",
+    "eyebrow": "Biel Díaz Basullas · Desenvolupador web i dissenyador al Bages",
     "title": "Webs i apps a mida.",
     "lead": "Per a negocis i professionals de Manresa, el Bages i tot Catalunya. Dissenyo i programo eines clares i fàcils d’usar: des d’una web en WordPress fins a l’app que porta el teu gimnàs.",
     "primary": "Parlem del teu projecte",
@@ -265,7 +265,7 @@
     "nav": "Navegació",
     "social": "Xarxes",
     "contact": "Contacte",
-    "imprint": "© {{year}} Biel Diaz Basullas. Fet a Sant Fruitós de Bages, amb massa cafè.",
+    "imprint": "© {{year}} Biel Díaz Basullas. Fet a Sant Fruitós de Bages, amb massa cafè.",
     "backTop": "Torna a dalt",
     "legal": "Avís legal",
     "privacy": "Privacitat",
