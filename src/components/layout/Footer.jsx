@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react"
+import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, X } from "lucide-react"
 import { gsap } from "@/lib/gsap"
 import Clock from "@/components/Clock"
 import { OWNER, SOCIALS } from "@/lib/legal"
@@ -8,6 +8,9 @@ import { homeLink, pathFor, route } from "@/lib/routes"
 import { consentEnabled, openConsent } from "@/lib/consent"
 
 const EMAIL = OWNER.email
+
+// El joc només es descarrega si algú l'obre
+const HoopShot = lazy(() => import("@/components/HoopShot"))
 
 // ── Footer ────────────────────────────────────────────────────────
 // Superfície final negra (DESIGN.md footer): una frase amb l'acció,
@@ -17,6 +20,18 @@ export default function Footer() {
   const { t, i18n } = useTranslation()
   const year = new Date().getFullYear()
   const markRef = useRef(null)
+  const [game, setGame] = useState(false)
+  const gameToggleRef = useRef(null)
+  const gameCloseRef = useRef(null)
+  const gameTouched = useRef(false)
+
+  // En obrir o tancar el joc, el focus va al botó que el substitueix
+  useEffect(() => {
+    if (!gameTouched.current) return
+    const target = game ? gameCloseRef : gameToggleRef
+    target.current?.focus()
+  }, [game])
+  const toggleGame = (open) => { gameTouched.current = true; setGame(open) }
 
   useEffect(() => {
     const mm = gsap.matchMedia()
@@ -82,6 +97,38 @@ export default function Footer() {
               <a href={`mailto:${EMAIL}`} className={`${linkClass} mt-4 break-all sm:break-normal`} translate="no">{EMAIL}</a>
             </div>
           </div>
+        </div>
+
+        {/* ── Un descans: el joc de bàsquet ── */}
+        <div className="mt-16 md:mt-20">
+          {game ? (
+            <div className="rounded-lg border border-white/15 p-5 md:p-8">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <h2 className="t-title">{t("game.title")}</h2>
+                <button
+                  ref={gameCloseRef}
+                  type="button"
+                  onClick={() => toggleGame(false)}
+                  aria-label={t("game.close")}
+                  className="grid size-10 place-items-center rounded-full border border-white/25 hover:border-white"
+                >
+                  <X aria-hidden size={16} />
+                </button>
+              </div>
+              <Suspense fallback={<div className="h-[260px]" />}>
+                <HoopShot tone="dark" />
+              </Suspense>
+            </div>
+          ) : (
+            <button
+              ref={gameToggleRef}
+              type="button"
+              onClick={() => toggleGame(true)}
+              className="text-link text-white"
+            >
+              {t("game.toggle")} →
+            </button>
+          )}
         </div>
 
         {/* ── Nom a tota l'amplada ── */}

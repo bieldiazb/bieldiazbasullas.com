@@ -5,6 +5,8 @@ import { PATHS } from "@/lib/routes"
 import legalCa from "@/legal/ca"
 import legalEs from "@/legal/es"
 import legalEn from "@/legal/en"
+import Avatar from "@/components/Avatar"
+import HoopShot from "@/components/HoopShot"
 
 const TEXTS = { ca: legalCa, es: legalEs, en: legalEn }
 
@@ -108,11 +110,21 @@ export default function LegalPage({ page, lang }) {
   if (page === "notfound") {
     const nf = texts.notfound
     return (
-      <section aria-labelledby="page-title" className="container-page min-h-[70svh] pb-24 pt-[calc(var(--header-h)+6rem)]">
-        <p className="t-eyebrow text-slate">404</p>
-        <h1 id="page-title" className="t-display mt-5 text-ink">{nf.title}</h1>
-        <p className="t-subtitle mt-6 text-graphite">{nf.text}</p>
-        <a href={PATHS[lang].home} className="btn btn-primary mt-10">{nf.back}</a>
+      <section aria-labelledby="page-title" className="container-page pb-24 pt-[calc(var(--header-h)+5rem)] md:pb-36">
+        <div className="grid items-end gap-10 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <p className="t-eyebrow text-slate">404</p>
+            <h1 id="page-title" className="t-display mt-5 max-w-[18ch] text-ink">{nf.title}</h1>
+            <p className="t-subtitle mt-6 max-w-[44ch] text-graphite">{nf.text}</p>
+            <a href={PATHS[lang].home} className="btn btn-primary mt-10">{nf.back}</a>
+          </div>
+          <div className="hidden md:col-span-4 md:flex md:justify-end">
+            <Avatar size={200} />
+          </div>
+        </div>
+        <div className="mt-16 border-t border-hairline-soft pt-10">
+          <HoopShot tone="light" />
+        </div>
       </section>
     )
   }
