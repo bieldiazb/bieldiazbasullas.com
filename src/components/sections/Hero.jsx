@@ -125,7 +125,7 @@ function Showcase({ projects, t }) {
               className="group block w-full pb-1 pt-2 text-left"
             >
               <span className="relative block h-px bg-white/20">
-                <span data-bar aria-hidden className="absolute inset-0 origin-left scale-x-0 bg-white" />
+                <span data-bar aria-hidden className="absolute inset-0 origin-left scale-x-0 bg-spot" />
               </span>
               <span className={`t-meta mt-2.5 block truncate ${i === active ? "text-white" : "text-white/50 group-hover:text-white/80"}`}>
                 <span className="sr-only sm:not-sr-only sm:block sm:truncate">{p.title}</span>
@@ -184,7 +184,7 @@ export default function Hero() {
   const META = [
     { label: t("hero.availabilityLabel"), value: (
       <span className="inline-flex items-center gap-2">
-        <span aria-hidden className="size-1.5 rounded-full bg-white" />
+        <span aria-hidden className="size-1.5 rounded-full bg-spot" />
         {t("hero.availability")}
       </span>
     ) },

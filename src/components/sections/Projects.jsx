@@ -103,7 +103,7 @@ export default function Projects() {
                     </p>
                     {p.status && (
                       <p className="t-meta inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-1.5 text-white">
-                        <span aria-hidden className="size-1.5 rounded-full bg-white" />
+                        <span aria-hidden className="size-1.5 rounded-full bg-spot" />
                         {p.status}
                       </p>
                     )}

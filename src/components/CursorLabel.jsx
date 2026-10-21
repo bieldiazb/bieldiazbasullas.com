@@ -55,7 +55,7 @@ export default function CursorLabel() {
     <div
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[70] hidden rounded-full bg-white px-4 py-2 text-[0.875rem] font-semibold text-black opacity-0 [@media(pointer:fine)]:block"
+      className="pointer-events-none fixed left-0 top-0 z-[70] hidden rounded-full bg-spot px-4 py-2 text-[0.875rem] font-semibold text-black opacity-0 [@media(pointer:fine)]:block"
     >
       {label}
     </div>

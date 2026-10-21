@@ -29,6 +29,9 @@
     --scrim: #1a1a1a;
     --footer: #030303;
 
+    /* Color de signatura (taronja de bàsquet), en dosis petites */
+    --spot: #ff5a1f;
+
     --header-h: 64px;
 
     /* shadcn (toasts) */
@@ -81,6 +84,8 @@
   .on-dark :focus-visible { outline-color: #ffffff; }
 
   section[id] { scroll-margin-top: var(--header-h); }
+
+  ::selection { background: var(--spot); color: #030303; }
 
   @media (pointer: fine) {
     html { overscroll-behavior: none; }

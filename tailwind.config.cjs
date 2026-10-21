@@ -45,6 +45,7 @@ module.exports = {
         "surface-cool": "var(--surface-cool)",
         scrim: "var(--scrim)",
         "footer-bg": "var(--footer)",
+        spot: "var(--spot)",
       },
       fontFamily: {
         sans: ["Switzer", "system-ui", "sans-serif"],
