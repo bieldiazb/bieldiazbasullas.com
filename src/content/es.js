@@ -120,9 +120,10 @@ export default {
       ],
     },
     seo: {
-      metaTitle: "Posicionamiento SEO en Manresa y el Bages | Biel Díaz",
-      metaDescription: "Hago que te encuentren en Google: revisión técnica, contenidos y ficha de Google Business. SEO para negocios de Manresa, el Bages y Cataluña.",
+      metaTitle: "Posicionamiento SEO en el Bages y Manresa | Biel Díaz",
+      metaDescription: "Especialista en posicionamiento SEO en el Bages y Manresa: auditoría, palabras clave, contenidos y ficha de Google Business para que te encuentren.",
       h1: "Gestión de SEO",
+      heading: "Posicionamiento SEO en el Bages y Manresa",
       intro: "Hago que te encuentren en Google: revisión técnica, contenidos y ficha de Google Business. Más visitas de gente que busca justo lo que ofreces.",
       forWho: [
         "Negocios que tienen web pero no salen en Google.",
@@ -136,10 +137,30 @@ export default {
         "Creación y optimización de la ficha de Google Business.",
         "Configuración de Search Console y seguimiento de resultados.",
       ],
+      sections: [
+        {
+          title: "Por qué el SEO local funciona en el Bages",
+          paragraphs: [
+            "Cuando alguien busca “posicionamiento web Manresa” o “SEO en el Bages”, Google enseña primero los negocios que demuestran ser de la zona y que responden bien a lo que se busca. La competencia local es mucho menor que la nacional, y por eso un trabajo bien hecho puede dar resultados antes que en las búsquedas genéricas.",
+            "Soy especialista en SEO en Sant Fruitós de Bages: trabajo contigo directamente, sin la estructura ni los intermediarios de una agencia, y sé cómo busca la gente de Manresa, Navarcles, Sallent o Santpedor.",
+          ],
+        },
+        {
+          title: "Qué hago para que salgas en Google",
+          paragraphs: [
+            "Primero reviso cómo te ve Google: si las páginas se indexan, si hay errores, si la web carga rápido y si los títulos y las descripciones invitan a hacer clic. Después elijo las búsquedas que traen clientes de verdad (un servicio más una población) y las asigno a la página que mejor las responde.",
+            "Por último trabajo la parte local: la ficha de Google Business, las reseñas y los enlaces desde directorios y negocios de la zona. Cada mes miro Search Console para saber qué se ha movido y qué toca hacer después.",
+          ],
+        },
+      ],
       related: null,
       faqs: [
         { q: "¿Cuánto se tarda en ver resultados?", a: "El SEO es a medio plazo: los primeros cambios suelen notarse en unas semanas y los resultados sólidos, en unos meses, según la competencia." },
         { q: "¿Me puedes hacer el SEO si la web no la has hecho tú?", a: "Sí. Revisamos la web que tienes y te propongo qué hay que mejorar, tanto si la hacemos nueva como si no." },
+        { q: "¿Haces SEO en Manresa y en todo el Bages?", a: "Sí. Estoy en Sant Fruitós de Bages y trabajo con negocios de Manresa, Navarcles, Sallent, Santpedor, Sant Joan de Vilatorrada y el resto del Bages. También a distancia con negocios de toda Cataluña." },
+        { q: "¿Qué diferencia hay entre SEO y Google Ads?", a: "El SEO te hace salir en los resultados orgánicos, sin pagar por cada clic: cuesta más arrancar, pero las visitas se quedan. Google Ads es publicidad de pago: da visitas rápido, pero se acaban cuando dejas de pagar." },
+        { q: "¿Cuánto cuesta el SEO?", a: "Depende del estado de la web y de la competencia de tus búsquedas. Tras una primera conversación y una revisión inicial, sin compromiso, te preparo una propuesta con el alcance y el precio." },
+        { q: "¿Necesito la ficha de Google Business?", a: "Si tienes un negocio con local o que da servicio en una zona, sí: es una de las maneras más rápidas de salir en el mapa y en las búsquedas locales. Te ayudo a crearla y optimizarla." },
       ],
     },
     smb: {
