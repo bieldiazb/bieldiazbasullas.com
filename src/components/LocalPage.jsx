@@ -58,6 +58,16 @@ export default function LocalPage({ lang }) {
         </section>
       </div>
 
+      {/* ── Seccions de contingut (opcionals) ── */}
+      {l.sections?.map((sec, i) => (
+        <section key={sec.title} data-reveal aria-labelledby={`local-section-${i}`} className="mt-24 grid gap-10 md:mt-32 md:grid-cols-12 md:gap-12">
+          <h2 id={`local-section-${i}`} className="t-heading text-ink md:col-span-4">{sec.title}</h2>
+          <div className="space-y-5 md:col-span-8">
+            {sec.paragraphs.map(text => <p key={text} className="t-body max-w-[64ch] text-graphite">{text}</p>)}
+          </div>
+        </section>
+      ))}
+
       {/* ── Serveis ── */}
       <ServiceList lang={lang} title={l.servicesTitle} />
 
