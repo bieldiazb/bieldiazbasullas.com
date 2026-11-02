@@ -28,9 +28,10 @@ export default {
 
   services: {
     "custom-apps": {
-      metaTitle: "Apps de gestión a medida en Manresa y el Bages | Biel Díaz",
-      metaDescription: "Apps de gestión hechas a tu manera de trabajar: clientes, reservas, inventario o lo que necesites, en un solo lugar. Desarrollador en Manresa y el Bages.",
+      metaTitle: "Desarrollo de apps a medida en Manresa | Biel Díaz",
+      metaDescription: "Desarrollo apps de gestión a medida para negocios de Manresa y el Bages: clientes, reservas, inventario y más, con trato directo y sin intermediarios.",
       h1: "Apps de gestión a medida",
+      heading: "Apps de gestión a medida en Manresa y el Bages",
       intro: "Herramientas hechas a tu manera de trabajar: clientes, reservas, inventario o lo que necesites, todo en un solo lugar. Se acabaron las hojas de cálculo que no se hablan entre sí.",
       forWho: [
         "Negocios que llevan la gestión con hojas de cálculo, papel o varias apps que no se conectan.",
@@ -44,10 +45,30 @@ export default {
         "Importación y exportación de datos, y avisos por correo electrónico cuando hace falta.",
         "Puesta en marcha y formación para que el equipo la use desde el primer día.",
       ],
+      sections: [
+        {
+          title: "Por qué una app a medida y no un programa estándar",
+          paragraphs: [
+            "Un programa estándar te obliga a adaptar el negocio al programa. Una app a medida hace lo contrario: se diseña a partir de cómo trabajas, con los campos, los pasos y los permisos que necesitas y nada más. Así ahorras tiempo cada día y no pagas por funciones que no usas.",
+            "Como trabajas con una persona de la zona, puedes explicar el proceso en persona, probar versiones pequeñas y ajustarlo sobre la marcha.",
+          ],
+        },
+        {
+          title: "Cómo lo hago",
+          paragraphs: [
+            "Empiezo por una primera versión que resuelve lo que ahora te hace perder más tiempo, la probamos con tu equipo y vamos añadiendo funciones. Lo diseño y lo programo yo directamente, y te explico cómo funciona para que no dependas a ciegas.",
+            "La app funciona desde el navegador, en el móvil y en el ordenador, y los datos son tuyos: puedes exportarlos cuando quieras.",
+          ],
+        },
+      ],
       related: "sergigarcia",
       faqs: [
         { q: "¿Puedo empezar con una versión pequeña y ampliarla después?", a: "Sí. Es la forma recomendada: empezamos por lo que más te hace falta y vamos añadiendo funciones a medida que se usa la app." },
         { q: "¿Puedo usar la app desde el móvil?", a: "Sí. Las apps se diseñan para que funcionen bien en el móvil, la tableta y el ordenador, sin instalar nada." },
+        { q: "¿Haces apps a medida en Manresa y el Bages?", a: "Sí. Estoy en Sant Fruitós de Bages y desarrollo apps para negocios de Manresa y del Bages, y también a distancia para negocios de toda Cataluña." },
+        { q: "¿Cuánto cuesta una app a medida?", a: "Depende del alcance y de las funciones que necesites. Tras una primera conversación, sin compromiso, te preparo una propuesta con el precio y los plazos." },
+        { q: "¿Cuánto se tarda en tener la app?", a: "Depende del alcance. Una primera versión con las funciones esenciales se puede probar antes que la app completa, y en la propuesta tienes los plazos exactos." },
+        { q: "¿Y si más adelante necesito cambios?", a: "No hay problema. Sigo a tu lado: la app se puede ampliar o ajustar cuando el negocio cambia." },
       ],
     },
     gyms: {
