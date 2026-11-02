@@ -121,8 +121,9 @@ export default {
     },
     seo: {
       metaTitle: "SEO in Manresa and the Bages, Catalonia | Biel Díaz",
-      metaDescription: "I help people find you on Google: technical review, content and your Google Business profile. SEO for businesses in Manresa and Catalonia.",
+      metaDescription: "SEO specialist in Manresa and the Bages: audit, keywords, content and Google Business profile so local customers can find you.",
       h1: "SEO management",
+      heading: "SEO in Manresa and the Bages",
       intro: "I help people find you on Google: technical review, content and your Google Business profile. More visits from people looking for exactly what you offer.",
       forWho: [
         "Businesses that have a website but don’t show up on Google.",
@@ -136,10 +137,30 @@ export default {
         "Setting up and optimising your Google Business profile.",
         "Search Console setup and results tracking.",
       ],
+      sections: [
+        {
+          title: "Why local SEO works in the Bages",
+          paragraphs: [
+            "When someone searches for “web SEO Manresa” or “SEO Bages”, Google shows first the businesses that prove they belong to the area and answer what people are looking for. Local competition is much smaller than national competition, so good work can pay off sooner than it does for generic searches.",
+            "I’m an SEO specialist based in Sant Fruitós de Bages: you work with me directly, without the structure or middlemen of an agency, and I know how people in Manresa, Navarcles, Sallent or Santpedor search.",
+          ],
+        },
+        {
+          title: "What I do to get you on Google",
+          paragraphs: [
+            "First I check how Google sees you: whether your pages are indexed, whether there are errors, whether the site loads fast and whether titles and descriptions invite a click. Then I pick the searches that bring real customers (a service plus a town) and match each one to the page that answers it best.",
+            "Finally I work on the local side: your Google Business profile, reviews and links from directories and businesses in the area. Every month I check Search Console to see what moved and what to do next.",
+          ],
+        },
+      ],
       related: null,
       faqs: [
         { q: "How long until I see results?", a: "SEO is a medium-term effort: the first changes usually show within weeks and solid results within a few months, depending on the competition." },
         { q: "Can you do SEO on a site you didn’t build?", a: "Yes. We review your current site and I suggest what to improve, whether or not we rebuild it." },
+        { q: "Do you do SEO in Manresa and across the Bages?", a: "Yes. I’m based in Sant Fruitós de Bages and work with businesses in Manresa, Navarcles, Sallent, Santpedor, Sant Joan de Vilatorrada and the rest of the Bages. I also work remotely with businesses across Catalonia." },
+        { q: "What’s the difference between SEO and Google Ads?", a: "SEO gets you into the organic results without paying per click: it takes longer to start, but the visits stay. Google Ads is paid advertising: it brings visits quickly, but they stop when you stop paying." },
+        { q: "How much does SEO cost?", a: "It depends on the state of your site and how competitive your searches are. After a first conversation and an initial review, with no commitment, I prepare a proposal with the scope and the price." },
+        { q: "Do I need a Google Business profile?", a: "If you have a shop or serve a specific area, yes: it’s one of the fastest ways to show up on the map and in local searches. I can help you create and optimise it." },
       ],
     },
     smb: {

@@ -155,10 +155,10 @@ function jsonLdFor(page, lang) {
     nodes = [
       {
         "@type": "Service",
-        name: s.h1,
+        name: s.heading ?? s.h1,
         description: s.intro,
         url,
-        serviceType: s.h1,
+        serviceType: s.heading ?? s.h1,
         provider: { "@id": `${SITE_URL}/#business` },
         areaServed: [
           { "@type": "City", name: "Manresa" },

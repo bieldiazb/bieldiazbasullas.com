@@ -33,8 +33,9 @@ export function CtaPanel({ ui, href }) {
   )
 }
 
-export function ServiceList({ lang, exclude, title }) {
+export function ServiceList({ lang, exclude, title, withLocal = false }) {
   const links = serviceLinks(lang).filter(s => s.id !== exclude)
+  if (withLocal) links.push({ id: "local", path: pathFor("local", lang), title: CONTENT[lang].local.h1 })
   return (
     <section aria-labelledby="other-services" className="mt-24 md:mt-32">
       <h2 id="other-services" className="t-heading text-ink">{title}</h2>
@@ -74,7 +75,7 @@ export default function ServicePage({ id, lang }) {
 
       {/* ── Capçalera ── */}
       <header className="mt-10 max-w-[860px] md:mt-14">
-        <h1 data-split className="t-hero text-ink">{s.h1}</h1>
+        <h1 data-split className="t-hero text-ink">{s.heading ?? s.h1}</h1>
         <p data-reveal className="t-subtitle mt-8 max-w-[52ch] text-graphite">{s.intro}</p>
         <a data-reveal href={`${home}?servei=${id}#contact`} className="btn btn-primary mt-10">{ui.ctaButton}</a>
       </header>
@@ -104,6 +105,16 @@ export default function ServicePage({ id, lang }) {
           </ul>
         </section>
       </div>
+
+      {/* ── Seccions de contingut (opcionals) ── */}
+      {s.sections?.map((sec, i) => (
+        <section key={sec.title} data-reveal aria-labelledby={`section-${i}`} className="mt-24 grid gap-10 md:mt-32 md:grid-cols-12 md:gap-12">
+          <h2 id={`section-${i}`} className="t-heading text-ink md:col-span-4">{sec.title}</h2>
+          <div className="space-y-5 md:col-span-8">
+            {sec.paragraphs.map(text => <p key={text} className="t-body max-w-[64ch] text-graphite">{text}</p>)}
+          </div>
+        </section>
+      ))}
 
       {/* ── Com treballo ── */}
       <section aria-labelledby="process" className="mt-24 md:mt-32">
@@ -146,7 +157,7 @@ export default function ServicePage({ id, lang }) {
         <Faq items={s.faqs} className="md:col-span-8" />
       </section>
 
-      <ServiceList lang={lang} exclude={id} title={ui.otherServices} />
+      <ServiceList lang={lang} exclude={id} title={ui.otherServices} withLocal />
       <CtaPanel ui={ui} href={`${home}?servei=${id}#contact`} />
     </article>
   )
