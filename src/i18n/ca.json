@@ -48,6 +48,7 @@
       { "id": "portfolios", "title": "Portfolis web a mida", "description": "Una web que ensenya la teva feina com es mereix, dissenyada des de zero i sense plantilles. Ideal per a creatius i professionals que volen destacar." },
       { "id": "wordpress", "title": "Webs bàsiques en WordPress", "description": "Una web senzilla, ràpida i que pots actualitzar tu mateix. Perfecta per començar a ser a internet sense complicacions." },
       { "id": "seo", "title": "Gestió de SEO", "description": "Faig que et trobin a Google: revisió tècnica, continguts i fitxa de Google Business. Més visites de gent que busca just el que ofereixes." },
+      { "id": "audit", "title": "Auditoria SEO", "description": "Reviso la teva web i t’explico què t’impedeix sortir a Google, amb un informe clar i les accions ordenades per prioritat." },
       { "id": "smb", "title": "Apps per a pimes", "description": "Digitalitzo els processos del teu negoci amb apps pensades per a equips petits: pressupostos, comandes o tasques. Fàcils d’usar des del primer dia." }
     ]
   },

@@ -48,6 +48,7 @@
       { "id": "portfolios", "title": "Portfolios web a medida", "description": "Una web que enseña tu trabajo como se merece, diseñada desde cero y sin plantillas. Ideal para creativos y profesionales que quieren destacar." },
       { "id": "wordpress", "title": "Webs básicas en WordPress", "description": "Una web sencilla, rápida y que puedes actualizar tú mismo. Perfecta para empezar a estar en internet sin complicaciones." },
       { "id": "seo", "title": "Gestión de SEO", "description": "Hago que te encuentren en Google: revisión técnica, contenidos y ficha de Google Business. Más visitas de gente que busca justo lo que ofreces." },
+      { "id": "audit", "title": "Auditoría SEO", "description": "Reviso tu web y te explico qué te impide salir en Google, con un informe claro y las acciones ordenadas por prioridad." },
       { "id": "smb", "title": "Apps para pymes", "description": "Digitalizo los procesos de tu negocio con apps pensadas para equipos pequeños: presupuestos, pedidos o tareas. Fáciles de usar desde el primer día." }
     ]
   },

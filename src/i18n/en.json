@@ -48,6 +48,7 @@
       { "id": "portfolios", "title": "Custom portfolio websites", "description": "A site that shows your work the way it deserves, designed from scratch with no templates. Ideal for creatives and professionals who want to stand out." },
       { "id": "wordpress", "title": "Simple WordPress websites", "description": "A simple, fast website you can update yourself. Perfect for getting online without the hassle." },
       { "id": "seo", "title": "SEO management", "description": "I help people find you on Google: technical review, content and your Google Business profile. More visits from people looking for exactly what you offer." },
+      { "id": "audit", "title": "SEO audit", "description": "I review your website and explain what’s keeping you off Google, with a clear report and actions ranked by priority." },
       { "id": "smb", "title": "Apps for small businesses", "description": "I digitise your business processes with apps built for small teams: quotes, orders or tasks. Easy to use from day one." }
     ]
   },

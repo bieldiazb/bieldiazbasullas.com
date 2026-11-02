@@ -8,14 +8,14 @@ export const LANGS = ["ca", "es", "en"]
 export const DEFAULT_LANG = "ca"
 
 // Serveis amb pàgina pròpia (mateixos ids que a i18n i src/content)
-export const SERVICE_IDS = ["custom-apps", "gyms", "portfolios", "wordpress", "seo", "smb"]
+export const SERVICE_IDS = ["custom-apps", "gyms", "portfolios", "wordpress", "seo", "audit", "smb"]
 export const servicePage = (id) => `service-${id}`
 export const serviceIdOf = (page) => (page?.startsWith("service-") ? page.slice(8) : null)
 
 const SERVICE_SLUGS = {
-  ca: { "custom-apps": "apps-de-gestio-a-mida", gyms: "gestio-per-a-gimnasos", portfolios: "portfolis-web-a-mida", wordpress: "webs-wordpress", seo: "seo", smb: "apps-per-a-pimes" },
-  es: { "custom-apps": "apps-de-gestion-a-medida", gyms: "gestion-para-gimnasios", portfolios: "portfolios-web-a-medida", wordpress: "webs-wordpress", seo: "seo", smb: "apps-para-pymes" },
-  en: { "custom-apps": "custom-management-apps", gyms: "gym-management", portfolios: "custom-portfolio-websites", wordpress: "wordpress-websites", seo: "seo", smb: "small-business-apps" },
+  ca: { "custom-apps": "apps-de-gestio-a-mida", gyms: "gestio-per-a-gimnasos", portfolios: "portfolis-web-a-mida", wordpress: "webs-wordpress", seo: "seo", audit: "auditoria-seo", smb: "apps-per-a-pimes" },
+  es: { "custom-apps": "apps-de-gestion-a-medida", gyms: "gestion-para-gimnasios", portfolios: "portfolios-web-a-medida", wordpress: "webs-wordpress", seo: "seo", audit: "auditoria-seo", smb: "apps-para-pymes" },
+  en: { "custom-apps": "custom-management-apps", gyms: "gym-management", portfolios: "custom-portfolio-websites", wordpress: "wordpress-websites", seo: "seo", audit: "seo-audit", smb: "small-business-apps" },
 }
 const SERVICE_BASE = { ca: "/serveis", es: "/es/servicios", en: "/en/services" }
 const services = (lang) => Object.fromEntries(

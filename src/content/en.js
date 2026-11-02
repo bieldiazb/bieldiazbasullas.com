@@ -163,6 +163,50 @@ export default {
         { q: "Do I need a Google Business profile?", a: "If you have a shop or serve a specific area, yes: it’s one of the fastest ways to show up on the map and in local searches. I can help you create and optimise it." },
       ],
     },
+    audit: {
+      metaTitle: "SEO audit in Manresa and the Bages | Biel Díaz",
+      metaDescription: "An SEO audit of your website: technical errors, indexing, keywords and your Google Business profile, with a clear report and actions ranked by priority.",
+      h1: "SEO audit",
+      heading: "SEO audit in Manresa and the Bages",
+      intro: "I review your website top to bottom and explain, in plain language, what’s keeping you off Google and what to fix first. You get a clear report with actions ranked by priority.",
+      forWho: [
+        "Businesses that have a website but get no visits from Google.",
+        "Sites that have lost rankings or traffic and don’t know why.",
+        "Anyone who wants to know where they stand before hiring SEO or redesigning the site.",
+      ],
+      includes: [
+        "A technical review: indexing, errors, redirects, speed and mobile version.",
+        "An analysis of the titles, descriptions, headings and copy on every page.",
+        "Research into the real keywords in your area and who ranks for them today.",
+        "A review of your Google Business profile and local presence.",
+        "A look at Search Console and Analytics, if you already have them.",
+        "A report with actions ranked by priority, and a call to walk you through it.",
+      ],
+      sections: [
+        {
+          title: "What you get",
+          paragraphs: [
+            "A written report, in Catalan or Spanish, with what I found and why it matters, explained for someone who isn’t technical. Every problem comes with a concrete fix and a priority: what to do now, what can wait and what isn’t worth the effort.",
+            "Then we talk it through on a video call, or in person if you’re local, and you decide whether to fix it yourself, hand it to your team or have me do it.",
+          ],
+        },
+        {
+          title: "When an SEO audit makes sense",
+          paragraphs: [
+            "Before redesigning a website, because a badly handled change can cost you the rankings you already have. When traffic drops for no clear reason. Or if you’ve had a site for a while and have never seen how Google sees it.",
+          ],
+        },
+      ],
+      related: null,
+      faqs: [
+        { q: "What is an SEO audit?", a: "A review of your website to find out what’s keeping you off Google: technical errors, content that doesn’t answer what people search for and weak local presence. The result is a report of what to improve." },
+        { q: "How long does an SEO audit take?", a: "It depends on the size of the site. A small site is usually reviewed within a few days. The proposal gives you the exact timeline." },
+        { q: "How much does an SEO audit cost?", a: "It depends on the size of the site and the scope. After a first conversation, with no commitment, I prepare a proposal with a fixed price." },
+        { q: "Can you audit a site you didn’t build?", a: "Yes. It works with any site, whether it’s WordPress, custom-built or made with Wix or Squarespace." },
+        { q: "Do you do SEO audits in Manresa and the Bages?", a: "Yes. I’m based in Sant Fruitós de Bages and audit businesses in Manresa and the Bages, and also work remotely across Catalonia." },
+        { q: "What happens after the audit?", a: "You have the report and you decide. You can apply it yourself, pass it to your team or ask me to implement it through the SEO management service." },
+      ],
+    },
     smb: {
       metaTitle: "Small business apps: quotes, orders and tasks | Biel Díaz",
       metaDescription: "I digitise your business processes with apps built for small teams: quotes, orders or tasks. Easy to use from day one.",
