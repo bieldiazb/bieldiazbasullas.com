@@ -28,9 +28,10 @@ export default {
 
   services: {
     "custom-apps": {
-      metaTitle: "Apps de gestió a mida a Manresa i el Bages | Biel Díaz",
-      metaDescription: "Apps de gestió fetes a la teva manera de treballar: clients, reserves, inventari o el que necessitis, en un sol lloc. Desenvolupador a Manresa i el Bages.",
+      metaTitle: "Desenvolupament d’apps a mida a Manresa | Biel Díaz",
+      metaDescription: "Desenvolupo apps de gestió a mida per a negocis de Manresa i el Bages: clients, reserves, inventari i més, amb tracte directe i sense intermediaris.",
       h1: "Apps de gestió a mida",
+      heading: "Apps de gestió a mida a Manresa i el Bages",
       intro: "Eines fetes a la teva manera de treballar: clients, reserves, inventari o el que necessitis, tot en un sol lloc. S’han acabat els fulls de càlcul que no es parlen entre ells.",
       forWho: [
         "Negocis que porten la gestió amb fulls de càlcul, paper o diverses apps que no es connecten.",
@@ -44,10 +45,30 @@ export default {
         "Importació i exportació de dades, i avisos per correu electrònic quan cal.",
         "Posada en marxa i formació perquè l’equip la faci servir des del primer dia.",
       ],
+      sections: [
+        {
+          title: "Per què una app a mida i no un programa estàndard",
+          paragraphs: [
+            "Un programa estàndard et fa adaptar el negoci al programa. Una app a mida fa el contrari: es dissenya a partir de com treballes, amb els camps, els passos i els permisos que necessites i res més. Així estalvies temps cada dia i no pagues per funcions que no fas servir.",
+            "Com que treballes amb una persona de la zona, pots explicar el procés en persona, provar versions petites i ajustar-ho sobre la marxa.",
+          ],
+        },
+        {
+          title: "Com ho faig",
+          paragraphs: [
+            "Començo per una primera versió que resol el que ara et fa perdre més temps, la provem amb el teu equip i hi anem afegint funcions. Ho dissenyo i ho programo jo directament, i t’explico com funciona perquè no en depenguis a cegues.",
+            "L’app funciona des del navegador, al mòbil i a l’ordinador, i les dades són teves: les pots exportar quan vulguis.",
+          ],
+        },
+      ],
       related: "sergigarcia",
       faqs: [
         { q: "Puc començar amb una versió petita i ampliar-la després?", a: "Sí. És la manera recomanada: comencem pel que et fa més falta i hi anem afegint funcions a mesura que l’app es fa servir." },
         { q: "Puc fer servir l’app des del mòbil?", a: "Sí. Les apps es dissenyen perquè funcionin bé al mòbil, a la tauleta i a l’ordinador, sense haver d’instal·lar res." },
+        { q: "Fas apps a mida a Manresa i al Bages?", a: "Sí. Soc a Sant Fruitós de Bages i desenvolupo apps per a negocis de Manresa i del Bages, i també a distància per a negocis de tot Catalunya." },
+        { q: "Quant costa una app a mida?", a: "Depèn de l’abast i de les funcions que necessitis. Després d’una primera conversa, sense compromís, et preparo una proposta amb el preu i els terminis." },
+        { q: "Quant es triga a tenir l’app?", a: "Depèn de l’abast. Una primera versió amb les funcions essencials es pot provar abans que l’app completa, i a la proposta tens els terminis exactes." },
+        { q: "I si més endavant necessito canvis?", a: "No hi ha problema. Continuo al teu costat: l’app es pot ampliar o ajustar quan el negoci canvia." },
       ],
     },
     gyms: {

@@ -28,9 +28,10 @@ export default {
 
   services: {
     "custom-apps": {
-      metaTitle: "Custom management apps in Manresa, Catalonia | Biel Díaz",
-      metaDescription: "Management apps built around the way you work: clients, bookings, inventory or whatever you need, in one place. Developer in Manresa, Catalonia.",
+      metaTitle: "Custom app development in Manresa | Biel Díaz",
+      metaDescription: "I build custom management apps for businesses in Manresa and the Bages: clients, bookings, inventory and more, working with me directly.",
       h1: "Custom management apps",
+      heading: "Custom management apps in Manresa and the Bages",
       intro: "Tools built around the way you work: clients, bookings, inventory or whatever you need, all in one place. No more spreadsheets that don’t talk to each other.",
       forWho: [
         "Businesses running on spreadsheets, paper or several apps that don’t connect.",
@@ -44,10 +45,30 @@ export default {
         "Data import and export, and email notifications when needed.",
         "Launch and training so the team can use it from day one.",
       ],
+      sections: [
+        {
+          title: "Why a custom app instead of off-the-shelf software",
+          paragraphs: [
+            "Off-the-shelf software makes you adapt your business to the program. A custom app does the opposite: it’s designed around how you work, with the fields, steps and permissions you need and nothing else. You save time every day and don’t pay for features you never use.",
+            "Because you work with someone local, you can explain the process in person, try small versions and adjust as you go.",
+          ],
+        },
+        {
+          title: "How I work",
+          paragraphs: [
+            "I start with a first version that solves what costs you the most time today, we try it with your team and add features as we go. I design and build it myself, and I explain how it works so you’re never left depending on it blindly.",
+            "The app runs in the browser, on mobile and desktop, and the data is yours: you can export it whenever you want.",
+          ],
+        },
+      ],
       related: "sergigarcia",
       faqs: [
         { q: "Can I start with a small version and grow it later?", a: "Yes. That’s the recommended approach: we start with what you need most and add features as the app gets used." },
         { q: "Can I use the app on my phone?", a: "Yes. The apps are designed to work well on phones, tablets and computers, with nothing to install." },
+        { q: "Do you build custom apps in Manresa and the Bages?", a: "Yes. I’m based in Sant Fruitós de Bages and build apps for businesses in Manresa and the Bages, and also work remotely with businesses across Catalonia." },
+        { q: "How much does a custom app cost?", a: "It depends on the scope and the features you need. After a first conversation, with no commitment, I prepare a proposal with the price and timeline." },
+        { q: "How long until I have the app?", a: "It depends on the scope. A first version with the essential features can be tested before the full app is ready, and the proposal gives you the exact timeline." },
+        { q: "What if I need changes later?", a: "No problem. I stay by your side: the app can be extended or adjusted as your business changes." },
       ],
     },
     gyms: {
