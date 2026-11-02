@@ -163,6 +163,50 @@ export default {
         { q: "¿Necesito la ficha de Google Business?", a: "Si tienes un negocio con local o que da servicio en una zona, sí: es una de las maneras más rápidas de salir en el mapa y en las búsquedas locales. Te ayudo a crearla y optimizarla." },
       ],
     },
+    audit: {
+      metaTitle: "Auditoría SEO en Manresa y el Bages | Biel Díaz",
+      metaDescription: "Auditoría SEO de tu web: errores técnicos, indexación, palabras clave y ficha de Google Business, con un informe claro y las acciones por prioridad.",
+      h1: "Auditoría SEO",
+      heading: "Auditoría SEO en Manresa y el Bages",
+      intro: "Reviso tu web de arriba abajo y te explico, sin jerga, qué te impide salir en Google y qué hay que arreglar primero. Recibirás un informe claro con las acciones ordenadas por prioridad.",
+      forWho: [
+        "Negocios que tienen web pero no reciben visitas de Google.",
+        "Webs que han perdido posiciones o tráfico y no saben por qué.",
+        "Quien quiere saber en qué punto está antes de contratar SEO o rediseñar la web.",
+      ],
+      includes: [
+        "Revisión técnica: indexación, errores, redirecciones, velocidad y versión para móvil.",
+        "Análisis de los títulos, las descripciones, los encabezados y los contenidos de cada página.",
+        "Búsqueda de las palabras clave reales de tu zona y de quién sale hoy.",
+        "Revisión de la ficha de Google Business y de la presencia local.",
+        "Lectura de Search Console y Analytics, si ya los tienes.",
+        "Informe con las acciones ordenadas por prioridad y una llamada para explicarlo.",
+      ],
+      sections: [
+        {
+          title: "Qué recibirás",
+          paragraphs: [
+            "Un informe escrito, en catalán o en castellano, con lo que he encontrado y por qué importa, explicado para alguien que no es técnico. Cada problema tiene su solución concreta y una prioridad: qué hay que hacer ya, qué puede esperar y qué no vale la pena.",
+            "Después lo hablamos por videollamada, o en persona si eres de la zona, y tú decides si lo arreglas tú, si lo hace tu equipo o si lo hago yo.",
+          ],
+        },
+        {
+          title: "Cuándo conviene hacer una auditoría SEO",
+          paragraphs: [
+            "Antes de rediseñar una web, porque un cambio mal hecho puede hacerte perder las posiciones que ya tienes. Cuando el tráfico baja sin un motivo claro. O si hace tiempo que tienes web y nunca has visto cómo te ve Google.",
+          ],
+        },
+      ],
+      related: null,
+      faqs: [
+        { q: "¿Qué es una auditoría SEO?", a: "Es una revisión de tu web para saber qué te impide salir en Google: errores técnicos, contenidos que no responden a lo que busca la gente y poca presencia local. El resultado es un informe con lo que hay que mejorar." },
+        { q: "¿Cuánto tarda una auditoría SEO?", a: "Depende del tamaño de la web. Una web pequeña suele estar revisada en pocos días. En la propuesta tienes el plazo exacto." },
+        { q: "¿Cuánto cuesta una auditoría SEO?", a: "Depende del tamaño de la web y del alcance. Tras una primera conversación, sin compromiso, te preparo una propuesta con el precio cerrado." },
+        { q: "¿Me haces la auditoría si la web no la has hecho tú?", a: "Sí. Funciona con cualquier web, tanto si está en WordPress o a medida como si la has hecho con Wix o Squarespace." },
+        { q: "¿Haces auditorías SEO en Manresa y el Bages?", a: "Sí. Estoy en Sant Fruitós de Bages y hago auditorías a negocios de Manresa y del Bages, y también a distancia en toda Cataluña." },
+        { q: "¿Qué pasa después de la auditoría?", a: "Tienes el informe y decides. Puedes aplicarlo tú, pasarlo a tu equipo o pedirme que lo implemente con el servicio de gestión de SEO." },
+      ],
+    },
     smb: {
       metaTitle: "Apps para pymes: presupuestos, pedidos y tareas | Biel Díaz",
       metaDescription: "Digitalizo los procesos de tu negocio con apps pensadas para equipos pequeños: presupuestos, pedidos o tareas. Fáciles de usar desde el primer día.",

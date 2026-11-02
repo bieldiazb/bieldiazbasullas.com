@@ -163,6 +163,50 @@ export default {
         { q: "Necessito la fitxa de Google Business?", a: "Si tens un negoci amb local o que dóna servei en una zona, sí: és una de les maneres més ràpides de sortir al mapa i a les cerques locals. T’ajudo a crear-la i optimitzar-la." },
       ],
     },
+    audit: {
+      metaTitle: "Auditoria SEO a Manresa i el Bages | Biel Díaz",
+      metaDescription: "Auditoria SEO de la teva web: errors tècnics, indexació, paraules clau i fitxa de Google Business, amb un informe clar i les accions per prioritat.",
+      h1: "Auditoria SEO",
+      heading: "Auditoria SEO a Manresa i el Bages",
+      intro: "Reviso la teva web de dalt a baix i t’explico, sense jargó, què t’impedeix sortir a Google i què cal arreglar primer. Rebràs un informe clar amb les accions ordenades per prioritat.",
+      forWho: [
+        "Negocis que tenen web però no reben visites de Google.",
+        "Webs que han perdut posicions o trànsit i no saben per què.",
+        "Qui vol saber en quin punt és abans de contractar SEO o redissenyar la web.",
+      ],
+      includes: [
+        "Revisió tècnica: indexació, errors, redireccions, velocitat i versió per a mòbil.",
+        "Anàlisi dels títols, les descripcions, els encapçalaments i els continguts de cada pàgina.",
+        "Recerca de les paraules clau reals de la teva zona i de qui hi surt avui.",
+        "Revisió de la fitxa de Google Business i de la presència local.",
+        "Lectura de Search Console i Analytics, si ja els tens.",
+        "Informe amb les accions ordenades per prioritat i una trucada per explicar-lo.",
+      ],
+      sections: [
+        {
+          title: "Què rebràs",
+          paragraphs: [
+            "Un informe escrit, en català o en castellà, amb el que he trobat i per què importa, explicat per a algú que no és tècnic. Cada problema té la solució concreta i una prioritat: què cal fer ja, què pot esperar i què no val la pena.",
+            "Després en parlem per videotrucada, o en persona si ets de la zona, i tu decideixes si ho arregles tu, si ho fa el teu equip o si ho faig jo.",
+          ],
+        },
+        {
+          title: "Quan convé fer una auditoria SEO",
+          paragraphs: [
+            "Abans de redissenyar una web, perquè un canvi mal fet pot fer perdre les posicions que ja tens. Quan el trànsit baixa sense un motiu clar. O si fa temps que tens web i mai has vist com et veu Google.",
+          ],
+        },
+      ],
+      related: null,
+      faqs: [
+        { q: "Què és una auditoria SEO?", a: "És una revisió de la teva web per saber què t’impedeix sortir a Google: errors tècnics, continguts que no responen el que busca la gent i poca presència local. El resultat és un informe amb el que cal millorar." },
+        { q: "Quant triga una auditoria SEO?", a: "Depèn de la mida de la web. Una web petita sol estar revisada en pocs dies. A la proposta tens el termini exacte." },
+        { q: "Quant costa una auditoria SEO?", a: "Depèn de la mida de la web i de l’abast. Després d’una primera conversa, sense compromís, et preparo una proposta amb el preu tancat." },
+        { q: "Em fas l’auditoria si la web no l’has feta tu?", a: "Sí. Funciona amb qualsevol web, tant si és en WordPress o a mida com si l’has fet amb Wix o Squarespace." },
+        { q: "Fas auditories SEO a Manresa i el Bages?", a: "Sí. Soc a Sant Fruitós de Bages i faig auditories a negocis de Manresa i del Bages, i també a distància a tot Catalunya." },
+        { q: "Què passa després de l’auditoria?", a: "Tens l’informe i decideixes. Pots aplicar-ho tu, passar-ho al teu equip o demanar-me que ho implementi amb el servei de gestió de SEO." },
+      ],
+    },
     smb: {
       metaTitle: "Apps per a pimes: pressupostos, comandes i tasques | Biel Díaz",
       metaDescription: "Digitalitzo els processos del teu negoci amb apps pensades per a equips petits: pressupostos, comandes o tasques. Fàcils d’usar des del primer dia.",

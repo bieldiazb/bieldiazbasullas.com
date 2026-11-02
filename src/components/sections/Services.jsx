@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
-import { LayoutDashboard, Dumbbell, Palette, Globe, TrendingUp, Store, Plus, Check } from "lucide-react"
+import { LayoutDashboard, Dumbbell, Palette, Globe, TrendingUp, SearchCheck, Store, Plus, Check } from "lucide-react"
 import { gsap } from "@/lib/gsap"
 import { useOrder } from "@/lib/order"
 import { useReveal } from "@/lib/useReveal"
@@ -17,6 +17,7 @@ const ICONS = {
   portfolios:    Palette,
   wordpress:     Globe,
   seo:           TrendingUp,
+  audit:         SearchCheck,
   smb:           Store,
 }
 
