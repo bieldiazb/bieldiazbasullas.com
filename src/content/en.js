@@ -255,7 +255,7 @@ export default {
 
   local: {
     metaTitle: "Web design in Manresa and the Bages, Catalonia | Biel Díaz",
-    metaDescription: "Web designer and developer in Sant Fruitós de Bages. Websites, custom apps and SEO for businesses in Manresa and the Bages, working directly with you.",
+    metaDescription: "Web design and development in Manresa and the Bages: websites, custom apps and SEO, working directly with me. Designer and developer in Sant Fruitós de Bages.",
     h1: "Web design in Manresa and the Bages",
     intro: "I’m Biel, a web developer and designer in Sant Fruitós de Bages, right next to Manresa. I build websites, custom apps and SEO for local businesses and professionals.",
     whyTitle: "Why work with someone local",
@@ -266,10 +266,27 @@ export default {
     ],
     areasTitle: "Where I work",
     areas: "Manresa, Sant Fruitós de Bages, Navarcles, Santpedor, Sant Joan de Vilatorrada, Sallent, Callús, Artés and the rest of the Bages. I also work remotely with businesses across Catalonia.",
+    sections: [
+      {
+        title: "Website creation in Manresa",
+        paragraphs: [
+          "I build websites for shops, restaurants, professionals, clubs and companies in Manresa and the Bages: from a simple WordPress site to a custom site with its own design. Everything in Catalan and, if needed, in Spanish and English too.",
+        ],
+      },
+      {
+        title: "Web developer and designer in Sant Fruitós de Bages",
+        paragraphs: [
+          "I’m both a web developer and a designer: I do the design and the build myself, so there are no middlemen or handovers between teams. The sites are fast, look good on mobile and launch ready to show up on Google from day one.",
+        ],
+      },
+    ],
     servicesTitle: "What I can do for you",
     faqs: [
       { q: "Do you have to be in the Bages to work with you?", a: "No. Many clients are from Manresa and nearby, but I work remotely with businesses across Catalonia." },
       { q: "Can you help me show up on Google when people search locally?", a: "Yes. We optimise your site and Google Business profile so you appear when someone searches for your service in Manresa and the Bages." },
+      { q: "How much does a website cost in Manresa?", a: "It depends on what you need: a simple site is not the same as a custom one with animations or special features. After a first conversation, with no commitment, I prepare a proposal with the scope, timeline and price." },
+      { q: "Do you build websites in Manresa and Sant Fruitós de Bages?", a: "Yes. I’m based in Sant Fruitós de Bages, next to Manresa, and I build websites for businesses and professionals across the Bages. If you’d rather meet in person, that’s no problem." },
+      { q: "How long until I have the website?", a: "A simple site is usually ready in one or two weeks, and a more complete one in three or four. The proposal gives you the exact timeline." },
     ],
   },
 

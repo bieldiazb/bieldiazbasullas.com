@@ -255,7 +255,7 @@ export default {
 
   local: {
     metaTitle: "Disseny web a Manresa i el Bages | Biel Díaz",
-    metaDescription: "Dissenyador i desenvolupador web a Sant Fruitós de Bages. Webs, apps a mida i SEO per a negocis de Manresa i el Bages, amb tracte directe.",
+    metaDescription: "Disseny i creació de pàgines web a Manresa i el Bages: webs, apps a mida i SEO amb tracte directe. Dissenyador i programador a Sant Fruitós de Bages.",
     h1: "Disseny web a Manresa i el Bages",
     intro: "Soc el Biel, desenvolupador web i dissenyador a Sant Fruitós de Bages, al costat de Manresa. Faig webs, apps a mida i SEO per a negocis i professionals de la zona.",
     whyTitle: "Per què treballar amb algú d’aquí",
@@ -266,10 +266,27 @@ export default {
     ],
     areasTitle: "Zona on treballo",
     areas: "Manresa, Sant Fruitós de Bages, Navarcles, Santpedor, Sant Joan de Vilatorrada, Sallent, Callús, Artés i la resta del Bages. També treballo a distància amb negocis de tot Catalunya.",
+    sections: [
+      {
+        title: "Creació de pàgines web a Manresa",
+        paragraphs: [
+          "Faig pàgines web per a botigues, restaurants, professionals, clubs i empreses de Manresa i el Bages: des d’una web senzilla en WordPress fins a una web a mida amb disseny propi. Tot en català i, si cal, també en castellà i en anglès.",
+        ],
+      },
+      {
+        title: "Programador i dissenyador web a Sant Fruitós de Bages",
+        paragraphs: [
+          "Soc programador i dissenyador web: faig el disseny i el desenvolupament jo mateix, així que no hi ha intermediaris ni traspassos entre equips. Les webs són ràpides, es veuen bé al mòbil i surten preparades per aparèixer a Google des del primer dia.",
+        ],
+      },
+    ],
     servicesTitle: "Què puc fer per tu",
     faqs: [
       { q: "Has de ser del Bages per treballar amb tu?", a: "No. Molts clients són de Manresa i rodalies, però treballo a distància amb negocis de tot Catalunya." },
       { q: "M’ajudes a sortir a Google quan busquen el meu negoci a la zona?", a: "Sí. Optimitzem la web i la fitxa de Google Business perquè surtis quan algú busca el teu servei a Manresa i el Bages." },
+      { q: "Quant costa una pàgina web a Manresa?", a: "Depèn del que necessitis: una web senzilla no és el mateix que una web a mida amb animacions o funcions especials. Després d’una primera conversa, sense compromís, et preparo una proposta amb l’abast, els terminis i el preu." },
+      { q: "Fas pàgines web a Manresa i a Sant Fruitós de Bages?", a: "Sí. Soc a Sant Fruitós de Bages, al costat de Manresa, i faig pàgines web per a negocis i professionals de tot el Bages. Si ens volem veure en persona, no hi ha problema." },
+      { q: "Quant es triga a tenir la web?", a: "Una web senzilla sol estar llesta en una o dues setmanes, i una de més completa, en tres o quatre. A la proposta tens els terminis exactes." },
     ],
   },
 
