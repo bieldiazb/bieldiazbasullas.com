@@ -141,8 +141,8 @@ export default {
       ],
     },
     seo: {
-      metaTitle: "Posicionamiento SEO en el Bages y Manresa | Biel Díaz",
-      metaDescription: "Especialista en posicionamiento SEO en el Bages y Manresa: auditoría, palabras clave, contenidos y ficha de Google Business para que te encuentren.",
+      metaTitle: "Consultor SEO en Manresa y el Bages | Posicionamiento web",
+      metaDescription: "Consultor SEO en Manresa y el Bages: posicionamiento web, auditoría, palabras clave y ficha de Google Business. Trato directo, sin agencia de por medio.",
       h1: "Gestión de SEO",
       heading: "Posicionamiento SEO en el Bages y Manresa",
       intro: "Hago que te encuentren en Google: revisión técnica, contenidos y ficha de Google Business. Más visitas de gente que busca justo lo que ofreces.",
@@ -173,9 +173,18 @@ export default {
             "Por último trabajo la parte local: la ficha de Google Business, las reseñas y los enlaces desde directorios y negocios de la zona. Cada mes miro Search Console para saber qué se ha movido y qué toca hacer después.",
           ],
         },
+        {
+          title: "Consultor SEO en Manresa: una alternativa a la agencia",
+          paragraphs: [
+            "Si buscas una agencia SEO en Manresa, aquí no hay equipos ni intermediarios: soy un consultor y especialista SEO independiente y trabajas directamente con quien hace el trabajo. Los servicios SEO se ajustan al tamaño de tu negocio en lugar de ir en paquetes cerrados.",
+            "Mis servicios SEO van desde una auditoría puntual hasta el posicionamiento web continuo de tu empresa en Manresa y el Bages: auditoría técnica, palabras clave, contenidos, ficha de Google Business y seguimiento mensual.",
+          ],
+        },
       ],
       related: null,
       faqs: [
+        { q: "¿Eres una agencia SEO en Manresa?", a: "No, soy un consultor SEO independiente en Sant Fruitós de Bages. Trabajas directamente conmigo, sin intermediarios ni cambios de equipo, y los servicios SEO se ajustan a lo que necesita tu negocio." },
+        { q: "¿Qué servicios SEO ofreces en Manresa?", a: "Auditoría técnica, búsqueda de palabras clave, mejora de títulos y contenidos, ficha de Google Business, enlaces locales y seguimiento mensual con Search Console. Puedes contratar solo una auditoría o el posicionamiento continuo." },
         { q: "¿Cuánto se tarda en ver resultados?", a: "El SEO es a medio plazo: los primeros cambios suelen notarse en unas semanas y los resultados sólidos, en unos meses, según la competencia." },
         { q: "¿Me puedes hacer el SEO si la web no la has hecho tú?", a: "Sí. Revisamos la web que tienes y te propongo qué hay que mejorar, tanto si la hacemos nueva como si no." },
         { q: "¿Haces SEO en Manresa y en todo el Bages?", a: "Sí. Estoy en Sant Fruitós de Bages y trabajo con negocios de Manresa, Navarcles, Sallent, Santpedor, Sant Joan de Vilatorrada y el resto del Bages. También a distancia con negocios de toda Cataluña." },
