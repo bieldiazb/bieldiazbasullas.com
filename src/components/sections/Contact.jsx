@@ -9,6 +9,7 @@ import { useReveal } from "@/lib/useReveal"
 import SectionLabel from "@/components/SectionLabel"
 import { OWNER } from "@/lib/legal"
 import { pathFor, route } from "@/lib/routes"
+import { trackEvent } from "@/lib/analytics"
 
 const EMAIL = OWNER.email
 const FORM_ENDPOINT = "https://formspree.io/f/maqwoqee"
@@ -64,6 +65,11 @@ export default function Contact() {
       const result = await res.json()
       if (!res.ok) throw new Error(result?.error || "Error")
       setSent(true)
+      trackEvent("generate_lead", {
+        form_id: "contact",
+        services: selectedServices.map(s => s.id).join(",") || "none",
+        language: route.lang,
+      })
     } catch {
       toast({ title: t("contact.toast.error.title"), description: t("contact.toast.error.description"), variant: "destructive" })
     } finally {
