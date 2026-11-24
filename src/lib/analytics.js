@@ -48,9 +48,29 @@ function disable() {
   })
 }
 
+// Envia un esdeveniment a GA4. No fa res si el visitant no ha acceptat l'analítica
+// (o en local), així que es pot cridar sempre sense comprovar res abans.
+export function trackEvent(name, params = {}) {
+  if (!loaded || window[`ga-disable-${GA_ID}`]) return
+  gtag("event", name, params)
+}
+
+// Clics a enllaços de contacte: GA4 no els mesura sol (mailto/tel no són "outbound").
+// Un sol listener delegat cobreix tot el web (Contact, Footer, etc.).
+function onContactLinkClick(e) {
+  const a = e.target instanceof Element ? e.target.closest("a[href]") : null
+  if (!a) return
+  const href = a.getAttribute("href") || ""
+  const params = { link_location: a.closest("[id]")?.id || "page" }
+  if (href.startsWith("mailto:")) trackEvent("email_click", params)
+  else if (href.startsWith("tel:")) trackEvent("phone_click", params)
+  else if (/^https?:\/\/(wa\.me|api\.whatsapp\.com|web\.whatsapp\.com)\//.test(href)) trackEvent("whatsapp_click", params)
+}
+
 export function initAnalytics() {
   // En local no es compten visites
   if (!import.meta.env.PROD || location.hostname === "localhost") return
   onConsent("analytics", enable)
   onConsentChange((c) => { if (!c?.analytics) disable() })
+  document.addEventListener("click", onContactLinkClick)
 }
